@@ -27,6 +27,8 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=256
 window/size/height=144
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [importer_defaults]
 
