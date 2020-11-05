@@ -26,7 +26,6 @@ radius = 4.0
 height = 6.0
 
 [node name="player" type="RigidBody2D"]
-position = Vector2( 112, 48 )
 script = ExtResource( 12 )
 
 [node name="animated_sprite" type="AnimatedSprite" parent="."]
