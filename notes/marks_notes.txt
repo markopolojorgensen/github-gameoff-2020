@@ -1,1 +1,29 @@
-hello
+
+
+moon princess
+  gravity gun
+  orbital weapons
+
+speed & flow, sonic the hedgehog style
+bouncing off walls
+
+player
+enemies
+  ground enemy
+  floating enemy
+level
+mechanics
+  charge / dash
+  jump
+  gravity gun
+floating rocks
+
+
+music
+art
+sfx
+
+
+
+
+
