@@ -1,11 +1,12 @@
 extends RigidBody2D
 
 const movement_impulse = 300
+const movement_slowdown_scalar = 10
 const max_horizontal_speed = 120
 
 const initial_jump_impulse = 120
-const continued_jump_impulse = 10
-var rising = false
+const continued_rising_jump_impulse = 10
+const continued_falling_jump_impulse = 50
 
 func _process(_delta):
 	var horizontal_speed = abs(linear_velocity.x)
@@ -38,35 +39,37 @@ func _physics_process(delta):
 		# player doesn't want to accelerate, so slow down
 		var horizontal_linear_velocity = Vector2(linear_velocity)
 		horizontal_linear_velocity.y = 0
-		apply_central_impulse(-1 * horizontal_linear_velocity.normalized() * delta * movement_impulse)
+		apply_central_impulse(-1 * horizontal_linear_velocity * delta * movement_slowdown_scalar)
 	
 	# limit maximum horizontal speed
 	if abs(linear_velocity.x) > max_horizontal_speed:
 		var overspeed = max_horizontal_speed - abs(linear_velocity.x)
 		apply_central_impulse(Vector2(overspeed * sign(linear_velocity.x), 0))
 	
-	
 	# jumping stuff
-	var wants_to_jump = Input.is_action_pressed("ui_accept")
+	var wants_to_jump = Input.is_action_pressed("jump")
+	var rising = linear_velocity.y < 0
+	var jumped = not $jump_cooldown.is_stopped()
+	var on_the_ground = $ground_detector_left.is_colliding() or $ground_detector_right.is_colliding()
+	
 	$wants_to_jump.text = str(wants_to_jump)
 	
 	# start jump?
-	if not rising and wants_to_jump and $ground_detector.is_colliding():
-		rising = true
-		$rise_timer.start()
+	if wants_to_jump and not jumped and on_the_ground:
+		# don't apply massive impulse every frame, use cooldown:
+		$jump_cooldown.start()
 		apply_central_impulse(Vector2.UP * initial_jump_impulse)
 	
-	# keep rising
-	if rising and wants_to_jump:
-		apply_central_impulse(Vector2.UP * continued_jump_impulse * delta)
+	if wants_to_jump and rising:
+		# keep rising
+		apply_central_impulse(Vector2.UP * continued_rising_jump_impulse * delta)
+	elif wants_to_jump and not rising:
+		# fall slowly
+		apply_central_impulse(Vector2.UP * continued_falling_jump_impulse * delta)
 	
-	# stop rising
-	# this applies even when we're on the ground, to control weird tilemap bouncing
-	if not wants_to_jump:
-		rising = false
-		$rise_timer.stop()
-		if linear_velocity.y < 0:
-			apply_central_impulse(-1 * Vector2.DOWN * linear_velocity.y)
+	if not wants_to_jump and rising and not on_the_ground and linear_velocity.y < 0:
+		# stop rising
+		apply_central_impulse(-1 * Vector2.DOWN * linear_velocity.y)
 	
 	$is_rising.text = str(rising)
 
@@ -84,5 +87,3 @@ func get_intended_direction():
 	
 	return result
 
-func _on_rise_timer_timeout():
-	rising = false
