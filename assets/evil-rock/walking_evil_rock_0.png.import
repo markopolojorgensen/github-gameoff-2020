@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rock.png-287df246b05da9994798407cdfe616b7.stex"
+path="res://.import/walking_evil_rock_0.png-58497b41810ee1f633c071b093549376.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rock.png"
-dest_files=[ "res://.import/rock.png-287df246b05da9994798407cdfe616b7.stex" ]
+source_file="res://assets/evil-rock/walking_evil_rock_0.png"
+dest_files=[ "res://.import/walking_evil_rock_0.png-58497b41810ee1f633c071b093549376.stex" ]
 
 [params]
 

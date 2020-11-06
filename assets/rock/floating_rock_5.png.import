@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/evil-rock.png-471fd02ff490384948c30e2ad67635e5.stex"
+path="res://.import/floating_rock_5.png-4d98265bdf1fda335f102ec6a1586f55.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/evil-rock.png"
-dest_files=[ "res://.import/evil-rock.png-471fd02ff490384948c30e2ad67635e5.stex" ]
+source_file="res://assets/rock/floating_rock_5.png"
+dest_files=[ "res://.import/floating_rock_5.png-4d98265bdf1fda335f102ec6a1586f55.stex" ]
 
 [params]
 
