@@ -1,22 +1,24 @@
 extends RigidBody2D
 
-
 const movement_impulse = 300
-const max_horizontal_speed = 100
+const max_horizontal_speed = 120
 
 const initial_jump_impulse = 120
 const continued_jump_impulse = 10
 var rising = false
 
-
 func _process(_delta):
+	var horizontal_speed = abs(linear_velocity.x)
+	var speed_weight = clamp(horizontal_speed, 0, 100) / 100.0
+	$animated_sprite.frames.set_animation_speed("run", lerp(6, 18, speed_weight))
+	
 	var intended_direction = get_intended_direction()
 	if intended_direction.x < -0.5:
 		$animated_sprite.flip_h = true
 	elif intended_direction.x > 0.5:
 		$animated_sprite.flip_h = false
 	
-	if abs(linear_velocity.x) > 5 or intended_direction.length() > 0.5:
+	if horizontal_speed > 5 or intended_direction.length() > 0.5:
 		$animated_sprite.play("run")
 	else:
 		$animated_sprite.play("idle")
