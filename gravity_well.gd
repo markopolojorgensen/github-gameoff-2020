@@ -5,6 +5,9 @@ const player_scene = preload("res://player.tscn")
 
 const minimum_impulse = 150
 
+func _ready():
+	$player_in_well/animated_sprite.play()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$sprite.rotation_degrees += delta * 50
@@ -33,6 +36,7 @@ func _on_area_2d_body_entered(body):
 		$hum/tween.start()
 		$hum.play()
 		$grab.play()
+		Engine.time_scale = 0.8
 
 func is_player_in_well():
 	return $player_in_well.visible
@@ -47,7 +51,8 @@ func _unhandled_input(event):
 		$player_in_well.hide()
 		$hum.stop()
 		$hum.volume_db = -60
-
+		$ding.play()
+		Engine.time_scale = 1
 
 
 
