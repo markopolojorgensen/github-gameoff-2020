@@ -8,6 +8,7 @@ const minimum_impulse = 150
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$sprite.rotation_degrees += delta * 50
+	$player_in_well.rotation_degrees += delta * 100
 	
 	if is_player_in_well():
 		var intended_direction = global.get_intended_direction()
@@ -28,6 +29,10 @@ func _on_area_2d_body_entered(body):
 		$player_in_well/animated_sprite.flip_h = body.get_node("animated_sprite").flip_h
 		global.camera_follow = $player_in_well
 		body.queue_free()
+		$hum/tween.interpolate_property($hum, "volume_db", -60, 0, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		$hum/tween.start()
+		$hum.play()
+		$grab.play()
 
 func is_player_in_well():
 	return $player_in_well.visible
@@ -40,6 +45,8 @@ func _unhandled_input(event):
 		get_parent().add_child(player)
 		player.apply_central_impulse($player_in_well.position.normalized() * minimum_impulse)
 		$player_in_well.hide()
+		$hum.stop()
+		$hum.volume_db = -60
 
 
 

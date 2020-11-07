@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gravity well hum.ogg-90d9ccb5667e81efc5cca3ee15110513.oggstr"
+
+[deps]
+
+source_file="res://assets/sfx/gravity well hum.ogg"
+dest_files=[ "res://.import/gravity well hum.ogg-90d9ccb5667e81efc5cca3ee15110513.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0.0

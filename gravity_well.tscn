@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/gravity-well/gravity-well.png" type="Texture" id=1]
 [ext_resource path="res://gravity_well.gd" type="Script" id=2]
 [ext_resource path="res://assets/player/player_run_0.png" type="Texture" id=3]
+[ext_resource path="res://assets/sfx/gravity well hum.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sfx/gravity well grab.wav" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -32,4 +34,13 @@ visible = false
 
 [node name="animated_sprite" type="AnimatedSprite" parent="player_in_well"]
 frames = SubResource( 2 )
+
+[node name="hum" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="tween" type="Tween" parent="hum"]
+
+[node name="grab" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
 [connection signal="body_entered" from="area_2d" to="." method="_on_area_2d_body_entered"]
