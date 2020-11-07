@@ -56,7 +56,7 @@ func _physics_process(delta):
 	var wants_to_jump = Input.is_action_pressed("jump")
 	var rising = linear_velocity.y < 0
 	var jumped = not $jump_cooldown.is_stopped()
-	var on_the_ground = $ground_detector_left.is_colliding() or $ground_detector_right.is_colliding()
+	var on_the_ground = is_on_the_ground()
 	
 	$wants_to_jump.text = str(wants_to_jump)
 	
@@ -84,3 +84,23 @@ func _physics_process(delta):
 
 func accepts_gravity_well():
 	return $gravity_well_cooldown.is_stopped()
+
+func is_on_the_ground():
+	return $ground_detector_left.is_colliding() or $ground_detector_right.is_colliding()
+
+func _on_animated_sprite_frame_changed():
+	if $animated_sprite.animation == "run" and is_on_the_ground():
+		var frame = $animated_sprite.frame
+		if frame == 2 or frame == 7:
+			# play random footstep noise
+			$footsteps_sfx.get_child(randi() % $footsteps_sfx.get_child_count()).play()
+		
+
+
+
+
+
+
+
+
+

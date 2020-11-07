@@ -2,7 +2,9 @@
 
 
 player jump animation
+player gravity-well-spin animation
 player jump sfx
+player land sfx
 player footstep sfx
 
 
