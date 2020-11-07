@@ -26,8 +26,10 @@ func _process(_delta):
 	elif intended_direction.x > 0.5:
 		$animated_sprite.flip_h = false
 	
-	if horizontal_speed > 5 or intended_direction.length() > 0.5:
+	if is_on_the_ground() and (horizontal_speed > 5 or intended_direction.length() > 0.5):
 		$animated_sprite.play("run")
+	elif not is_on_the_ground():
+		$animated_sprite.play("flip")
 	else:
 		$animated_sprite.play("idle")
 	

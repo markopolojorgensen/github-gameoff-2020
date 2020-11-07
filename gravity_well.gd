@@ -36,7 +36,7 @@ func _on_area_2d_body_entered(body):
 		$hum/tween.start()
 		$hum.play()
 		$grab.play()
-		Engine.time_scale = 0.8
+		Engine.time_scale = 0.5
 
 func is_player_in_well():
 	return $player_in_well.visible

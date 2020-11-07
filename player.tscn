@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/player/player_run_5.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/player_run_4.png" type="Texture" id=2]
@@ -19,6 +19,14 @@
 [ext_resource path="res://assets/sfx/footsteps/footsteps-03.wav" type="AudioStream" id=17]
 [ext_resource path="res://assets/sfx/footsteps/footsteps-01.wav" type="AudioStream" id=18]
 [ext_resource path="res://assets/sfx/landing.wav" type="AudioStream" id=19]
+[ext_resource path="res://assets/player/player_flip_4.png" type="Texture" id=20]
+[ext_resource path="res://assets/player/player_flip_5.png" type="Texture" id=21]
+[ext_resource path="res://assets/player/player_flip_2.png" type="Texture" id=22]
+[ext_resource path="res://assets/player/player_flip_7.png" type="Texture" id=23]
+[ext_resource path="res://assets/player/player_flip_0.png" type="Texture" id=24]
+[ext_resource path="res://assets/player/player_flip_3.png" type="Texture" id=25]
+[ext_resource path="res://assets/player/player_flip_1.png" type="Texture" id=26]
+[ext_resource path="res://assets/player/player_flip_6.png" type="Texture" id=27]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -29,6 +37,11 @@ animations = [ {
 "loop": true,
 "name": "idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 27 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "flip",
+"speed": 20.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ) ],
 "loop": true,
@@ -50,7 +63,7 @@ script = ExtResource( 12 )
 
 [node name="animated_sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-animation = "idle"
+animation = "flip"
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
@@ -103,21 +116,27 @@ autostart = true
 
 [node name="footsteps_1" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 stream = ExtResource( 18 )
+volume_db = -2.0
 
 [node name="footsteps_2" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 stream = ExtResource( 16 )
+volume_db = -2.0
 
 [node name="footsteps_3" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 stream = ExtResource( 17 )
+volume_db = -2.0
 
 [node name="footsteps_4" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 stream = ExtResource( 13 )
+volume_db = -2.0
 
 [node name="footsteps_5" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 stream = ExtResource( 14 )
+volume_db = -2.0
 
 [node name="footsteps_6" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 stream = ExtResource( 15 )
+volume_db = -2.0
 
 [node name="tunnel_preventer" type="RayCast2D" parent="."]
 position = Vector2( 0, 8 )
