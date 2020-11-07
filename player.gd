@@ -9,6 +9,7 @@ const continued_rising_jump_impulse = 10
 const continued_falling_jump_impulse = 50
 
 var jump_button_pushed = false
+var previously_on_the_ground = false
 
 func _ready():
 	# for gravity well shenanigans
@@ -59,6 +60,7 @@ func _physics_process(delta):
 	var on_the_ground = is_on_the_ground()
 	
 	$wants_to_jump.text = str(wants_to_jump)
+	$is_rising.text = str(rising)
 	
 	# start jump?
 	if wants_to_jump and not jumped and on_the_ground:
@@ -76,11 +78,9 @@ func _physics_process(delta):
 		# fall slowly
 		apply_central_impulse(Vector2.UP * continued_falling_jump_impulse * delta)
 	
-	if not wants_to_jump and rising and not on_the_ground and linear_velocity.y < 0:
+	if not wants_to_jump and rising and not on_the_ground:
 		# stop rising
 		apply_central_impulse(-1 * Vector2.DOWN * linear_velocity.y)
-	
-	$is_rising.text = str(rising)
 	
 	# when falling, minor tunnelling can cause landing to "stutter" slightly
 	# check to see if we're going to hit the ground in the next two frames or so
@@ -96,6 +96,15 @@ func _physics_process(delta):
 		impulse.x = 0
 		impulse.y *= -0.5
 		apply_central_impulse(impulse)
+	
+	# when actually hitting the ground
+	if on_the_ground and not previously_on_the_ground:
+		$landing_sfx.play()
+		if $animated_sprite.animation == "run":
+			$animated_sprite.frame = 2
+		play_random_footstep()
+	
+	previously_on_the_ground = on_the_ground
 
 
 func accepts_gravity_well():
@@ -108,11 +117,11 @@ func _on_animated_sprite_frame_changed():
 	if $animated_sprite.animation == "run" and is_on_the_ground():
 		var frame = $animated_sprite.frame
 		if frame == 2 or frame == 7:
-			# play random footstep noise
-			$footsteps_sfx.get_child(randi() % $footsteps_sfx.get_child_count()).play()
-		
+			play_random_footstep()
 
-
+func play_random_footstep():
+	$footsteps_sfx.get_child(randi() % $footsteps_sfx.get_child_count()).play()
+	
 
 
 
