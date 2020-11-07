@@ -81,6 +81,22 @@ func _physics_process(delta):
 		apply_central_impulse(-1 * Vector2.DOWN * linear_velocity.y)
 	
 	$is_rising.text = str(rising)
+	
+	# when falling, minor tunnelling can cause landing to "stutter" slightly
+	# check to see if we're going to hit the ground in the next two frames or so
+	$tunnel_preventer.cast_to = linear_velocity * 2 * delta
+	# only care about vertical motion:
+	$tunnel_preventer.cast_to.x = 0
+	# only care about downward motion:
+	$tunnel_preventer.cast_to.y = clamp($tunnel_preventer.cast_to.y, 0, 1000)
+	$tunnel_preventer.force_raycast_update()
+	if $tunnel_preventer.is_colliding():
+		# slow down vertical speed to prevent tunneling
+		var impulse = Vector2(linear_velocity)
+		impulse.x = 0
+		impulse.y *= -0.5
+		apply_central_impulse(impulse)
+
 
 func accepts_gravity_well():
 	return $gravity_well_cooldown.is_stopped()

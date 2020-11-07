@@ -117,4 +117,8 @@ stream = ExtResource( 14 )
 
 [node name="footsteps_6" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 stream = ExtResource( 15 )
+
+[node name="tunnel_preventer" type="RayCast2D" parent="."]
+position = Vector2( 0, 8 )
+enabled = true
 [connection signal="frame_changed" from="animated_sprite" to="." method="_on_animated_sprite_frame_changed"]
