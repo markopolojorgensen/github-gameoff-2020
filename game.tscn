@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilemap_4x4.png" type="Texture" id=2]
 [ext_resource path="res://game.gd" type="Script" id=3]
 [ext_resource path="res://gravity_well.tscn" type="PackedScene" id=4]
+[ext_resource path="res://camera.gd" type="Script" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 4, 4, 2, 4, 2, 0, 4, 0 )
@@ -171,10 +172,6 @@ script = ExtResource( 3 )
 
 [node name="world" type="Node2D" parent="."]
 
-[node name="player" parent="world" instance=ExtResource( 1 )]
-position = Vector2( 114.293, 69.0519 )
-mode = 2
-
 [node name="tile_map" type="TileMap" parent="world"]
 tile_set = SubResource( 16 )
 cell_size = Vector2( 4, 4 )
@@ -184,3 +181,11 @@ tile_data = PoolIntArray( 131152, 0, 196609, 131153, 0, 0, 196687, 0, 196609, 19
 
 [node name="gravity_well" parent="world" instance=ExtResource( 4 )]
 position = Vector2( 82.9417, 84.1323 )
+
+[node name="player" parent="world" instance=ExtResource( 1 )]
+position = Vector2( 108.055, 59.2832 )
+
+[node name="camera" type="Camera2D" parent="world"]
+current = true
+drag_margin_h_enabled = true
+script = ExtResource( 5 )

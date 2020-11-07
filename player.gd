@@ -8,12 +8,18 @@ const initial_jump_impulse = 120
 const continued_rising_jump_impulse = 10
 const continued_falling_jump_impulse = 50
 
+var jump_button_pushed = false
+
+func _ready():
+	# for gravity well shenanigans
+	global.camera_follow = self
+
 func _process(_delta):
 	var horizontal_speed = abs(linear_velocity.x)
 	var speed_weight = clamp(horizontal_speed, 0, 100) / 100.0
 	$animated_sprite.frames.set_animation_speed("run", lerp(6, 18, speed_weight))
 	
-	var intended_direction = get_intended_direction()
+	var intended_direction = global.get_intended_direction()
 	if intended_direction.x < -0.5:
 		$animated_sprite.flip_h = true
 	elif intended_direction.x > 0.5:
@@ -28,7 +34,7 @@ func _process(_delta):
 
 func _physics_process(delta):
 	# movement
-	var intended_direction = get_intended_direction()
+	var intended_direction = global.get_intended_direction()
 	
 	if abs(intended_direction.x) > 0.1:
 		# player wants to accelerate, so do so
@@ -57,8 +63,11 @@ func _physics_process(delta):
 	# start jump?
 	if wants_to_jump and not jumped and on_the_ground:
 		# don't apply massive impulse every frame, use cooldown:
+		jump_button_pushed = true
 		$jump_cooldown.start()
 		apply_central_impulse(Vector2.UP * initial_jump_impulse)
+	elif on_the_ground:
+		pass # TODO WHEREWASI
 	
 	if wants_to_jump and rising:
 		# keep rising
@@ -73,17 +82,5 @@ func _physics_process(delta):
 	
 	$is_rising.text = str(rising)
 
-func get_intended_direction():
-	var result = Vector2()
-	
-	if Input.is_action_pressed("ui_left"):
-		result += Vector2.LEFT
-	if Input.is_action_pressed("ui_right"):
-		result += Vector2.RIGHT
-	if Input.is_action_pressed("ui_up"):
-		result += Vector2.UP
-	if Input.is_action_pressed("ui_down"):
-		result += Vector2.DOWN
-	
-	return result
-
+func accepts_gravity_well():
+	return $gravity_well_cooldown.is_stopped()

@@ -1,5 +1,14 @@
 
 
+
+player jump animation
+player jump sfx
+player footstep sfx
+
+
+
+
+
 moon princess
   gravity gun
   orbital weapons
