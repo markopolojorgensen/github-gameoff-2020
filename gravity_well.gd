@@ -15,7 +15,7 @@ func _process(delta):
 		if intended_direction.length() > 0.5:
 			# sprite should lean in direction of exit
 			var destination = intended_direction.normalized() * player_offset
-			$player_in_well.position = $player_in_well.position.linear_interpolate(destination, 2 * delta)
+			$player_in_well.position = $player_in_well.position.linear_interpolate(destination, 3 * delta)
 		else:
 			# no intended direction, lerp back to center of well
 			$player_in_well.position = $player_in_well.position.linear_interpolate(Vector2(), delta)
