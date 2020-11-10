@@ -8,10 +8,17 @@ const initial_jump_impulse = 120
 const continued_rising_jump_impulse = 10
 const continued_falling_jump_impulse = 50
 
+# don't preload to avoid circular dependency
+var gravity_well_scene
+const gravity_well_offset = 40
+var gravity_well_active = false
+
 var jump_button_pushed = false
 var previously_on_the_ground = false
 
 func _ready():
+	gravity_well_scene = load("res://gravity_well.tscn")
+	
 	# for gravity well shenanigans
 	global.camera_follow = self
 
@@ -34,6 +41,20 @@ func _process(_delta):
 		$animated_sprite.play("idle")
 	
 	$lin_vel.text = "%.2f" % linear_velocity.length()
+	
+	if gravity_well_active:
+		$crosshairs.show()
+		# right stick
+		var gravity_well_direction = Vector2(Input.get_action_strength("gw_right") - Input.get_action_strength("gw_left"), Input.get_action_strength("gw_down") - Input.get_action_strength("gw_up"))
+		if gravity_well_direction.length() < 0.1:
+			if Input.is_action_pressed("gravity_well_left"):
+				gravity_well_direction = Vector2(-1, -1)
+			elif Input.is_action_pressed("gravity_well_right"):
+				gravity_well_direction = Vector2(1, -1)
+		$crosshairs.position = gravity_well_direction.normalized() * gravity_well_offset
+		$gw_dir.text = str(gravity_well_direction)
+	else:
+		$crosshairs.hide()
 
 func _physics_process(delta):
 	# movement
@@ -108,6 +129,20 @@ func _physics_process(delta):
 	
 	previously_on_the_ground = on_the_ground
 
+func _unhandled_input(event):
+	if event.is_action_pressed("gravity_well_left") or event.is_action_pressed("gravity_well_right"):
+		get_tree().set_input_as_handled()
+		gravity_well_active = true
+	elif event.is_action_released("gravity_well_left") or event.is_action_released("gravity_well_right"):
+		get_tree().set_input_as_handled()
+		# spawn gravity well
+		var gravity_well = gravity_well_scene.instance()
+		gravity_well.global_position = $crosshairs.global_position
+		get_parent().add_child(gravity_well)
+		global.gravity_wells.push_back(gravity_well)
+		if global.gravity_wells.size() > 3:
+			global.gravity_wells.pop_front().queue_free()
+		gravity_well_active = false
 
 func accepts_gravity_well():
 	return $gravity_well_cooldown.is_stopped()
@@ -123,7 +158,9 @@ func _on_animated_sprite_frame_changed():
 
 func play_random_footstep():
 	$footsteps_sfx.get_child(randi() % $footsteps_sfx.get_child_count()).play()
-	
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/player/player_run_5.png" type="Texture" id=1]
 [ext_resource path="res://assets/player/player_run_4.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://assets/player/player_flip_3.png" type="Texture" id=25]
 [ext_resource path="res://assets/player/player_flip_1.png" type="Texture" id=26]
 [ext_resource path="res://assets/player/player_flip_6.png" type="Texture" id=27]
+[ext_resource path="res://icon.png" type="Texture" id=28]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -145,4 +146,20 @@ enabled = true
 [node name="landing_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 19 )
 volume_db = -8.0
+
+[node name="crosshairs" type="Node2D" parent="."]
+visible = false
+
+[node name="sprite" type="Sprite" parent="crosshairs"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 28 )
+
+[node name="gw_dir" type="Label" parent="."]
+margin_left = -20.0
+margin_top = -31.0
+margin_right = 20.0
+margin_bottom = -17.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="frame_changed" from="animated_sprite" to="." method="_on_animated_sprite_frame_changed"]
