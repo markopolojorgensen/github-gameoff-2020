@@ -19,6 +19,10 @@ var previously_on_the_ground = false
 func _ready():
 	gravity_well_scene = load("res://gravity_well.tscn")
 	
+	# in case player was holding gw button while in a gravity well
+	if Input.is_action_pressed("gravity_well_left") or Input.is_action_pressed("gravity_well_right"):
+		gravity_well_active = true
+	
 	# for gravity well shenanigans
 	global.camera_follow = self
 
