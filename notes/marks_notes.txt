@@ -1,5 +1,54 @@
+levels should be 1-3 minutes long
+at least 3 platforms should be able to be seen on screen
+jump height -> about a third of the screen
+enemies promote movement
+  usually at least one enemy on screen at a time
+  often 3 or 4
+sometimes there are "visual treats" in a level
+
+
+individual rooms on the way in, one big room on the way out
+one hit mario deaths
+room limits for number of wells
+
+
+multiple players bug?
+
+one-way collision
+
+gravity well momentum preservation
+  slight decay
+  indicated by flip animation speed in gravity well
+  moon indicating direction
 
 gravity well should spit player in direction they're holding, not direction the sprite's in
+
+
+weaponized gravity well
+
+
+gravity well is based on analog stick movement, flick the stick is all that is needed
+
+progression:
+  basic movement
+    level design
+      gravity well movement puzzles (just player at this point)
+      cross pit / up to ledge
+      "the drop" shoot well straight down
+
+  weaponization / fun
+    angry birds / physics bodies playground
+  puzzleized weaponization
+    smash through walls?
+    hit out of reach buttons with enemies
+      open a door, pull a lever, etc.
+      use an enemy to hit an out of reach plunger
+        escort level
+    pile enemies on a scale
+    bosses
+
+
+focus to expand gravity wells, they shrink slowly while you're not concentrating
 
 
 boss fight, constantly throwing enemies into the well and then throwing them all at the boss
@@ -43,3 +92,4 @@ sfx
 
 
 
+ 
