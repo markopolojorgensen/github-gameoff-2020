@@ -1,3 +1,22 @@
+------------------------- TODO -------------------------
+super mario world camera movement
+player jump sfx
+jumping through one-way collision platforms shouldn't change animation
+nasa images lul
+"gravity well placing mode"
+
+------------------------- DONE -------------------------
+one-way collision tilemap
+player jump animation
+player gravity-well-spin animation
+player land sfx
+player footstep sfx
+
+
+
+
+
+
 levels should be 1-3 minutes long
 at least 3 platforms should be able to be seen on screen
 jump height -> about a third of the screen
@@ -11,10 +30,7 @@ individual rooms on the way in, one big room on the way out
 one hit mario deaths
 room limits for number of wells
 
-
 multiple players bug?
-
-one-way collision
 
 gravity well momentum preservation
   slight decay
@@ -23,11 +39,7 @@ gravity well momentum preservation
 
 gravity well should spit player in direction they're holding, not direction the sprite's in
 
-
 weaponized gravity well
-
-
-gravity well is based on analog stick movement, flick the stick is all that is needed
 
 progression:
   basic movement
@@ -54,17 +66,6 @@ focus to expand gravity wells, they shrink slowly while you're not concentrating
 boss fight, constantly throwing enemies into the well and then throwing them all at the boss
 
 
-
-player jump animation
-player gravity-well-spin animation
-player jump sfx
-player land sfx
-player footstep sfx
-
-
-
-
-
 moon princess
   gravity gun
   orbital weapons
@@ -89,6 +90,13 @@ art
 sfx
 
 
+
+
+
+
+
+--------------------- DEFUNCT IDEAS --------------------
+gravity well is based on analog stick movement, flick the stick is all that is needed
 
 
 

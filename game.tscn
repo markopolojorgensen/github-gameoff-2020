@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/debug_level.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/nasa/horsehead_green_PIA18905~orig.jpg" type="Texture" id=4]
 [ext_resource path="res://camera.gd" type="Script" id=5]
 [ext_resource path="res://assets/bg.png" type="Texture" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
 
 [node name="game" type="Node"]
 script = ExtResource( 3 )
@@ -16,11 +17,39 @@ script = ExtResource( 3 )
 position = Vector2( 25.1077, 45.0127 )
 
 [node name="camera" type="Camera2D" parent="world"]
+visible = false
 current = true
 drag_margin_top = 0.1
 drag_margin_bottom = 0.1
-editor_draw_drag_margin = true
 script = ExtResource( 5 )
+
+[node name="right_anchor" type="Position2D" parent="world/camera"]
+position = Vector2( -16, 0 )
+
+[node name="sprite" type="Sprite" parent="world/camera/right_anchor"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 7 )
+
+[node name="left_threshold" type="Position2D" parent="world/camera"]
+position = Vector2( -32, 0 )
+
+[node name="sprite2" type="Sprite" parent="world/camera/left_threshold"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 7 )
+
+[node name="left_anchor" type="Position2D" parent="world/camera"]
+position = Vector2( 16, 0 )
+
+[node name="sprite3" type="Sprite" parent="world/camera/left_anchor"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 7 )
+
+[node name="right_threshold" type="Position2D" parent="world/camera"]
+position = Vector2( 32, 0 )
+
+[node name="sprite4" type="Sprite" parent="world/camera/right_threshold"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 7 )
 
 [node name="debug_level" parent="world" instance=ExtResource( 2 )]
 
