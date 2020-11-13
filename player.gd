@@ -11,7 +11,7 @@ const continued_falling_jump_impulse = 50
 
 # don't preload to avoid circular dependency
 var gravity_well_scene
-const gravity_well_offset = 18
+const gravity_well_offset = 40
 var gravity_well_active = false
 
 var jump_button_pushed = false
