@@ -2,15 +2,16 @@ extends RigidBody2D
 
 const movement_impulse = 300
 const movement_slowdown_scalar = 10
-const max_horizontal_speed = 120
+const max_horizontal_speed = 150
+const max_air_horizontal_speed = 100
 
-const initial_jump_impulse = 120
+const initial_jump_impulse = 160
 const continued_rising_jump_impulse = 10
 const continued_falling_jump_impulse = 50
 
 # don't preload to avoid circular dependency
 var gravity_well_scene
-const gravity_well_offset = 40
+const gravity_well_offset = 18
 var gravity_well_active = false
 
 var jump_button_pushed = false
@@ -43,6 +44,7 @@ func _process(_delta):
 		$animated_sprite.play("flip")
 	else:
 		$animated_sprite.play("idle")
+
 	
 	$lin_vel.text = "%.2f" % linear_velocity.length()
 	
@@ -77,8 +79,15 @@ func _physics_process(delta):
 	
 	# limit maximum horizontal speed
 	if abs(linear_velocity.x) > max_horizontal_speed:
-		var overspeed = max_horizontal_speed - abs(linear_velocity.x)
-		apply_central_impulse(Vector2(overspeed * sign(linear_velocity.x), 0))
+		if is_on_the_ground():
+			var overspeed = max_horizontal_speed - abs(linear_velocity.x)
+			apply_central_impulse(Vector2(overspeed * sign(linear_velocity.x), 0))	
+		
+		else:
+			var overspeed = max_air_horizontal_speed - abs(linear_velocity.x)
+			apply_central_impulse(Vector2(overspeed * sign(linear_velocity.x), 0))
+			
+		
 	
 	# jumping stuff
 	var wants_to_jump = Input.is_action_pressed("jump")
