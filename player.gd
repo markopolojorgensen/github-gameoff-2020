@@ -104,6 +104,7 @@ func _physics_process(delta):
 		jump_button_pushed = true
 		$jump_cooldown.start()
 		apply_central_impulse(Vector2.UP * initial_jump_impulse)
+		$jump_sfx.play()
 	
 	if wants_to_jump and rising:
 		# keep rising
