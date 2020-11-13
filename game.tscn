@@ -13,8 +13,7 @@ script = ExtResource( 3 )
 
 [node name="world" type="Node2D" parent="."]
 
-[node name="player" parent="world" instance=ExtResource( 1 )]
-position = Vector2( 25.1077, 45.0127 )
+[node name="debug_level" parent="world" instance=ExtResource( 2 )]
 
 [node name="camera" type="Camera2D" parent="world"]
 visible = false
@@ -51,7 +50,8 @@ position = Vector2( 32, 0 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 7 )
 
-[node name="debug_level" parent="world" instance=ExtResource( 2 )]
+[node name="player" parent="world" instance=ExtResource( 1 )]
+position = Vector2( 25.1077, 45.0127 )
 
 [node name="canvas_layer" type="CanvasLayer" parent="."]
 layer = -5

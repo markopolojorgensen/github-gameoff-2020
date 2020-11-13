@@ -1,11 +1,11 @@
 ------------------------- TODO -------------------------
-super mario world camera movement
 player jump sfx
 jumping through one-way collision platforms shouldn't change animation
 nasa images lul
 "gravity well placing mode"
 
 ------------------------- DONE -------------------------
+super mario world camera movement
 one-way collision tilemap
 player jump animation
 player gravity-well-spin animation
