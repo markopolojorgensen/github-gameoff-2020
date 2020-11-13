@@ -99,13 +99,11 @@ func _physics_process(delta):
 	$is_rising.text = str(rising)
 	
 	# start jump?
-	if wants_to_jump and not jumped and on_the_ground:
+	if wants_to_jump and not jumped and on_the_ground and not jump_button_pushed:
 		# don't apply massive impulse every frame, use cooldown:
 		jump_button_pushed = true
 		$jump_cooldown.start()
 		apply_central_impulse(Vector2.UP * initial_jump_impulse)
-	elif on_the_ground:
-		pass # TODO WHEREWASI
 	
 	if wants_to_jump and rising:
 		# keep rising
@@ -156,6 +154,8 @@ func _unhandled_input(event):
 		if global.gravity_wells.size() > 3:
 			global.gravity_wells.pop_front().queue_free()
 		gravity_well_active = false
+	elif event.is_action_released("jump"):
+		jump_button_pushed = false
 
 func accepts_gravity_well():
 	return $gravity_well_cooldown.is_stopped()
