@@ -45,9 +45,10 @@ func _unhandled_input(event):
 	if event.is_action_pressed("jump") and is_player_in_well():
 		get_tree().set_input_as_handled()
 		var player = player_scene.instance()
-		player.global_position = $player_in_well.global_position
+		var destination = global.get_intended_direction().normalized() * player_offset
+		player.global_position = global_position + destination
 		get_parent().add_child(player)
-		player.apply_central_impulse($player_in_well.position.normalized() * minimum_impulse)
+		player.apply_central_impulse(destination.normalized() * minimum_impulse)
 		$player_in_well.hide()
 		$hum.stop()
 		$hum.volume_db = -60
