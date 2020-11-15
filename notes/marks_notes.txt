@@ -1,12 +1,19 @@
 ------------------------- TODO -------------------------
 "gravity well placing mode"
+  also gravity well deletion mode
+  gravity well placement mode vignette
+  gravity well placement mode cursor
+gravity well mode sfx
+  hum
+  meep merp if you're in a gravity well and try to enter gravity well placement mode
+  ding when placing a gravity wells
+  slurp when picking up a gravity well
 more nasa images lul
-clamp nasa images to db32
 jumping through one-way collision platforms shouldn't change animation
 player shouldn't collide with one-way platforms from the side
 player: stick to the ground, please
-
 ------------------------- DONE -------------------------
+clamp nasa images to db32? not ideal O_O
 player jump sfx
 super mario world camera movement
 one-way collision tilemap
@@ -16,10 +23,26 @@ player land sfx
 player footstep sfx
 
 
+ship art
+  captain art
+  captain sfx
+  tutorial island
+
+arrow sign art
 
 
+boss fight:
+  nemesis gets their hands on a resizing gun, makes giant enemy
+  player resizes their gravity gun to comically oversized version
+    shoots giant gravity wells to defeat giant enemy
 
+moving platforms
+  catch them in gravity wells for massive damage?
 
+slight hover on floating island parts of level
+
+picking up enemies
+there-and-back movement
 
 levels should be 1-3 minutes long
 at least 3 platforms should be able to be seen on screen
