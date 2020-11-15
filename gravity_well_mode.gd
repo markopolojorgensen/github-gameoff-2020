@@ -10,6 +10,11 @@ var velocity = Vector2()
 const acceleration = 2000
 const max_speed = 160
 
+func _ready():
+	$vignette_layer/vignette.hide()
+	hide()
+	$sprite.play()
+
 func _unhandled_input(event):
 	if event.is_action_pressed("gravity_well_mode"):
 		get_tree().set_input_as_handled()
@@ -19,16 +24,18 @@ func _unhandled_input(event):
 			get_tree().paused = false
 			hide()
 			$camera.current = false
+			world_camera.global_position = $camera.get_camera_screen_center()
 			world_camera.current = true
+			$vignette_layer/vignette.hide()
 		else:
 			# not active, enter gravity well placement mode!
 			active = true
 			get_tree().paused = true
 			show()
-			if global.player:
-				global_position = global.player.global_position
+			global_position = world_camera.get_camera_screen_center()
 			world_camera.current = false
 			$camera.current = true
+			$vignette_layer/vignette.show()
 	
 	
 	if active and event.is_action_pressed("place_gravity_well"):

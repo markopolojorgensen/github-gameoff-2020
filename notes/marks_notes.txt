@@ -1,8 +1,6 @@
 ------------------------- TODO -------------------------
 "gravity well placing mode"
   also gravity well deletion mode
-  gravity well placement mode vignette
-  gravity well placement mode cursor
 gravity well mode sfx
   hum
   meep merp if you're in a gravity well and try to enter gravity well placement mode
@@ -13,6 +11,9 @@ jumping through one-way collision platforms shouldn't change animation
 player shouldn't collide with one-way platforms from the side
 player: stick to the ground, please
 ------------------------- DONE -------------------------
+gravity well placement mode cursor
+gravity well placement mode vignette
+you can place gravity wells
 clamp nasa images to db32? not ideal O_O
 player jump sfx
 super mario world camera movement
