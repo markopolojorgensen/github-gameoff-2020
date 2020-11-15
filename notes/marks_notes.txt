@@ -1,16 +1,20 @@
 ------------------------- TODO -------------------------
-player jump sfx
-jumping through one-way collision platforms shouldn't change animation
-nasa images lul
 "gravity well placing mode"
+more nasa images lul
+clamp nasa images to db32
+jumping through one-way collision platforms shouldn't change animation
+player shouldn't collide with one-way platforms from the side
+player: stick to the ground, please
 
 ------------------------- DONE -------------------------
+player jump sfx
 super mario world camera movement
 one-way collision tilemap
 player jump animation
 player gravity-well-spin animation
 player land sfx
 player footstep sfx
+
 
 
 

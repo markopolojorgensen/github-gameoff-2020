@@ -60,22 +60,25 @@ collision_layer = 2
 mode = 2
 physics_material_override = SubResource( 1 )
 gravity_scale = 3.0
+continuous_cd = 2
 can_sleep = false
 script = ExtResource( 12 )
 
 [node name="animated_sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-animation = "flip"
+animation = "idle"
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
 shape = SubResource( 3 )
 
 [node name="ground_detector_right" type="RayCast2D" parent="."]
+visible = false
 enabled = true
 cast_to = Vector2( 3, 9.5 )
 
 [node name="ground_detector_left" type="RayCast2D" parent="."]
+visible = false
 enabled = true
 cast_to = Vector2( -3, 9.5 )
 
@@ -141,6 +144,7 @@ stream = ExtResource( 15 )
 volume_db = -5.0
 
 [node name="tunnel_preventer" type="RayCast2D" parent="."]
+visible = false
 position = Vector2( 0, 8 )
 enabled = true
 
