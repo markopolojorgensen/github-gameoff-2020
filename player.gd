@@ -26,6 +26,7 @@ func _ready():
 	
 	# for gravity well shenanigans
 	global.camera_follow = self
+	global.player = self
 
 func _process(_delta):
 	var horizontal_speed = abs(linear_velocity.x)

@@ -3,6 +3,8 @@ extends Node
 var camera_follow
 
 var world
+var player
+
 var gravity_wells : Array = []
 
 func get_intended_direction():
