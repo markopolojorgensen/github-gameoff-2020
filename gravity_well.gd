@@ -47,7 +47,7 @@ func _unhandled_input(event):
 		var player = player_scene.instance()
 		var destination = global.get_intended_direction().normalized() * player_offset
 		player.global_position = global_position + destination
-		get_parent().add_child(player)
+		global.world.add_child(player)
 		player.apply_central_impulse(destination.normalized() * minimum_impulse)
 		$player_in_well.hide()
 		$hum.stop()
