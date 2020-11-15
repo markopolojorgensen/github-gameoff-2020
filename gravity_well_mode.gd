@@ -12,6 +12,8 @@ const max_speed = 160
 
 func _ready():
 	$vignette_layer/vignette.hide()
+	hide()
+	$sprite.play()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("gravity_well_mode"):

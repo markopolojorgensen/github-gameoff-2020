@@ -22,8 +22,6 @@ func _process(delta):
 		else:
 			# no intended direction, lerp back to center of well
 			$player_in_well.position = $player_in_well.position.linear_interpolate(Vector2(), delta)
-		
-		# update camera position
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("accepts_gravity_well") and body.accepts_gravity_well():
