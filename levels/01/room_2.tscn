@@ -5,10 +5,10 @@
 [ext_resource path="res://tileset_4x4.tres" type="TileSet" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 10, 49.0683 )
+extents = Vector2( 24.2025, 49.0683 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 388.648, 43.1843 )
+extents = Vector2( 294.246, 43.1843 )
 
 [node name="l01r02" type="Node2D"]
 script = ExtResource( 2 )
@@ -35,7 +35,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="room_start_area_2d"]
-position = Vector2( 3.37115, 65.5509 )
+position = Vector2( -5.30529, 65.5509 )
 shape = SubResource( 1 )
 
 [node name="death_plane" type="Area2D" parent="."]
@@ -43,7 +43,10 @@ collision_layer = 2147483648
 collision_mask = 2
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="death_plane"]
-position = Vector2( 282.986, 173.863 )
+position = Vector2( 273.075, 172.919 )
 shape = SubResource( 2 )
+
+[node name="spawn_point" type="Position2D" parent="."]
+position = Vector2( 17.6866, 84.4285 )
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]

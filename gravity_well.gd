@@ -26,7 +26,7 @@ func _process(delta):
 		# update camera position
 
 func _on_area_2d_body_entered(body):
-	if body.name == "player" and body.accepts_gravity_well():
+	if body.has_method("accepts_gravity_well") and body.accepts_gravity_well():
 		$player_in_well.show()
 		$player_in_well.global_position = body.global_position
 		$player_in_well/animated_sprite.flip_h = body.get_node("animated_sprite").flip_h
