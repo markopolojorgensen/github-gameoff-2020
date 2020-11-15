@@ -53,7 +53,7 @@ texture = ExtResource( 7 )
 [node name="level_01" parent="world" instance=ExtResource( 2 )]
 
 [node name="player" parent="world" instance=ExtResource( 1 )]
-position = Vector2( 566.696, 48.9413 )
+position = Vector2( 34.088, 68.5844 )
 
 [node name="canvas_layer" type="CanvasLayer" parent="."]
 layer = -5
