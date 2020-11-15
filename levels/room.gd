@@ -1,16 +1,16 @@
 extends Node2D
 export var number_of_wells = 0
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	assert($room_start_area_2d.get_collision_mask_bit(1), "Room %s: start area2d cannot collide with player!" % name)
+	assert($death_plane.get_collision_mask_bit(1), "Room %s: Death plane cannot collide with player!" % name)
+
+func _on_room_start_area_2d_body_entered(body):
+	# TODO: change camera shenaigans
+	# TODO: update number of available wells
+	global.current_room = name
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_death_plane_body_entered(body):
+	print("I just died")
+	print(name)

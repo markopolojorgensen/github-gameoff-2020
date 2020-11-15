@@ -4,6 +4,7 @@ var camera_follow
 
 var world
 var player
+var current_room
 
 var gravity_wells : Array = []
 
