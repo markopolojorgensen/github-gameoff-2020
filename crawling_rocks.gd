@@ -67,7 +67,4 @@ func _on_walking_rocks_body_entered(body):
 			# TODO: flip over and stop animating
 			# TODO: hop after killing enemy
 		else:
-			body.queue_free()
-			var player = player_scene.instance()
-			player.global_position = global.current_room.get_node("spawn_point").global_position
-			global.world.call_deferred("add_child", player)
+			global.current_room.respawn_player_in_last_room(body)

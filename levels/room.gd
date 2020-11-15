@@ -13,10 +13,16 @@ func _on_room_start_area_2d_body_entered(body):
 	print("New Room: ", name)
 	global.current_room = self
 
+func respawn_player_in_last_room(body):
+	# we only want the player to respawn at the spawn point, not any other enemies!
+	if "is_player" in body:
+		body.queue_free()
+		var player = player_scene.instance()
+		player.global_position = global.current_room.get_node("spawn_point").global_position
+		global.world.call_deferred("add_child", player)
 
 func _on_death_plane_body_entered(body):
 	print("I just died in ", name)
-	body.queue_free()
-	var player = player_scene.instance()
-	player.global_position = $spawn_point.global_position
-	global.world.call_deferred("add_child", player)
+	respawn_player_in_last_room(body)
+	# TODO: expand the death plane to enemies? and then free them when they die?
+	# I'll have to ask Jorg about if godot will clear enemies or not.
