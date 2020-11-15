@@ -8,7 +8,7 @@
 extents = Vector2( 26.4961, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 280.232, 27.9582 )
+extents = Vector2( 384.921, 27.9582 )
 
 [node name="l01r01" type="Node2D"]
 script = ExtResource( 1 )
@@ -48,7 +48,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="death_plane"]
-position = Vector2( 270.468, 168.291 )
+position = Vector2( 169.981, 170.393 )
 shape = SubResource( 2 )
 
 [node name="spawn_point" type="Position2D" parent="."]
