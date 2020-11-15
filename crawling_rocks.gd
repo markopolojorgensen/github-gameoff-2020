@@ -5,6 +5,8 @@ const movement_slowdown_scalar = 10
 const max_horizontal_speed = 40
 var current_direction = null
 
+var rock_mode = "walking"
+
 const player_scene = preload("res://player.tscn")
 
 # Called when the node enters the scene tree for the first time.
@@ -33,8 +35,12 @@ func _handle_right_movement():
 	$cliff_detector.cast_to.x = 5
 	$animated_sprite.flip_h = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	match rock_mode:
+		"walking":
+			_process_walking(delta)
+
+func _process_walking(delta):
 	var result = Vector2()
 	result += current_direction
 	if abs(result.x) > 0.1:
@@ -61,9 +67,9 @@ func _process(delta):
 
 
 func _on_walking_rocks_body_entered(body):
-	if "is_player" in body:
+	if rock_mode == "walking" and "is_player" in body:
 		if body.global_position.y < global_position.y:
-			queue_free()
+			rock_mode = "flipped"
 			# TODO: flip over and stop animating
 			# TODO: hop after killing enemy
 		else:
