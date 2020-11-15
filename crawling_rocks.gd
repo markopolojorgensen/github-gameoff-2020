@@ -5,6 +5,8 @@ const movement_slowdown_scalar = 10
 const max_horizontal_speed = 40
 var current_direction = null
 
+const player_scene = preload("res://player.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
@@ -21,13 +23,13 @@ func change_direction():
 
 func _handle_left_movement():
 	current_direction = Vector2.LEFT
-	$ray_cast_2d.cast_to.x = -16
+	$ray_cast_2d.cast_to.x = -10
 	$cliff_detector.cast_to.x = -5
 	$animated_sprite.flip_h = true
 
 func _handle_right_movement():
 	current_direction = Vector2.RIGHT
-	$ray_cast_2d.cast_to.x = 16
+	$ray_cast_2d.cast_to.x = 10
 	$cliff_detector.cast_to.x = 5
 	$animated_sprite.flip_h = false
 
@@ -56,3 +58,16 @@ func _process(delta):
 	
 	if not $cliff_detector.is_colliding():
 		change_direction()
+
+
+func _on_walking_rocks_body_entered(body):
+	if "is_player" in body:
+		if body.global_position.y < global_position.y:
+			queue_free()
+			# TODO: flip over and stop animating
+			# TODO: hop after killing enemy
+		else:
+			body.queue_free()
+			var player = player_scene.instance()
+			player.global_position = global.current_room.get_node("spawn_point").global_position
+			global.world.call_deferred("add_child", player)

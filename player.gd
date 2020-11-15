@@ -16,6 +16,7 @@ var gravity_well_active = false
 
 var jump_button_pushed = false
 var previously_on_the_ground = false
+var is_player = true
 
 func _ready():
 	gravity_well_scene = load("res://gravity_well.tscn")

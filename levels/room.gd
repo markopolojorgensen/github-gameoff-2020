@@ -5,13 +5,13 @@ const player_scene = preload("res://player.tscn")
 func _ready():
 	assert($room_start_area_2d.get_collision_mask_bit(1), "Room %s: start area2d cannot collide with player!" % name)
 	assert($death_plane.get_collision_mask_bit(1), "Room %s: Death plane cannot collide with player!" % name)
-	assert($spawn_point, "Room %s: No spawn point is set")
+	assert($spawn_point, "Room %s: No spawn point is set") # used in crawling_rocks.gd
 
 func _on_room_start_area_2d_body_entered(body):
 	# TODO: change camera shenaigans
 	# TODO: update number of available wells
 	print("New Room: ", name)
-	global.current_room = name
+	global.current_room = self
 
 
 func _on_death_plane_body_entered(body):
