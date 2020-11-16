@@ -22,7 +22,10 @@ func respawn_player_in_last_room(body):
 		global.world.call_deferred("add_child", player)
 
 func _on_death_plane_body_entered(body):
-	print("I just died in ", name)
-	respawn_player_in_last_room(body)
+	if "is_player" in body:
+		respawn_player_in_last_room(body)
+	else:
+		print("Body %s: has died" % body.name)
+		body.queue_free()
 	# TODO: expand the death plane to enemies? and then free them when they die?
 	# I'll have to ask Jorg about if godot will clear enemies or not.
