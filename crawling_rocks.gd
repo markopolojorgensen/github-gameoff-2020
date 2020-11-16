@@ -3,6 +3,12 @@ extends RigidBody2D
 const movement_impulse = 300
 const movement_slowdown_scalar = 10
 const max_horizontal_speed = 40
+const flip_rotation_speed = 250 #should be 2500, set to 250 because player doens't hop off after hitting enemy yet
+
+const initial_jump_impulse = 100
+const continued_falling_jump_impulse = 70
+const is_crawling_rock = true
+
 var current_direction = null
 
 var rock_mode = "walking"
@@ -13,7 +19,6 @@ func _ready():
 	$animated_sprite.animation = "walking"
 	current_direction = [Vector2.RIGHT, Vector2.LEFT][randi() % 2]
 	change_direction()
-
 
 func change_direction():
 	if current_direction == Vector2.RIGHT:
@@ -37,6 +42,18 @@ func _process(delta):
 	match rock_mode:
 		"walking":
 			_process_walking(delta)
+			
+		"flipping_left":
+			_process_flipping_left(delta)
+			
+		"flipping_right":
+			_process_flipping_right(delta)
+			
+		"kicked_left":
+			_process_kicked_left(delta)
+			
+		"kicked_right":
+			_process_kicked_right(delta)
 
 func _process_walking(delta):
 	var result = Vector2()
@@ -63,12 +80,81 @@ func _process_walking(delta):
 	if not $cliff_detector.is_colliding():
 		change_direction()
 
+func _process_flipping_right(delta):
+	$animated_sprite.rotation_degrees += delta * flip_rotation_speed
+	if $animated_sprite.rotation_degrees >= 180:
+		$animated_sprite.rotation_degrees = 180
+		rock_mode = "flipped"
+
+func _process_flipping_left(delta):
+	$animated_sprite.rotation_degrees -= delta * flip_rotation_speed
+	if $animated_sprite.rotation_degrees <= -180:
+		$animated_sprite.rotation_degrees = -180
+		rock_mode = "flipped"
 
 func _on_walking_rocks_body_entered(body):
-	if rock_mode == "walking" and "is_player" in body:
-		if body.global_position.y < global_position.y:
-			rock_mode = "flipped"
-			# TODO: flip over and stop animating
-			# TODO: hop after killing enemy
+	if "is_player" in body:
+		match rock_mode:
+			"walking":
+				walking_player_collision(body)
+				
+			"flipped":
+				flipped_player_collision(body)
+				
+	if "is_crawling_rock" in body:
+		if "kicked" in body.rock_mode:
+			initialize_kick(body)
+
+func walking_player_collision(body):
+	# TODO: maybe also velocity?
+	if body.global_position.y < global_position.y:
+		jumped_on(body)
+	else:
+		hit_player(body)
+			
+func jumped_on(body):
+	if body.global_position.x < global_position.x:
+		rock_mode = "flipping_right"
+	else:
+		rock_mode = "flipping_left"
+	body.get_node("jump_cooldown").start()
+
+func hit_player(body):
+	global.current_room.respawn_player_in_last_room(body)
+	
+func flipped_player_collision(body):
+	if Input.is_action_pressed("player_hold_item"):
+		rock_mode = "picked_up"
+		print("picked up")
+		
+	else:
+		print("yeeted")
+		initialize_kick(body)
+
+
+func initialize_kick(body):
+	$kick_jump_timer.start()
+	set_collision_mask_bit(0, false)
+	if body.global_position.x < global_position.x:
+		rock_mode = "kicked_right"
+	else:
+		rock_mode = "kicked_left"
+
+func _process_kicked_left(delta):
+	handle_vertical_kick(delta)
+	apply_central_impulse(Vector2(Vector2.LEFT).normalized() * delta * movement_impulse)
+		
+func _process_kicked_right(delta):
+	handle_vertical_kick(delta)
+	apply_central_impulse(Vector2(Vector2.RIGHT).normalized() * delta * movement_impulse)
+
+func handle_vertical_kick(delta):
+	$animated_sprite.rotation_degrees += delta * flip_rotation_speed * 100
+	var rising = linear_velocity.y < 0
+	if not $kick_jump_timer.is_stopped():
+		apply_central_impulse(Vector2.UP * initial_jump_impulse)
+	else:
+		if rising:
+			apply_central_impulse(-1 * Vector2.DOWN * linear_velocity.y)
 		else:
-			global.current_room.respawn_player_in_last_room(body)
+			apply_central_impulse(Vector2.DOWN * continued_falling_jump_impulse * delta)

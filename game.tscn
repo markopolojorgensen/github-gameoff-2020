@@ -58,7 +58,7 @@ texture = ExtResource( 7 )
 [node name="level_01" parent="world" instance=ExtResource( 2 )]
 
 [node name="player" parent="world" instance=ExtResource( 1 )]
-position = Vector2( 34.088, 68.5844 )
+position = Vector2( 542.453, 75.7277 )
 
 [node name="gravity_well_mode" parent="world" instance=ExtResource( 8 )]
 

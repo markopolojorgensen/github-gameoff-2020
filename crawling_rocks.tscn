@@ -36,7 +36,7 @@ script = ExtResource( 9 )
 [node name="animated_sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "walking"
-frame = 3
+frame = 2
 playing = true
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
@@ -50,4 +50,8 @@ cast_to = Vector2( 8, 0 )
 [node name="cliff_detector" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 5, 10 )
+
+[node name="kick_jump_timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 [connection signal="body_entered" from="." to="." method="_on_walking_rocks_body_entered"]
