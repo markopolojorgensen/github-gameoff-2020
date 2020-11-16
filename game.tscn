@@ -76,6 +76,6 @@ layer = -4
 motion_scale = Vector2( 0.1, 0.1 )
 
 [node name="green_horsehead" type="Sprite" parent="parallax_background/parallax_layer"]
-position = Vector2( -132.467, 156.852 )
+position = Vector2( -132.467, -159.041 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )

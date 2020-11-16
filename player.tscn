@@ -122,32 +122,32 @@ autostart = true
 [node name="footsteps_1" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 pause_mode = 2
 stream = ExtResource( 18 )
-volume_db = -5.0
+volume_db = -8.0
 
 [node name="footsteps_2" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 pause_mode = 2
 stream = ExtResource( 16 )
-volume_db = -5.0
+volume_db = -8.0
 
 [node name="footsteps_3" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 pause_mode = 2
 stream = ExtResource( 17 )
-volume_db = -5.0
+volume_db = -8.0
 
 [node name="footsteps_4" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 pause_mode = 2
 stream = ExtResource( 13 )
-volume_db = -5.0
+volume_db = -8.0
 
 [node name="footsteps_5" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 pause_mode = 2
 stream = ExtResource( 14 )
-volume_db = -5.0
+volume_db = -8.0
 
 [node name="footsteps_6" type="AudioStreamPlayer2D" parent="footsteps_sfx"]
 pause_mode = 2
 stream = ExtResource( 15 )
-volume_db = -5.0
+volume_db = -8.0
 
 [node name="tunnel_preventer" type="RayCast2D" parent="."]
 visible = false

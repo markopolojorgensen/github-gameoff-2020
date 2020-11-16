@@ -27,6 +27,7 @@ func _unhandled_input(event):
 			world_camera.global_position = $camera.get_camera_screen_center()
 			world_camera.current = true
 			$vignette_layer/vignette.hide()
+			$active_hum.stop()
 		else:
 			# not active, enter gravity well placement mode!
 			active = true
@@ -36,6 +37,7 @@ func _unhandled_input(event):
 			world_camera.current = false
 			$camera.current = true
 			$vignette_layer/vignette.show()
+			$active_hum.play()
 	
 	
 	if active and event.is_action_pressed("place_gravity_well"):
