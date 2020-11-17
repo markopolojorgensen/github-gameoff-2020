@@ -1,11 +1,15 @@
 extends Area2D
 
+var Radius = 2
 var RotateSpeed = 2
-var Radius = 1
 onready var _centre = global_position
-var _angle = 0
+onready var _angle = randf() * 360
 
 var picked_up = false
+
+func _ready():
+	if randi() % 2 == 1:
+		RotateSpeed = RotateSpeed * -1
 
 func _process(delta):
 	_angle += RotateSpeed * delta;
