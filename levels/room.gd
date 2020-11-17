@@ -7,7 +7,7 @@ func _ready():
 	assert($death_plane.get_collision_mask_bit(1), "Room %s: Death plane cannot collide with player!" % name)
 	assert($spawn_point, "Room %s: No spawn point is set") # used in crawling_rocks.gd
 	print($tile_map.global_position)
-
+	
 func _on_room_start_area_2d_body_entered(body):
 	# TODO: change camera shenaigans
 	# TODO: update number of available wells
@@ -21,6 +21,7 @@ func respawn_player_in_last_room(body):
 		var player = player_scene.instance()
 		player.global_position = global.current_room.get_node("spawn_point").global_position
 		global.world.call_deferred("add_child", player)
+		get_tree().call_group("enemies", "respawn")
 
 func _on_death_plane_body_entered(body):
 	if "is_player" in body:

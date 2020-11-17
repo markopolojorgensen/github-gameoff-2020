@@ -2,5 +2,7 @@
 
 [ext_resource path="res://enemy_spawner.gd" type="Script" id=1]
 
-[node name="enemy_spawner" type="Position2D"]
+[node name="enemy_spawner" type="Position2D" groups=[
+"enemies",
+]]
 script = ExtResource( 1 )

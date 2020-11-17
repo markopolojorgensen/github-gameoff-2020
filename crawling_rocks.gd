@@ -147,11 +147,11 @@ func initialize_kick(body):
 
 func _process_kicked_left(delta):
 	handle_vertical_kick(delta)
-	apply_central_impulse(Vector2(Vector2.LEFT).normalized() * delta * movement_impulse)
+	apply_central_impulse(Vector2.LEFT * delta * movement_impulse)
 		
 func _process_kicked_right(delta):
 	handle_vertical_kick(delta)
-	apply_central_impulse(Vector2(Vector2.RIGHT).normalized() * delta * movement_impulse)
+	apply_central_impulse(Vector2.RIGHT * delta * movement_impulse)
 
 func handle_vertical_kick(delta):
 	$animated_sprite.rotation_degrees += delta * flip_rotation_speed * 100
