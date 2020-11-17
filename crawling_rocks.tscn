@@ -12,15 +12,15 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "waking",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walking",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "waking",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -36,7 +36,7 @@ script = ExtResource( 9 )
 [node name="animated_sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "walking"
-frame = 3
+frame = 1
 playing = true
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
