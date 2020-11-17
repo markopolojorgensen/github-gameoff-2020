@@ -34,7 +34,12 @@ func _process(_delta):
 	var speed_weight = clamp(horizontal_speed, 0, 100) / 100.0
 	$animated_sprite.frames.set_animation_speed("run", lerp(6, 18, speed_weight))
 	
-	var intended_direction = global.get_intended_direction()
+	var intended_direction
+	if global.gravity_well_mode_active:
+		# don't move
+		intended_direction = Vector2()
+	else:
+		intended_direction = global.get_intended_direction()
 	if intended_direction.x < -0.5:
 		$animated_sprite.flip_h = true
 	elif intended_direction.x > 0.5:
@@ -88,11 +93,9 @@ func _physics_process(delta):
 		else:
 			var overspeed = max_air_horizontal_speed - abs(linear_velocity.x)
 			apply_central_impulse(Vector2(overspeed * sign(linear_velocity.x), 0))
-			
-		
 	
 	# jumping stuff
-	var wants_to_jump = Input.is_action_pressed("jump")
+	var wants_to_jump = Input.is_action_pressed("jump") and not global.gravity_well_mode_active
 	var rising = linear_velocity.y < 0
 	var jumped = not $jump_cooldown.is_stopped()
 	var on_the_ground = is_on_the_ground()
@@ -158,6 +161,7 @@ func _unhandled_input(event):
 			global.gravity_wells.pop_front().queue_free()
 		gravity_well_active = false
 	elif event.is_action_released("jump"):
+		get_tree().set_input_as_handled()
 		jump_button_pushed = false
 
 func accepts_gravity_well():

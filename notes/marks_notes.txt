@@ -1,5 +1,6 @@
 ------------------------- TODO -------------------------
 gravity well mode lets you delete gravity wells
+  highight or otherwise indicate gravity wells that will be deleted
 gravity well mode sfx
   meep merp if you're in a gravity well and try to enter gravity well placement mode
   ding when placing a gravity wells
@@ -11,8 +12,17 @@ player death animation & sfx
 gravity wells should grey out during cooldown
 if the player's in a gravity well immediately after cooldown, it should grab them
 enemy death animation
-plunger should be area2d
 Vector2(Vector2.RIGHT).normalized() == Vector2.RIGHT
+camera should reset faster on death
+player death sfx
+player death art
+gravity well spawn art
+plunger should probably not be a rigid body
+defeated enemies respawn on player death
+editor options for which directions enemies go
+limited number of wells per room
+camera limits per room
+camera hold still during jumps (maybe just vertically?)
 ------------------------- DONE -------------------------
 gravity well mode hum
 player: stick to the ground, please

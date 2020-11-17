@@ -6,6 +6,7 @@ var world
 var player
 var current_room
 
+var gravity_well_mode_active = false
 var gravity_wells : Array = []
 
 func get_intended_direction():

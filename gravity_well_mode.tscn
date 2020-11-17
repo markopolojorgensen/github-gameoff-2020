@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/gravity-well/gravity_well_cursor_06.png" type="Texture" id=1]
 [ext_resource path="res://gravity_well_mode.gd" type="Script" id=2]
@@ -19,6 +19,9 @@ animations = [ {
 "name": "default",
 "speed": 10.0
 } ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 6.0
 
 [node name="gravity_well_mode" type="Node2D"]
 pause_mode = 2
@@ -45,3 +48,12 @@ centered = false
 [node name="active_hum" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -10.0
+
+[node name="well_detector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="well_detector"]
+shape = SubResource( 2 )
+[connection signal="area_entered" from="well_detector" to="." method="_on_well_detector_area_entered"]
+[connection signal="area_exited" from="well_detector" to="." method="_on_well_detector_area_exited"]

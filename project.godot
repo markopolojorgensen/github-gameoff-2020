@@ -168,6 +168,7 @@ player_hold_item={
 
 2d_physics/layer_1="terrain"
 2d_physics/layer_2="player"
+2d_physics/layer_3="gravity_wells"
 
 [node]
 

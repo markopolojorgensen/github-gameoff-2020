@@ -7,6 +7,7 @@ const minimum_impulse = 150
 
 func _ready():
 	$player_in_well/animated_sprite.play()
+	$x_sprite.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -34,13 +35,14 @@ func _on_area_2d_body_entered(body):
 		$hum/tween.start()
 		$hum.play()
 		$grab.play()
-		Engine.time_scale = 0.5
+		if not global.gravity_well_mode_active:
+			Engine.time_scale = 0.5
 
 func is_player_in_well():
 	return $player_in_well.visible
 
 func _unhandled_input(event):
-	if event.is_action_pressed("jump") and is_player_in_well():
+	if event.is_action_pressed("jump") and is_player_in_well() and not global.gravity_well_mode_active:
 		get_tree().set_input_as_handled()
 		var player = player_scene.instance()
 		var destination = global.get_intended_direction().normalized() * player_offset
@@ -51,8 +53,13 @@ func _unhandled_input(event):
 		$hum.stop()
 		$hum.volume_db = -60
 		$ding.play()
-		Engine.time_scale = 1
+		if not global.gravity_well_mode_active:
+			Engine.time_scale = 1
 
+func show_x():
+	$x_sprite.show()
 
+func hide_x():
+	$x_sprite.hide()
 
 
