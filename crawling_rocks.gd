@@ -10,6 +10,7 @@ const continued_falling_jump_impulse = 70
 const is_crawling_rock = true
 
 var current_direction = null
+export var starting_direction = Vector2.RIGHT
 
 var rock_mode = "walking"
 
@@ -17,8 +18,12 @@ var rock_mode = "walking"
 func _ready():
 	randomize()
 	$animated_sprite.animation = "walking"
-	current_direction = [Vector2.RIGHT, Vector2.LEFT][randi() % 2]
-	change_direction()
+	current_direction = starting_direction
+	if starting_direction == Vector2.RIGHT:
+		_handle_right_movement()
+	else:
+		_handle_left_movement()
+	
 
 func change_direction():
 	if current_direction == Vector2.RIGHT:
