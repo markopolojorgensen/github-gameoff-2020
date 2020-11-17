@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://crawling_rocks.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/room.gd" type="Script" id=2]
+[ext_resource path="res://nugget.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tileset_4x4.tres" type="TileSet" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -48,5 +49,8 @@ shape = SubResource( 2 )
 
 [node name="spawn_point" type="Position2D" parent="."]
 position = Vector2( 17.6866, 84.4285 )
+
+[node name="nugget" parent="." instance=ExtResource( 3 )]
+position = Vector2( 410.688, 9.43231 )
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]

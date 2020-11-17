@@ -9,6 +9,8 @@ var current_room
 var gravity_well_mode_active = false
 var gravity_wells : Array = []
 
+var nugget_count = 0
+
 func get_intended_direction():
 	var result = Vector2()
 	

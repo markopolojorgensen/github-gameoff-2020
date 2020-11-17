@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://crawling_rocks.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/room.gd" type="Script" id=2]
 [ext_resource path="res://plunger.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gravity_well.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tileset_4x4.tres" type="TileSet" id=5]
+[ext_resource path="res://nugget.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25.6849, 49.2074 )
@@ -62,5 +63,29 @@ shape = SubResource( 2 )
 
 [node name="spawn_point" type="Position2D" parent="."]
 position = Vector2( 18.4327, 87.704 )
+
+[node name="nugget" parent="." instance=ExtResource( 6 )]
+position = Vector2( 141.43, 22.2725 )
+
+[node name="nugget2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 426.161, -101.95 )
+
+[node name="nugget3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 298.231, -81.0252 )
+
+[node name="nugget4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 209.501, -79.1711 )
+
+[node name="nugget5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 386.088, -29.7149 )
+
+[node name="nugget6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 386.684, 46.2819 )
+
+[node name="nugget7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 174.567, -25.7464 )
+
+[node name="nugget8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 253.739, 39.337 )
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]
