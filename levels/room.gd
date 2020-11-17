@@ -6,6 +6,7 @@ func _ready():
 	assert($room_start_area_2d.get_collision_mask_bit(1), "Room %s: start area2d cannot collide with player!" % name)
 	assert($death_plane.get_collision_mask_bit(1), "Room %s: Death plane cannot collide with player!" % name)
 	assert($spawn_point, "Room %s: No spawn point is set") # used in crawling_rocks.gd
+	print($tile_map.global_position)
 
 func _on_room_start_area_2d_body_entered(body):
 	# TODO: change camera shenaigans

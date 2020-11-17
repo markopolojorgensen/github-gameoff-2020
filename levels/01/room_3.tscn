@@ -17,7 +17,7 @@ extents = Vector2( 858.479, 38.0807 )
 script = ExtResource( 2 )
 
 [node name="tile_map" type="TileMap" parent="."]
-position = Vector2( -156.208, 61.9961 )
+position = Vector2( -156, 62 )
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 4, 4 )
 collision_mask = 0

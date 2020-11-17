@@ -9,7 +9,7 @@
 [node name="l01r01" parent="." instance=ExtResource( 2 )]
 
 [node name="l01r02" parent="." instance=ExtResource( 1 )]
-position = Vector2( 545.949, 0 )
+position = Vector2( 546, 0 )
 
 [node name="l01r03" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1090.5, -0.594604 )
+position = Vector2( 1091, 0 )
