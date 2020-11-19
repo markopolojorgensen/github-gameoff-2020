@@ -58,6 +58,7 @@ __meta__ = {
 }
 
 [node name="panel_container" type="PanelContainer" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -73,8 +74,8 @@ __meta__ = {
 }
 
 [node name="top_text" type="Label" parent="panel_container"]
-margin_left = 36.0
-margin_top = 4.0
+margin_left = 7.0
+margin_top = 7.0
 margin_right = 153.0
 margin_bottom = 33.0
 size_flags_horizontal = 3
@@ -87,8 +88,8 @@ __meta__ = {
 }
 
 [node name="middle_text2" type="Label" parent="panel_container"]
-margin_left = 36.0
-margin_top = 4.0
+margin_left = 7.0
+margin_top = 7.0
 margin_right = 153.0
 margin_bottom = 33.0
 size_flags_horizontal = 3
@@ -102,7 +103,7 @@ __meta__ = {
 }
 
 [node name="bottom_text3" type="Label" parent="panel_container"]
-margin_left = 36.0
+margin_left = 7.0
 margin_top = 7.0
 margin_right = 153.0
 margin_bottom = 33.0
@@ -121,7 +122,6 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 23.0
 margin_bottom = 33.0
-rect_scale = Vector2( 1.5, 1.5 )
 size_flags_horizontal = 0
 size_flags_vertical = 3
 texture = ExtResource( 3 )
