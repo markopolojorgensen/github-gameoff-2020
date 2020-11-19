@@ -29,10 +29,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 5.01114, 5.03811 )
+extents = Vector2( 6, 5 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4.06727, 0.697266 )
+extents = Vector2( 4, 1 )
 
 [node name="plunger" type="Area2D"]
 collision_mask = 2147483651
@@ -40,18 +40,19 @@ script = ExtResource( 13 )
 
 [node name="animated_sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 3
 playing = true
 
 [node name="static_body_2d" type="StaticBody2D" parent="."]
 collision_mask = 3
 
 [node name="collision_shape_2d2" type="CollisionShape2D" parent="static_body_2d"]
-position = Vector2( 0, 3.06699 )
+position = Vector2( 0, 3 )
 rotation = 3.14159
 shape = SubResource( 2 )
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -6.54873 )
+position = Vector2( 0, -6.5 )
 rotation = 3.14159
 shape = SubResource( 3 )
 

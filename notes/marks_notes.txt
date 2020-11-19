@@ -12,22 +12,42 @@ gravity well mode polish
 gravity well polish
   if the player's in a gravity well immediately after cooldown, it should grab them
   gravity wells should grey out during cooldown
-more nasa images lul
 jumping through one-way collision platforms shouldn't change animation
 player shouldn't collide with one-way platforms from the side
-player death animation & sfx
 camera should reset faster on death
-player death sfx
-player death art
-plunger should probably not be a rigid body
 camera hold still during jumps (maybe just vertically?)
 rooms
   shouldn't be able to re-enter a room once you've left it?
   camera limits per room
   limited number of wells per room
-dialogue boxes
-level manager
+  clear all wells / restart room button
+
+rooms?
+gravity well polish?
+jump fixes?
+timer for escape sequences?
+more levels?
+level transistions?
+level select?
+title screen?
+start menu?
+
+moving platforms?
+falling spikes?
+more enemies?
+  projectile enemy?
+enemies in gravity wells?
+
+dialogue system?
+more characters?
+boss fight?
+more nasa images?
+
 ------------------------- DONE -------------------------
+level manager
+plunger should probably not be a rigid body
+player death sfx
+player death art
 enemy death animation
 you can now progress from one level to the next
 spaceship
