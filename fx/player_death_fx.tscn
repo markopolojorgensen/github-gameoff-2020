@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fx/oneoff_fx.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sfx/player_death.wav" type="AudioStream" id=2]
+
+[node name="player_death_fx" instance=ExtResource( 1 )]
+play_sound = true
+
+[node name="audio_stream_player_2d" parent="." index="0"]
+stream = ExtResource( 2 )
+volume_db = -10.0
+
+[node name="timer" parent="." index="2"]
+wait_time = 2.5

@@ -1,6 +1,7 @@
 extends Node2D
 export var number_of_wells = 0
 const player_scene = preload("res://player.tscn")
+const player_death_fx_scene = preload("res://fx/player_death_fx.tscn")
 
 func _ready():
 	assert($room_start_area_2d.get_collision_mask_bit(1), "Room %s: start area2d cannot collide with player!" % name)
@@ -8,7 +9,7 @@ func _ready():
 	assert($spawn_point, "Room %s: No spawn point is set" % name) # used in crawling_rocks.gd
 	print($tile_map.global_position)
 	
-func _on_room_start_area_2d_body_entered(body):
+func _on_room_start_area_2d_body_entered(_body):
 	# TODO: change camera shenaigans
 	# TODO: update number of available wells
 	print("New Room: ", name)
@@ -17,6 +18,9 @@ func _on_room_start_area_2d_body_entered(body):
 func respawn_player_in_last_room(body):
 	# we only want the player to respawn at the spawn point, not any other enemies!
 	if "is_player" in body:
+		var player_death_fx = player_death_fx_scene.instance()
+		player_death_fx.global_position = body.global_position
+		add_child(player_death_fx)
 		body.queue_free()
 		var player = player_scene.instance()
 		player.global_position = global.current_room.get_node("spawn_point").global_position

@@ -1,5 +1,7 @@
 ------------------------- TODO -------------------------
 music
+enemies should start sleeping and wake up when player gets close
+gravity well mode might be kinda bad
 gravity well mode polish
   prevent player from deleting the gravity well they're in
   ding when placing a gravity wells
@@ -14,7 +16,6 @@ more nasa images lul
 jumping through one-way collision platforms shouldn't change animation
 player shouldn't collide with one-way platforms from the side
 player death animation & sfx
-enemy death animation
 camera should reset faster on death
 player death sfx
 player death art
@@ -27,6 +28,8 @@ rooms
 dialogue boxes
 level manager
 ------------------------- DONE -------------------------
+enemy death animation
+you can now progress from one level to the next
 spaceship
 editor options for which directions enemies go
 defeated enemies respawn on player death
