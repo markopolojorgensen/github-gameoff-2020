@@ -1,29 +1,37 @@
 ------------------------- TODO -------------------------
-gravity well mode lets you delete gravity wells
-  highight or otherwise indicate gravity wells that will be deleted
-gravity well mode sfx
-  meep merp if you're in a gravity well and try to enter gravity well placement mode
+music
+gravity well mode polish
+  prevent player from deleting the gravity well they're in
   ding when placing a gravity wells
   slurp when picking up a gravity well
+  gravity well spawn art
+  camera shouldn't wobble when leaving gravity well mode
+  meep merp if you're in a gravity well and try to enter gravity well placement mode
+gravity well polish
+  if the player's in a gravity well immediately after cooldown, it should grab them
+  gravity wells should grey out during cooldown
 more nasa images lul
 jumping through one-way collision platforms shouldn't change animation
 player shouldn't collide with one-way platforms from the side
 player death animation & sfx
-gravity wells should grey out during cooldown
-if the player's in a gravity well immediately after cooldown, it should grab them
 enemy death animation
-Vector2(Vector2.RIGHT).normalized() == Vector2.RIGHT
 camera should reset faster on death
 player death sfx
 player death art
-gravity well spawn art
 plunger should probably not be a rigid body
-defeated enemies respawn on player death
-editor options for which directions enemies go
-limited number of wells per room
-camera limits per room
 camera hold still during jumps (maybe just vertically?)
+rooms
+  shouldn't be able to re-enter a room once you've left it?
+  camera limits per room
+  limited number of wells per room
+dialogue boxes
+level manager
 ------------------------- DONE -------------------------
+spaceship
+editor options for which directions enemies go
+defeated enemies respawn on player death
+gravity well mode lets you delete gravity wells
+gravity well mode highights gravity wells that will be deleted
 gravity well mode hum
 player: stick to the ground, please
 gravity well placement mode cursor
@@ -38,6 +46,12 @@ player gravity-well-spin animation
 player land sfx
 player footstep sfx
 
+
+
+
+
+
+UNDERTALE?!?!?!?!
 
 ship art
   captain art

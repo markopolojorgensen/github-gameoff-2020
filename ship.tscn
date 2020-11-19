@@ -26,3 +26,4 @@ texture = ExtResource( 1 )
 position = Vector2( -5, 4 )
 rotation = 1.5708
 shape = SubResource( 2 )
+[connection signal="body_entered" from="." to="." method="_on_ship_body_entered"]

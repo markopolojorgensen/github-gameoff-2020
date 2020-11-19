@@ -11,6 +11,8 @@ var gravity_wells : Array = []
 
 var nugget_count = 0
 
+var level_manager
+
 func get_intended_direction():
 	var result = Vector2()
 	
