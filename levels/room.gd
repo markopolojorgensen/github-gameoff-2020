@@ -19,8 +19,8 @@ func respawn_player_in_last_room(body):
 	# we only want the player to respawn at the spawn point, not any other enemies!
 	if "is_player" in body:
 		var player_death_fx = player_death_fx_scene.instance()
-		player_death_fx.global_position = body.global_position
 		add_child(player_death_fx)
+		player_death_fx.global_position = body.global_position
 		body.queue_free()
 		var player = player_scene.instance()
 		player.global_position = global.current_room.get_node("spawn_point").global_position
