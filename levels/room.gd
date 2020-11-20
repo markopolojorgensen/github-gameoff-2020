@@ -14,6 +14,22 @@ func _on_room_start_area_2d_body_entered(_body):
 	# TODO: update number of available wells
 	print("New Room: ", name)
 	global.current_room = self
+	
+	if not global.level_manager.plunger_plunged:
+		var camera : Camera2D = global.camera
+		if has_node("camera_limits"):
+			for camera_limit in $camera_limits.get_children():
+				match camera_limit.name:
+					"limit_left":
+						camera.limit_left = camera_limit.global_position.x
+					"limit_right":
+						camera.limit_right = camera_limit.global_position.x
+					"limit_top":
+						camera.limit_top = camera_limit.global_position.y
+					"limit_bottom":
+						camera.limit_bottom = camera_limit.global_position.y
+		else:
+			print("%s has no camera limits!" % name)
 
 func respawn_player_in_last_room(body):
 	# we only want the player to respawn at the spawn point, not any other enemies!
