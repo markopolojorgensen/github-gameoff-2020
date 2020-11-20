@@ -21,12 +21,19 @@ rooms
   switching to sonic camera mode on the way back
   limited number of wells per room
   room transition sfx
+  gravity well mode should also respect room limits
 
 screen shake
 wall of death
 timer hud
 
+gravity well player_in_well visibility trigger???
+  gravity well dummy player
+
 generic room scene to inherit from
+enemy polish
+  animations
+
 
 rooms?
 gravity well polish?
@@ -53,6 +60,15 @@ boss fight?
 more nasa images?
 floating rock parallax background?
 main menu shows total time per save file
+camera shwoop between room camera limits
+palette swap ground tileset for more level variants
+  same for spikes, rocks
+spikes should shatter when they hit the ground
+spikes should shake when player in gravity well is close enough
+dying after hitting the plunger should send you back to the plunger
+player dance animation / celebration (fireworks?)
+plunger should only plunge once
+separate spawn positions in rooms once plunger is plunged
 
 ------------------------- DONE -------------------------
 you can re-enter a room after leaving it

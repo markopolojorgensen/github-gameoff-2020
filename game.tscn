@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game.gd" type="Script" id=3]
 [ext_resource path="res://assets/nasa/horsehead_green_PIA18905~orig.jpg" type="Texture" id=4]
 [ext_resource path="res://camera.gd" type="Script" id=5]
-[ext_resource path="res://assets/bg.png" type="Texture" id=6]
 [ext_resource path="res://icon.png" type="Texture" id=7]
 [ext_resource path="res://gravity_well_mode.tscn" type="PackedScene" id=8]
 [ext_resource path="res://player_hud.tscn" type="PackedScene" id=9]
@@ -63,17 +62,9 @@ z_index = 1
 
 [node name="level_manager" type="Node2D" parent="world"]
 script = ExtResource( 10 )
-starting_level = 1
-
-[node name="canvas_layer" type="CanvasLayer" parent="."]
-layer = -5
-
-[node name="sprite" type="Sprite" parent="canvas_layer"]
-position = Vector2( 128, 72 )
-texture = ExtResource( 6 )
 
 [node name="parallax_background" type="ParallaxBackground" parent="."]
-layer = -4
+layer = -10
 
 [node name="parallax_layer" type="ParallaxLayer" parent="parallax_background"]
 motion_scale = Vector2( 0.1, 0.1 )

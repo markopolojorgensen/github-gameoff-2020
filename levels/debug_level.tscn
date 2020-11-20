@@ -1,10 +1,11 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://tileset_4x4.tres" type="TileSet" id=2]
+[ext_resource path="res://levels/tilesets/tileset_4x4.tres" type="TileSet" id=2]
 [ext_resource path="res://game.gd" type="Script" id=3]
 [ext_resource path="res://gravity_well.tscn" type="PackedScene" id=4]
-[ext_resource path="res://tileset_4x4_one_way.tres" type="TileSet" id=7]
+[ext_resource path="res://levels/tilesets/tileset_4x4_one_way.tres" type="TileSet" id=7]
 [ext_resource path="res://crawling_rocks.tscn" type="PackedScene" id=8]
+
 
 [node name="debug_level" type="Node2D"]
 script = ExtResource( 3 )

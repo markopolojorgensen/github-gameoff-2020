@@ -1,11 +1,12 @@
 extends Node2D
 
 
-export(int, "level 1", "level 2") var starting_level
+export(int, "level 1", "level 2", "ideas level") var starting_level
 
 const level_scenes = [
 	preload("res://levels/01/level_01.tscn"),
-	preload("res://levels/02/level_02.tscn")
+	preload("res://levels/02/level_02.tscn"),
+	preload("res://levels/ideas/level_of_ideas.tscn"),
 ]
 
 var current_level_index

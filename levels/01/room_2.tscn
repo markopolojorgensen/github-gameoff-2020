@@ -3,7 +3,8 @@
 [ext_resource path="res://levels/room.gd" type="Script" id=2]
 [ext_resource path="res://nugget.tscn" type="PackedScene" id=3]
 [ext_resource path="res://enemy_spawner.tscn" type="PackedScene" id=4]
-[ext_resource path="res://tileset_4x4.tres" type="TileSet" id=5]
+[ext_resource path="res://levels/tilesets/tileset_4x4.tres" type="TileSet" id=5]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.2025, 48 )

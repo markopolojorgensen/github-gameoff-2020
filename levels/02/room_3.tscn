@@ -3,7 +3,9 @@
 [ext_resource path="res://assets/tilemap_4x4.png" type="Texture" id=1]
 [ext_resource path="res://nugget.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/room.gd" type="Script" id=3]
+[ext_resource path="res://levels/tilesets/tileset_4x4_one_way.tres" type="TileSet" id=4]
 [ext_resource path="res://spike_spawner.tscn" type="PackedScene" id=5]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 4, 4, 2, 4, 2, 0, 4, 0 )
