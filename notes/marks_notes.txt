@@ -69,6 +69,8 @@ dying after hitting the plunger should send you back to the plunger
 player dance animation / celebration (fireworks?)
 plunger should only plunge once
 separate spawn positions in rooms once plunger is plunged
+leaderboard???
+ONLINE LEADERBOARD??????
 
 ------------------------- DONE -------------------------
 you can re-enter a room after leaving it

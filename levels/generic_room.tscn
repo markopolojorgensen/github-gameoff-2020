@@ -5,23 +5,8 @@
 [ext_resource path="res://levels/tilesets/tileset_4x4_decorative.tres" type="TileSet" id=3]
 [ext_resource path="res://levels/tilesets/tileset_4x4.tres" type="TileSet" id=5]
 
-
 [node name="generic_room" type="Node2D"]
 script = ExtResource( 1 )
-
-[node name="decorative_tile_map" type="TileMap" parent="."]
-tile_set = ExtResource( 3 )
-cell_size = Vector2( 4, 4 )
-collision_layer = 0
-collision_mask = 0
-format = 1
-
-[node name="decorative_tile_map_2" type="TileMap" parent="."]
-tile_set = ExtResource( 3 )
-cell_size = Vector2( 4, 4 )
-collision_layer = 0
-collision_mask = 0
-format = 1
 
 [node name="one_way_tile_map" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -36,7 +21,6 @@ collision_mask = 0
 format = 1
 
 [node name="tile_map" type="TileMap" parent="."]
-position = Vector2( -154, 63 )
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 4, 4 )
 collision_mask = 0
@@ -66,5 +50,28 @@ position = Vector2( 0, 80 )
 
 [node name="limit_top" type="Position2D" parent="camera_limits"]
 position = Vector2( 0, -80 )
+
+[node name="parallax_background" type="ParallaxBackground" parent="."]
+layer = -5
+
+[node name="parallax_layer_80" type="ParallaxLayer" parent="parallax_background"]
+motion_scale = Vector2( 0.8, 0.8 )
+
+[node name="decorative_tile_map" type="TileMap" parent="parallax_background/parallax_layer_80"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 4, 4 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+
+[node name="parallax_layer_90" type="ParallaxLayer" parent="parallax_background"]
+motion_scale = Vector2( 0.9, 0.9 )
+
+[node name="decorative_tile_map" type="TileMap" parent="parallax_background/parallax_layer_90"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 4, 4 )
+collision_layer = 0
+collision_mask = 0
+format = 1
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]
