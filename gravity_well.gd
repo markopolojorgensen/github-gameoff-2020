@@ -5,6 +5,8 @@ const player_scene = preload("res://player.tscn")
 
 const minimum_impulse = 150
 
+const is_gravity_well = true
+
 func _ready():
 	$player_in_well/animated_sprite.play()
 	$x_sprite.hide()
