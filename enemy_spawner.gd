@@ -23,4 +23,3 @@ func respawn():
 	if enemy.rock_mode != "walking":
 		enemy = crawling_rocks.instance()
 		_ready()
-
