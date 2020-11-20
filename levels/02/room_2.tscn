@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/tilemap_4x4.png" type="Texture" id=1]
 [ext_resource path="res://levels/room.gd" type="Script" id=3]
@@ -350,8 +350,12 @@ extents = Vector2( 509.959, 32.5 )
 [sub_resource type="RectangleShape2D" id=38]
 extents = Vector2( 40, 40 )
 
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 339, 40 )
+
 [node name="l02r02" type="Node2D"]
 script = ExtResource( 3 )
+number_of_wells = 2
 
 [node name="tile_map" type="TileMap" parent="."]
 tile_set = SubResource( 36 )
@@ -379,6 +383,10 @@ shape = SubResource( 38 )
 [node name="collision_shape_2d2" type="CollisionShape2D" parent="room_start_area_2d"]
 position = Vector2( 584, 40 )
 shape = SubResource( 38 )
+
+[node name="collision_shape_2d3" type="CollisionShape2D" parent="room_start_area_2d"]
+position = Vector2( 198, -20 )
+shape = SubResource( 39 )
 
 [node name="spawn_point" type="Position2D" parent="."]
 position = Vector2( -176, 48 )

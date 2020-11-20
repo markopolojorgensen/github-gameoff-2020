@@ -22,7 +22,7 @@ contact_monitor = true
 can_sleep = false
 
 [node name="collision_polygon_2d" type="CollisionPolygon2D" parent="rigid_body_2d"]
-polygon = PoolVector2Array( -7, -4, -5, 2, 0, 8, 1, 8, 5, 4, 5, 0 )
+polygon = PoolVector2Array( -7, -4, 0, 8, 1, 8, 4, 4, 4, 0 )
 
 [node name="sprite" type="Sprite" parent="rigid_body_2d"]
 texture = ExtResource( 1 )
