@@ -1,6 +1,7 @@
 extends Node
 
 var camera_follow
+var camera
 
 var world
 var player

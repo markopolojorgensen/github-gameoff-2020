@@ -6,7 +6,7 @@
 [ext_resource path="res://tileset_4x4.tres" type="TileSet" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24.2025, 49.0683 )
+extents = Vector2( 24.2025, 48 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 294.246, 43.1843 )
@@ -27,7 +27,11 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="room_start_area_2d"]
-position = Vector2( -5.30529, 65.5509 )
+position = Vector2( 0, 64 )
+shape = SubResource( 1 )
+
+[node name="collision_shape_2d2" type="CollisionShape2D" parent="room_start_area_2d"]
+position = Vector2( 512, 64 )
 shape = SubResource( 1 )
 
 [node name="death_plane" type="Area2D" parent="."]
@@ -55,5 +59,20 @@ starting_direction = "left"
 [node name="enemy_spawner3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 103.384, 86.169 )
 starting_direction = "random"
+
+[node name="camera_limits" type="Node2D" parent="."]
+position = Vector2( 208, 64 )
+
+[node name="limit_left" type="Position2D" parent="camera_limits"]
+position = Vector2( -240, 0 )
+
+[node name="limit_right" type="Position2D" parent="camera_limits"]
+position = Vector2( 336, 0 )
+
+[node name="limit_bottom" type="Position2D" parent="camera_limits"]
+position = Vector2( 0, 80 )
+
+[node name="limit_top" type="Position2D" parent="camera_limits"]
+position = Vector2( 0, -176 )
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]

@@ -6,6 +6,9 @@ var moving_right = true
 # global coordinates
 var desired_position := Vector2()
 
+func _ready():
+	global.camera = self
+
 func _process(delta):
 	if global.camera_follow:
 		# coordinates relative to top-left corner of screen
