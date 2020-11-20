@@ -63,6 +63,7 @@ z_index = 1
 
 [node name="level_manager" type="Node2D" parent="world"]
 script = ExtResource( 10 )
+starting_level = 1
 
 [node name="canvas_layer" type="CanvasLayer" parent="."]
 layer = -5

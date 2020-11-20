@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/tilemap_4x4.png" type="Texture" id=1]
 [ext_resource path="res://levels/room.gd" type="Script" id=2]
@@ -353,6 +353,9 @@ extents = Vector2( 542.838, 24.0941 )
 [sub_resource type="RectangleShape2D" id=38]
 extents = Vector2( 93.1263, 29.978 )
 
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 16, 40 )
+
 [node name="l02r01" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -385,6 +388,10 @@ collision_mask = 2
 position = Vector2( 59.0157, 23.3094 )
 shape = SubResource( 38 )
 
+[node name="collision_shape_2d2" type="CollisionShape2D" parent="room_start_area_2d"]
+position = Vector2( 408, -600 )
+shape = SubResource( 39 )
+
 [node name="enemy_spawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( 168, -72 )
 starting_direction = "random"
@@ -402,5 +409,19 @@ position = Vector2( 184, -80 )
 
 [node name="nugget2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 160, -80 )
+
+[node name="camera_limits" type="Node2D" parent="."]
+position = Vector2( 208, 64 )
+
+[node name="limit_left" type="Position2D" parent="camera_limits"]
+position = Vector2( -392, 0 )
+
+[node name="limit_right" type="Position2D" parent="camera_limits"]
+position = Vector2( 232, 0 )
+
+[node name="limit_bottom" type="Position2D" parent="camera_limits"]
+
+[node name="limit_top" type="Position2D" parent="camera_limits"]
+position = Vector2( 0, -728 )
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]

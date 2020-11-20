@@ -6,11 +6,10 @@
 
 [node name="level_02" type="Node2D"]
 
-[node name="l02r01" parent="." instance=ExtResource( 2 )]
-position = Vector2( -1309, 626 )
-
 [node name="l02r02" parent="." instance=ExtResource( 1 )]
-position = Vector2( -682.804, -8.97705 )
+position = Vector2( 627, -636 )
+
+[node name="l02r01" parent="." instance=ExtResource( 2 )]
 
 [node name="l02r03" parent="." instance=ExtResource( 3 )]
-position = Vector2( 23, -13 )
+position = Vector2( 1332, -640 )
