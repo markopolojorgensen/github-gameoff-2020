@@ -59,11 +59,12 @@ camera should reset faster on death
 camera hold still during jumps (maybe just vertically?)
 
 rooms
-  switching to sonic camera mode on the way back
-    moment of transition when pluging plunger needs to be fixed
+
+  camera shouldn't snap instantly when dying in sonic mode
   limited number of wells per room
   room transition sfx
   restart room button?
+
 
 screen shake
 
@@ -122,6 +123,8 @@ real "you win" screen
 
 
 ------------------------- DONE -------------------------
+super mario camera -> sonic camera transition is smoother
+sonic camera mode on the way back
 press R2 to clear all player-placed wells in the current room
 gravity wells "grow" on spawn
 camera limits apply to gravity well mode as well

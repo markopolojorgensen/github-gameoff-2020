@@ -16,6 +16,9 @@ func _process(delta):
 	else:
 		drag_margin_bottom = lerp(drag_margin_bottom, 0.2, 20 * delta)
 		drag_margin_top = lerp(drag_margin_bottom, 0.5, 20 * delta)
+	
+	drag_margin_left = lerp(drag_margin_left, 0.1, 5 * delta)
+	drag_margin_right = lerp(drag_margin_left, 0.1, 5 * delta)
 
 func _draw():
 	if draw_margin:
@@ -25,6 +28,11 @@ func _draw():
 		draw_rect(Rect2(-get_global_transform_with_canvas().origin + half_dims + top_left, bottom_right - top_left), Color.aliceblue, false)
 
 func plunger_hit():
+	# don't instantly snap camera over to center on player
+	drag_margin_left = 1
+	drag_margin_right = 1
+	global_position = (global.camera as Camera2D).get_camera_screen_center()
+	
 	current = true
 	global.camera = self
 
