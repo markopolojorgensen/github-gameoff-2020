@@ -59,7 +59,7 @@ camera should reset faster on death
 camera hold still during jumps (maybe just vertically?)
 
 rooms
-  clear all wells / restart room button
+  restart room button?
   switching to sonic camera mode on the way back
     moment of transition when pluging plunger needs to be fixed
   limited number of wells per room
@@ -116,6 +116,7 @@ level transition animation (fade to black)
 
 
 ------------------------- DONE -------------------------
+press R2 to clear all player-placed wells in the current room
 gravity wells "grow" on spawn
 camera limits apply to gravity well mode as well
 different spawn points for players after plunger plunged

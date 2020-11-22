@@ -8,4 +8,7 @@ Developed by markopolodev and FourierTransformer
  * [Godot Docs](https://docs.godotengine.org/en/stable/): Godot Docs
  * [jfxr](https://jfxr.frozenfractal.com/#): Sound effects
  * [piskel](https://www.piskelapp.com/p/create): Sprite maker
+ * [aseprite](https://www.aseprite.org/): Sprite maker
  * [sunvox](https://warmplace.ru/soft/sunvox/): Sound effects + Music
+ * [pfxd](https://codemanu.itch.io/particle-fx-designer): Particle Effects
+

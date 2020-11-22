@@ -61,7 +61,12 @@ func _unhandled_input(event):
 			# create new gravity well
 			var gravity_well = gravity_well_scene.instance()
 			gravity_well.global_position = global_position
+			gravity_well.room_name = global.current_room.name
 			get_parent().add_child(gravity_well)
+	
+	if event.is_action_pressed("clear_room_wells"):
+		get_tree().set_input_as_handled()
+		get_tree().call_group("gravity_wells", "clear_room", global.current_room.name)
 
 func _process(delta):
 	if not active:

@@ -147,20 +147,7 @@ func _physics_process(delta):
 	previously_on_the_ground = on_the_ground
 
 func _unhandled_input(event):
-	if event.is_action_pressed("gravity_well_left") or event.is_action_pressed("gravity_well_right"):
-		get_tree().set_input_as_handled()
-		gravity_well_active = true
-	elif event.is_action_released("gravity_well_left") or event.is_action_released("gravity_well_right"):
-		get_tree().set_input_as_handled()
-		# spawn gravity well
-		var gravity_well = gravity_well_scene.instance()
-		gravity_well.global_position = $crosshairs.global_position
-		get_parent().add_child(gravity_well)
-		global.gravity_wells.push_back(gravity_well)
-		if global.gravity_wells.size() > 3:
-			global.gravity_wells.pop_front().queue_free()
-		gravity_well_active = false
-	elif event.is_action_released("jump"):
+	if event.is_action_released("jump"):
 		get_tree().set_input_as_handled()
 		jump_button_pushed = false
 

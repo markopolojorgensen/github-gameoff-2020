@@ -42,7 +42,9 @@ tracks/0/keys = {
 "values": [ Vector2( 0.1, 0.1 ), Vector2( 1, 1 ) ]
 }
 
-[node name="gravity_well" type="Node2D"]
+[node name="gravity_well" type="Node2D" groups=[
+"gravity_wells",
+]]
 script = ExtResource( 2 )
 
 [node name="area_2d" type="Area2D" parent="."]

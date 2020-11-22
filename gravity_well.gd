@@ -7,6 +7,8 @@ const minimum_impulse = 150
 
 const is_gravity_well = true
 
+var room_name = "???"
+
 func _ready():
 	$player_in_well/animated_sprite.play()
 	$x_sprite.hide()
@@ -58,6 +60,11 @@ func _unhandled_input(event):
 		$ding.play()
 		if not global.gravity_well_mode_active:
 			Engine.time_scale = 1
+
+func clear_room(clear_room_name):
+	if room_name == clear_room_name:
+		queue_free()
+
 
 func show_x():
 	$x_sprite.show()
