@@ -62,6 +62,7 @@ z_index = 1
 
 [node name="level_manager" type="Node2D" parent="world"]
 script = ExtResource( 10 )
+starting_level = 2
 
 [node name="parallax_background" type="ParallaxBackground" parent="."]
 layer = -10
