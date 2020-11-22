@@ -34,7 +34,9 @@ collision_mask = 2
 collision_layer = 0
 collision_mask = 2
 
-[node name="spawn_point" type="Position2D" parent="."]
+[node name="spawn_point_there" type="Position2D" parent="."]
+
+[node name="spawn_point_back" type="Position2D" parent="."]
 
 [node name="camera_limits" type="Node2D" parent="."]
 position = Vector2( 112, 72 )

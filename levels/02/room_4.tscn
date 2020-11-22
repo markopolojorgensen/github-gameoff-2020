@@ -1,8 +1,9 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://assets/tilemap_4x4.png" type="Texture" id=1]
 [ext_resource path="res://plunger.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/room.gd" type="Script" id=3]
+[ext_resource path="res://levels/arrow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://spike_spawner.tscn" type="PackedScene" id=5]
 [ext_resource path="res://gravity_well.tscn" type="PackedScene" id=6]
 
@@ -379,8 +380,11 @@ collision_mask = 2
 position = Vector2( -70, -94 )
 shape = SubResource( 38 )
 
-[node name="spawn_point" type="Position2D" parent="."]
+[node name="spawn_point_there" type="Position2D" parent="."]
 position = Vector2( -76, -73 )
+
+[node name="spawn_point_back" type="Position2D" parent="."]
+position = Vector2( -928, -80 )
 
 [node name="plunger" parent="." instance=ExtResource( 2 )]
 position = Vector2( -952, -64 )
@@ -428,5 +432,8 @@ position = Vector2( -799, 148 )
 
 [node name="limit_top" type="Position2D" parent="camera_limits"]
 position = Vector2( -847, -283 )
+
+[node name="arrow" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1, -80 )
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]

@@ -371,8 +371,11 @@ tile_data = PoolIntArray( -9306089, 0, 196609, -9306088, 0, 6, -9306087, 0, 6, -
 [node name="ship" parent="." instance=ExtResource( 3 )]
 position = Vector2( -80.7213, 20.4144 )
 
-[node name="spawn_point" type="Position2D" parent="."]
+[node name="spawn_point_there" type="Position2D" parent="."]
 position = Vector2( 8.24081, 26.0588 )
+
+[node name="spawn_point_back" type="Position2D" parent="."]
+position = Vector2( 416, -592 )
 
 [node name="death_plane" type="Area2D" parent="."]
 collision_layer = 0

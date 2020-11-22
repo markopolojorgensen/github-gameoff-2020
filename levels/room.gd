@@ -6,7 +6,8 @@ const player_death_fx_scene = preload("res://fx/player_death_fx.tscn")
 func _ready():
 	assert($room_start_area_2d.get_collision_mask_bit(1), "Room %s: start area2d cannot collide with player!" % name)
 	assert($death_plane.get_collision_mask_bit(1), "Room %s: Death plane cannot collide with player!" % name)
-	assert($spawn_point, "Room %s: No spawn point is set" % name) # used in crawling_rocks.gd
+	assert(has_node("spawn_point_there"), "Room %s: No spawn_point_there is set" % name)
+	assert(has_node("spawn_point_back"), "Room %s: No spawn_point_back is set" % name)
 	print($tile_map.global_position)
 	if has_node("parallax_background"):
 		$parallax_background.scroll_base_offset = global_position
@@ -41,7 +42,11 @@ func respawn_player_in_last_room(body):
 		player_death_fx.global_position = body.global_position
 		body.queue_free()
 		var player = player_scene.instance()
-		player.global_position = global.current_room.get_node("spawn_point").global_position
+
+		if global.level_manager.plunger_plunged:
+			player.global_position = global.current_room.get_node("spawn_point_back").global_position
+		else:
+			player.global_position = global.current_room.get_node("spawn_point_there").global_position
 		global.world.call_deferred("add_child", player)
 		get_tree().call_group("enemies", "respawn")
 

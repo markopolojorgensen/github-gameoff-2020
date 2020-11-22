@@ -43,8 +43,11 @@ collision_mask = 2
 position = Vector2( 273.075, 172.919 )
 shape = SubResource( 2 )
 
-[node name="spawn_point" type="Position2D" parent="."]
+[node name="spawn_point_there" type="Position2D" parent="."]
 position = Vector2( 17.6866, 84.4285 )
+
+[node name="spawn_point_back" type="Position2D" parent="."]
+position = Vector2( 512, 72 )
 
 [node name="nugget" parent="." instance=ExtResource( 3 )]
 position = Vector2( 410.688, 9.43231 )

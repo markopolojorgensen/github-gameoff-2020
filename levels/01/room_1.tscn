@@ -60,8 +60,11 @@ collision_mask = 2
 position = Vector2( 169.981, 170.393 )
 shape = SubResource( 3 )
 
-[node name="spawn_point" type="Position2D" parent="."]
+[node name="spawn_point_there" type="Position2D" parent="."]
 position = Vector2( 39.5347, 87.3526 )
+
+[node name="spawn_point_back" type="Position2D" parent="."]
+position = Vector2( 488, 64 )
 
 [node name="ship" parent="." instance=ExtResource( 3 )]
 position = Vector2( -33.7119, 71.3569 )
