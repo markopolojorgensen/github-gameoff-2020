@@ -28,7 +28,7 @@ radius = 7.62525
 height = 1.52834
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 96.0052
+radius = 112.004
 
 [sub_resource type="Animation" id=5]
 resource_name = "sleeping"
@@ -133,6 +133,8 @@ tracks/3/keys = {
 }
 
 [node name="walking_rocks" type="RigidBody2D"]
+collision_layer = 9
+collision_mask = 3
 mode = 2
 contacts_reported = 5
 contact_monitor = true
