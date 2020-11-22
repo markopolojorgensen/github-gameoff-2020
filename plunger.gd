@@ -6,4 +6,11 @@ func _on_plunger_body_entered(body):
 		$plunge.play()
 		
 		get_tree().call_group("plunger_listeners", "plunger_hit")
+		get_tree().call_group("camera_limits", "adjust_limits",
+			-10000000,
+			10000000,
+			-10000000,
+			10000000)
+
+
 

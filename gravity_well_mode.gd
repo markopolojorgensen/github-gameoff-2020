@@ -93,7 +93,11 @@ func _on_well_detector_area_exited(area):
 		highlighted_gravity_well.hide_x()
 		highlighted_gravity_well = null
 
-
+func adjust_limits(left, right, top, bottom):
+	$camera.limit_left = left
+	$camera.limit_right = right
+	$camera.limit_top = top
+	$camera.limit_bottom = bottom
 
 
 

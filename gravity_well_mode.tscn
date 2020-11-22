@@ -23,7 +23,9 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 6.0
 
-[node name="gravity_well_mode" type="Node2D"]
+[node name="gravity_well_mode" type="Node2D" groups=[
+"camera_limits",
+]]
 pause_mode = 2
 script = ExtResource( 2 )
 world_camera_path = NodePath("../camera")

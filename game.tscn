@@ -17,6 +17,7 @@ script = ExtResource( 3 )
 pause_mode = 1
 
 [node name="camera" type="Camera2D" parent="world" groups=[
+"camera_limits",
 "plunger_listeners",
 ]]
 pause_mode = 2

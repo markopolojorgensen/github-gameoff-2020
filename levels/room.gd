@@ -19,18 +19,12 @@ func _on_room_start_area_2d_body_entered(_body):
 	global.current_room = self
 	
 	if not global.level_manager.plunger_plunged:
-		var camera : Camera2D = global.camera
 		if has_node("camera_limits"):
-			for camera_limit in $camera_limits.get_children():
-				match camera_limit.name:
-					"limit_left":
-						camera.limit_left = camera_limit.global_position.x
-					"limit_right":
-						camera.limit_right = camera_limit.global_position.x
-					"limit_top":
-						camera.limit_top = camera_limit.global_position.y
-					"limit_bottom":
-						camera.limit_bottom = camera_limit.global_position.y
+			get_tree().call_group("camera_limits", "adjust_limits",
+				$camera_limits/limit_left.global_position.x,
+				$camera_limits/limit_right.global_position.x,
+				$camera_limits/limit_top.global_position.y,
+				$camera_limits/limit_bottom.global_position.y)
 		else:
 			print("%s has no camera limits!" % name)
 

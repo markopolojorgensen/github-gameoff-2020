@@ -33,13 +33,11 @@ PRIORITY
 
 music
 
-
 flipped enemies should be freed when resetting after player death
 
 player should bounce off enemies and the plunger when jumping on them
 
 gravity well mode polish
-  camera limits should apply to gravity well mode as well
   no spawning gravity wells in the wall/floor
     meepmerp when trying
   prevent player from deleting the gravity well they're in
@@ -67,8 +65,6 @@ rooms
     moment of transition when pluging plunger needs to be fixed
   limited number of wells per room
   room transition sfx
-  gravity well mode should also respect room limits
-  arrows showing where transitions are
 
 screen shake
 
@@ -120,9 +116,11 @@ unbork & smooth out level transitions
 
 
 ------------------------- DONE -------------------------
+camera limits apply to gravity well mode as well
 different spawn points for players after plunger plunged
 enemies get their own collision layer
 enemies should start sleeping and wake up when player gets close
+arrows show where room transitions are
 generic room scene to inherit from
 you can re-enter a room after leaving it
 camera limits per room
