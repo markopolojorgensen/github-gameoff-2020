@@ -59,11 +59,11 @@ camera should reset faster on death
 camera hold still during jumps (maybe just vertically?)
 
 rooms
-  restart room button?
   switching to sonic camera mode on the way back
     moment of transition when pluging plunger needs to be fixed
   limited number of wells per room
   room transition sfx
+  restart room button?
 
 screen shake
 
@@ -111,6 +111,12 @@ actual tutorial
 
 level transition animation (fade to black)
 
+real "you win" screen
+
+
+
+
+
 
 
 
@@ -151,6 +157,21 @@ player jump animation
 player gravity-well-spin animation
 player land sfx
 player footstep sfx
+
+
+
+
+
+
+
+
+
+
+camera shenanigans:
+  https://www.gamasutra.com/blogs/ItayKeren/20150511/243083/Scroll_Back_The_Theory_and_Practice_of_Cameras_in_SideScrollers.php
+
+
+
 
 
 

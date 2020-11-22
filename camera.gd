@@ -38,6 +38,8 @@ func _process(delta):
 	else:
 		global_position += global_position.direction_to(desired_position) * speed * delta
 
+func plunger_hit():
+	current = false
 
 func adjust_limits(left, right, top, bottom):
 	limit_left = left

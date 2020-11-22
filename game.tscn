@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sonic_mode_camera.gd" type="Script" id=2]
 [ext_resource path="res://game.gd" type="Script" id=3]
 [ext_resource path="res://assets/nasa/horsehead_green_PIA18905~orig.jpg" type="Texture" id=4]
 [ext_resource path="res://camera.gd" type="Script" id=5]
@@ -16,7 +17,7 @@ script = ExtResource( 3 )
 [node name="world" type="Node2D" parent="."]
 pause_mode = 1
 
-[node name="camera" type="Camera2D" parent="world" groups=[
+[node name="super_mario_camera" type="Camera2D" parent="world" groups=[
 "camera_limits",
 "plunger_listeners",
 ]]
@@ -30,33 +31,46 @@ drag_margin_top = 0.05
 drag_margin_bottom = 0.05
 script = ExtResource( 5 )
 
-[node name="right_anchor" type="Position2D" parent="world/camera"]
+[node name="right_anchor" type="Position2D" parent="world/super_mario_camera"]
 position = Vector2( -32, 0 )
 
-[node name="sprite" type="Sprite" parent="world/camera/right_anchor"]
+[node name="sprite" type="Sprite" parent="world/super_mario_camera/right_anchor"]
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 7 )
 
-[node name="left_threshold" type="Position2D" parent="world/camera"]
+[node name="left_threshold" type="Position2D" parent="world/super_mario_camera"]
 position = Vector2( -50, 0 )
 
-[node name="sprite2" type="Sprite" parent="world/camera/left_threshold"]
+[node name="sprite2" type="Sprite" parent="world/super_mario_camera/left_threshold"]
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 7 )
 
-[node name="left_anchor" type="Position2D" parent="world/camera"]
+[node name="left_anchor" type="Position2D" parent="world/super_mario_camera"]
 position = Vector2( 32, 0 )
 
-[node name="sprite3" type="Sprite" parent="world/camera/left_anchor"]
+[node name="sprite3" type="Sprite" parent="world/super_mario_camera/left_anchor"]
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 7 )
 
-[node name="right_threshold" type="Position2D" parent="world/camera"]
+[node name="right_threshold" type="Position2D" parent="world/super_mario_camera"]
 position = Vector2( 50, 0 )
 
-[node name="sprite4" type="Sprite" parent="world/camera/right_threshold"]
+[node name="sprite4" type="Sprite" parent="world/super_mario_camera/right_threshold"]
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 7 )
+
+[node name="sonic_camera" type="Camera2D" parent="world" groups=[
+"camera_limits",
+"plunger_listeners",
+]]
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+drag_margin_left = 0.1
+drag_margin_top = 0.5
+drag_margin_right = 0.1
+drag_margin_bottom = 0.0
+editor_draw_drag_margin = true
+script = ExtResource( 2 )
 
 [node name="player" parent="world" instance=ExtResource( 1 )]
 z_index = 1
@@ -67,6 +81,7 @@ z_index = 1
 "plunger_listeners",
 ]]
 script = ExtResource( 10 )
+initial_camera_path = NodePath("../super_mario_camera")
 
 [node name="parallax_background" type="ParallaxBackground" parent="."]
 layer = -10

@@ -408,7 +408,7 @@ position = Vector2( 432, 0 )
 position = Vector2( 0, 144 )
 
 [node name="limit_top" type="Position2D" parent="camera_limits"]
-position = Vector2( 0, -304 )
+position = Vector2( 0, -124 )
 
 [node name="arrow" parent="." instance=ExtResource( 2 )]
 position = Vector2( -176, 48 )

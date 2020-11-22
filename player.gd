@@ -172,6 +172,3 @@ func play_random_footstep():
 
 
 
-
-
-

@@ -2,9 +2,6 @@ extends Node2D
 
 const gravity_well_scene = preload("res://gravity_well.tscn")
 
-export(NodePath) var world_camera_path
-onready var world_camera : Camera2D = get_node(world_camera_path)
-
 # slow down time by this much when active
 var activated_time_factor = 30
 
@@ -29,8 +26,8 @@ func _unhandled_input(event):
 			Engine.time_scale = 1
 			hide()
 			$camera.current = false
-			world_camera.global_position = $camera.get_camera_screen_center()
-			world_camera.current = true
+			global.camera.global_position = $camera.get_camera_screen_center()
+			global.camera.current = true
 			$vignette_layer/vignette.hide()
 			$active_hum.stop()
 			global.gravity_well_mode_active = false
@@ -43,8 +40,9 @@ func _unhandled_input(event):
 			Engine.time_scale = 1.0 / activated_time_factor
 			global.gravity_well_mode_active = true
 			show()
-			global_position = world_camera.get_camera_screen_center()
-			world_camera.current = false
+			global_position = global.camera.get_camera_screen_center()
+			global.camera.current = false
+			# don't set global.camera to be this one, we need it later!
 			$camera.current = true
 			$vignette_layer/vignette.show()
 			$active_hum.play()

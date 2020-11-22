@@ -3,6 +3,9 @@ extends Node2D
 
 export(int, "level 1", "level 2", "ideas level") var starting_level
 
+export(NodePath) var initial_camera_path
+onready var initial_camera : Camera2D = get_node(initial_camera_path)
+
 const level_scenes = [
 	preload("res://levels/01/level_01.tscn"),
 	preload("res://levels/02/level_02.tscn"),
@@ -33,6 +36,10 @@ func load_level():
 	
 	global.player = player_scene.instance()
 	get_parent().add_child(global.player)
+	
+	initial_camera.current = true
+	global.camera = initial_camera
+	initial_camera.global_position = global.player.global_position
 
 func ship_entered():
 	if plunger_plunged:
