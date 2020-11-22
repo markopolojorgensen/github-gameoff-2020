@@ -41,9 +41,9 @@ func _on_area_2d_body_entered(body):
 			$flight_tween.stop_all()
 
 			var new_bat = dead_bat.instance()
+			global.world.add_child(new_bat)
 			new_bat.global_position.x = $path_2d/path_follow_2d/area_2d.global_position.x
 			new_bat.global_position.y = $path_2d/path_follow_2d/area_2d.global_position.y
-			global.world.add_child(new_bat)
 			call_deferred("queue_free")
 		else:
 			global.current_room.respawn_player_in_last_room(body)
