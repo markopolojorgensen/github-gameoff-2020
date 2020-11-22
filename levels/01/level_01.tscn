@@ -7,10 +7,10 @@
 [node name="level_01" type="Node2D"]
 
 [node name="l01r01" parent="." instance=ExtResource( 2 )]
-position = Vector2( -37.755, -86.8364 )
+position = Vector2( -37, -87 )
 
 [node name="l01r02" parent="." instance=ExtResource( 1 )]
-position = Vector2( 508.245, -86.8364 )
+position = Vector2( 508, -86 )
 
 [node name="l01r03" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1053.24, -86.8364 )
+position = Vector2( 1060, -86 )

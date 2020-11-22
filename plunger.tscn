@@ -40,8 +40,6 @@ script = ExtResource( 13 )
 
 [node name="animated_sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 3
-playing = true
 
 [node name="static_body_2d" type="StaticBody2D" parent="."]
 collision_mask = 3

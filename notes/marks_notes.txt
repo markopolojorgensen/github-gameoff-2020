@@ -92,8 +92,6 @@ dying after hitting the plunger should send you back to the plunger
 
 player dance animation / celebration (fireworks?)
 
-plunger should only plunge once
-
 separate spawn positions in rooms once plunger is plunged
 
 leaderboard???
@@ -108,7 +106,10 @@ juice for flipping & kicking rocks
 
 unbork & smooth out level transitions
 
+actual tutorial
+  hold a to jump higher
 
+level transition animation (fade to black)
 
 
 
@@ -122,6 +123,7 @@ enemies get their own collision layer
 enemies should start sleeping and wake up when player gets close
 arrows show where room transitions are
 generic room scene to inherit from
+plunger should only plunge once
 you can re-enter a room after leaving it
 camera limits per room
 level manager

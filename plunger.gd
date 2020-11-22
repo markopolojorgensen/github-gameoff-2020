@@ -1,5 +1,8 @@
 extends Area2D
 
+func _ready():
+	$animated_sprite.play()
+
 func _on_plunger_body_entered(body):
 	if "is_player" in body and not global.level_manager.plunger_plunged:
 		$animated_sprite.animation = "plunging"

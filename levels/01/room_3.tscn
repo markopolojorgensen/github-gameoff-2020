@@ -47,7 +47,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="death_plane"]
-position = Vector2( 828.809, 203.246 )
+position = Vector2( 828, 169 )
 shape = SubResource( 2 )
 
 [node name="spawn_point_there" type="Position2D" parent="."]
@@ -99,7 +99,7 @@ position = Vector2( -216, 0 )
 position = Vector2( 424, 0 )
 
 [node name="limit_bottom" type="Position2D" parent="camera_limits"]
-position = Vector2( 0, 104 )
+position = Vector2( 0, 67 )
 
 [node name="limit_top" type="Position2D" parent="camera_limits"]
 position = Vector2( 0, -208 )
