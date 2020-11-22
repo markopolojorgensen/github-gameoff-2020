@@ -38,12 +38,11 @@ flipped enemies should be freed when resetting after player death
 player should bounce off enemies and the plunger when jumping on them
 
 gravity well mode polish
-  no spawning gravity wells in the wall/floor
-    meepmerp when trying
   prevent player from deleting the gravity well they're in
-  ding when placing a gravity wells
+  no spawning gravity wells in the wall/floor
+  meepmerp when trying to spawn a gravity well in the floor
+  ding when placing a gravity well
   slurp when picking up a gravity well
-  gravity well spawn art
   camera shouldn't wobble when leaving gravity well mode
   meep merp if you're in a gravity well and try to enter gravity well placement mode
 
@@ -116,6 +115,7 @@ unbork & smooth out level transitions
 
 
 ------------------------- DONE -------------------------
+gravity wells "grow" on spawn
 camera limits apply to gravity well mode as well
 different spawn points for players after plunger plunged
 enemies get their own collision layer
