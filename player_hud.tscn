@@ -6,12 +6,23 @@
 [ext_resource path="res://player_hud.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
+extra_spacing_top = -5
+extra_spacing_bottom = -2
+extra_spacing_space = -2
 font_data = ExtResource( 1 )
 
 [node name="player_hud" type="CanvasLayer"]
+pause_mode = 2
 script = ExtResource( 4 )
 
-[node name="texture_rect" type="TextureRect" parent="."]
+[node name="control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="texture_rect" type="TextureRect" parent="control"]
 margin_left = 234.0
 margin_top = 23.0
 margin_right = 242.0
@@ -23,7 +34,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="nugget_count" type="Label" parent="."]
+[node name="nugget_count" type="Label" parent="control"]
 margin_left = 245.0
 margin_top = 19.0
 margin_right = 253.0
@@ -35,7 +46,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="gravity_wells" type="Label" parent="."]
+[node name="gravity_wells" type="Label" parent="control"]
 margin_left = 245.0
 margin_top = 3.0
 margin_right = 253.0
@@ -47,7 +58,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="texture_rect2" type="TextureRect" parent="."]
+[node name="texture_rect2" type="TextureRect" parent="control"]
 margin_left = 225.0
 margin_top = 3.0
 margin_right = 241.0
@@ -57,74 +68,64 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="panel_container" type="PanelContainer" parent="."]
+[node name="text_box" type="PanelContainer" parent="control"]
 visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -80.0
-margin_top = -48.0
-margin_right = 80.0
-margin_bottom = -8.0
+margin_left = 28.0
+margin_top = 56.0
+margin_right = 188.0
+margin_bottom = 96.0
 rect_clip_content = true
 size_flags_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="top_text" type="Label" parent="panel_container"]
+[node name="h_box_container" type="HBoxContainer" parent="control/text_box"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 153.0
 margin_bottom = 33.0
+
+[node name="texture_rect3" type="TextureRect" parent="control/text_box/h_box_container"]
+margin_top = 5.0
+margin_right = 16.0
+margin_bottom = 21.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="control/text_box/h_box_container"]
+margin_left = 20.0
+margin_right = 146.0
+margin_bottom = 26.0
 size_flags_horizontal = 3
-size_flags_vertical = 1
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
-text = "Yuna: How the hell could this"
+text = "Now everything takes up the same amount of space on the screen! This makes it a lot easier to figure"
+autowrap = true
 clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="middle_text2" type="Label" parent="panel_container"]
+[node name="ellipses" type="Label" parent="control/text_box"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 153.0
 margin_bottom = 33.0
-size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
-text = "keep happening to us?"
-valign = 1
-clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="bottom_text3" type="Label" parent="panel_container"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 153.0
-margin_bottom = 33.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 1 )
-text = "Here we go again ..."
+text = "..."
+align = 2
 valign = 2
 clip_text = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="texture_rect3" type="TextureRect" parent="panel_container"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 23.0
-margin_bottom = 33.0
-size_flags_horizontal = 0
-size_flags_vertical = 3
-texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -6,12 +6,12 @@
 [ext_resource path="res://assets/bat/bat_waking_0.png" type="Texture" id=4]
 [ext_resource path="res://enemies/bat/bat.gd" type="Script" id=5]
 
-[sub_resource type="Curve2D" id=6]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 30.8143, -27.9745, -30.8143, 27.9745, 0, 8, 23.688, -7.79873, -23.688, 7.79873, -11, 56, -28.6055, 0.132433, 28.6055, -0.132433, -15, 9, -11.4643, -11.7451, 11.4643, 11.7451, 7, 53, 53.9002, -4.76758, -53.9002, 4.76758, 0, 8 )
 }
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": false,
@@ -24,11 +24,11 @@ animations = [ {
 "speed": 12.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 5.0
 height = 6.0
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8, 34 )
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -38,7 +38,7 @@ extents = Vector2( 8, 34 )
 script = ExtResource( 5 )
 
 [node name="path_2d" type="Path2D" parent="."]
-curve = SubResource( 6 )
+curve = SubResource( 1 )
 
 [node name="path_follow_2d" type="PathFollow2D" parent="path_2d"]
 position = Vector2( 0, 8 )
@@ -48,12 +48,12 @@ loop = false
 [node name="area_2d" type="Area2D" parent="path_2d/path_follow_2d"]
 
 [node name="animated_sprite" type="AnimatedSprite" parent="path_2d/path_follow_2d/area_2d"]
-frames = SubResource( 7 )
+frames = SubResource( 2 )
 animation = "waking"
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="path_2d/path_follow_2d/area_2d"]
 position = Vector2( 0, 1 )
-shape = SubResource( 8 )
+shape = SubResource( 3 )
 
 [node name="player_detection" type="Area2D" parent="."]
 position = Vector2( 0, 8 )
@@ -61,7 +61,7 @@ collision_mask = 5
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="player_detection"]
 position = Vector2( -32, 28 )
-shape = SubResource( 9 )
+shape = SubResource( 4 )
 
 [node name="collision_shape_2d2" type="CollisionShape2D" parent="player_detection"]
 position = Vector2( 32, 28 )
