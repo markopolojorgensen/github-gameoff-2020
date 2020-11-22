@@ -33,11 +33,14 @@ PRIORITY
 
 music
 
-enemies should start sleeping and wake up when player gets close
+
+enemies get their own collision layer
 
 different spawn points for players after plunger plunged
 
 flipped enemies should be freed when resetting after player death
+
+player should bounce off enemies and the plunger when jumping on them
 
 gravity well mode polish
   camera limits should apply to gravity well mode as well
@@ -119,6 +122,7 @@ unbork & smooth out level transitions
 
 
 ------------------------- DONE -------------------------
+enemies should start sleeping and wake up when player gets close
 generic room scene to inherit from
 you can re-enter a room after leaving it
 camera limits per room

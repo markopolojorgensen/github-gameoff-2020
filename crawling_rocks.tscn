@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/evil-rock/waking_evil_rock_0.png" type="Texture" id=1]
 [ext_resource path="res://assets/evil-rock/waking_evil_rock_4.png" type="Texture" id=2]
@@ -12,20 +12,125 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "walking",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "waking",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "walking",
+"speed": 8.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 7.62525
 height = 1.52834
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 96.0052
+
+[sub_resource type="Animation" id=5]
+resource_name = "sleeping"
+tracks/0/type = "value"
+tracks/0/path = NodePath("animated_sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "waking" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("animated_sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("animated_sprite:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:awake")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "wake_up"
+tracks/0/type = "value"
+tracks/0/path = NodePath("animated_sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "waking", "walking" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("animated_sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("animated_sprite:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:awake")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [node name="walking_rocks" type="RigidBody2D"]
 mode = 2
@@ -35,11 +140,10 @@ script = ExtResource( 9 )
 
 [node name="animated_sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "walking"
-frame = 1
-playing = true
+animation = "waking"
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0.0662155, 1.32433 )
 shape = SubResource( 2 )
 
@@ -54,4 +158,17 @@ cast_to = Vector2( 5, 10 )
 [node name="kick_jump_timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="player_detector" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="player_detector"]
+shape = SubResource( 3 )
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+anims/sleeping = SubResource( 5 )
+anims/wake_up = SubResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_walking_rocks_body_entered"]
+[connection signal="body_entered" from="player_detector" to="." method="_on_player_detector_body_entered"]

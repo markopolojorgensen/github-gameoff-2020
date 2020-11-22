@@ -12,12 +12,13 @@ const is_crawling_rock = true
 var current_direction = null
 export var starting_direction = Vector2.RIGHT
 
+export(bool) var awake = false
 var rock_mode = "walking"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	$animated_sprite.animation = "walking"
+	$animation_player.play("sleeping")
 	current_direction = starting_direction
 	if starting_direction == Vector2.RIGHT:
 		_handle_right_movement()
@@ -44,6 +45,9 @@ func _handle_right_movement():
 	$animated_sprite.flip_h = false
 
 func _process(delta):
+	if not awake:
+		return
+	
 	match rock_mode:
 		"walking":
 			_process_walking(delta)
@@ -163,3 +167,9 @@ func handle_vertical_kick(delta):
 			apply_central_impulse(-1 * Vector2.DOWN * linear_velocity.y)
 		else:
 			apply_central_impulse(Vector2.DOWN * continued_falling_jump_impulse * delta)
+
+func _on_player_detector_body_entered(body):
+	if "is_player" in body and body.is_player and not awake:
+		$animation_player.play("wake_up")
+		awake = true
+
