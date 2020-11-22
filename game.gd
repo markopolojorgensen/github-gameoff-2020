@@ -1,7 +1,6 @@
 extends Node
 
 
-
 func _ready():
 	OS.window_size = Vector2(768, 432)
 	if OS.get_name() == "X11":

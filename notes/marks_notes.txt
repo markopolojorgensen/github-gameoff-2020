@@ -1,78 +1,125 @@
 ------------------------- TODO -------------------------
+
+PRIORITY
+  rooms?
+  gravity well polish?
+  jump fixes?
+    must hit button after you're on the ground
+    or something, maybe there's some leeway there
+  timer for escape sequences?
+  more levels?
+  level transistions?
+  level select?
+  title screen?
+  start menu?
+
+  moving platforms?
+  falling spikes?
+  more enemies?
+    projectile enemy?
+  enemies in gravity wells?
+
+  dialogue system?
+  secret areas?
+  more characters?
+  boss fight?
+  more nasa images?
+  floating rock parallax background?
+
+
+
+
+
+
 music
+
 enemies should start sleeping and wake up when player gets close
-gravity well mode might be kinda bad
+
+different spawn points for players after plunger plunged
+
+flipped enemies should be freed when resetting after player death
+
 gravity well mode polish
+  camera limits should apply to gravity well mode as well
   prevent player from deleting the gravity well they're in
   ding when placing a gravity wells
   slurp when picking up a gravity well
   gravity well spawn art
   camera shouldn't wobble when leaving gravity well mode
   meep merp if you're in a gravity well and try to enter gravity well placement mode
+
 gravity well polish
   if the player's in a gravity well immediately after cooldown, it should grab them
   gravity wells should grey out during cooldown
+
 jumping through one-way collision platforms shouldn't change animation
+
 player shouldn't collide with one-way platforms from the side
+
 camera should reset faster on death
+
 camera hold still during jumps (maybe just vertically?)
+
 rooms
   clear all wells / restart room button
   switching to sonic camera mode on the way back
+    moment of transition when pluging plunger needs to be fixed
   limited number of wells per room
   room transition sfx
   gravity well mode should also respect room limits
+  arrows showing where transitions are
 
 screen shake
+
 wall of death
+
 timer hud
 
 gravity well player_in_well visibility trigger???
   gravity well dummy player
 
-generic room scene to inherit from
 enemy polish
   animations
 
-
-rooms?
-gravity well polish?
-jump fixes?
-  must hit button after you're on the ground
-  or something, maybe there's some leeway there
-timer for escape sequences?
-more levels?
-level transistions?
-level select?
-title screen?
-start menu?
-
-moving platforms?
-falling spikes?
-more enemies?
-  projectile enemy?
-enemies in gravity wells?
-
-dialogue system?
-secret areas?
-more characters?
-boss fight?
-more nasa images?
-floating rock parallax background?
 main menu shows total time per save file
+
 camera shwoop between room camera limits
+
 palette swap ground tileset for more level variants
   same for spikes, rocks
+
 spikes should shatter when they hit the ground
+
 spikes should shake when player in gravity well is close enough
+
 dying after hitting the plunger should send you back to the plunger
+
 player dance animation / celebration (fireworks?)
+
 plunger should only plunge once
+
 separate spawn positions in rooms once plunger is plunged
+
 leaderboard???
+
 ONLINE LEADERBOARD??????
 
+actually get on the ship to start next level
+
+ship flying away / landing per level
+
+juice for flipping & kicking rocks
+
+unbork & smooth out level transitions
+
+
+
+
+
+
+
 ------------------------- DONE -------------------------
+generic room scene to inherit from
 you can re-enter a room after leaving it
 camera limits per room
 level manager

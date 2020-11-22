@@ -15,7 +15,7 @@ func start_flight():
 			Tween.TRANS_SINE, Tween.EASE_IN_OUT)
 		$flight_tween.start()
 
-func _on_flight_tween_tween_completed(object, key):
+func _on_flight_tween_tween_completed(_object, _key):
 	repeat-= 1
 	flight_started = false
 

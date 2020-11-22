@@ -1,10 +1,11 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://assets/tilemap_4x4.png" type="Texture" id=1]
 [ext_resource path="res://levels/room.gd" type="Script" id=2]
 [ext_resource path="res://ship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://enemy_spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://nugget.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/arrow.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 4, 4, 2, 4, 2, 0, 4, 0 )
@@ -420,9 +421,15 @@ position = Vector2( -392, 0 )
 [node name="limit_right" type="Position2D" parent="camera_limits"]
 position = Vector2( 232, 0 )
 
+[node name="indicator" type="Position2D" parent="camera_limits/limit_right"]
+position = Vector2( 0, -664 )
+
 [node name="limit_bottom" type="Position2D" parent="camera_limits"]
 
 [node name="limit_top" type="Position2D" parent="camera_limits"]
 position = Vector2( 0, -728 )
+
+[node name="arrow" parent="." instance=ExtResource( 6 )]
+position = Vector2( 416, -592 )
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]

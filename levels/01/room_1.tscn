@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/room.gd" type="Script" id=1]
 [ext_resource path="res://levels/tilesets/tileset_4x4_one_way.tres" type="TileSet" id=2]
 [ext_resource path="res://ship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/arrow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/tilesets/tileset_4x4.tres" type="TileSet" id=5]
-
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26.4961, 10 )
@@ -80,5 +80,8 @@ position = Vector2( 0, 96 )
 
 [node name="limit_top" type="Position2D" parent="camera_limits"]
 position = Vector2( 0, -176 )
+
+[node name="arrow" parent="." instance=ExtResource( 4 )]
+position = Vector2( 488, 72 )
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]

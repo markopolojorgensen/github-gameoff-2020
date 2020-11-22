@@ -42,7 +42,8 @@ func ship_entered():
 		else:
 			call_deferred("load_level")
 
-
+func plunger_hit():
+	plunger_plunged = true
 
 
 

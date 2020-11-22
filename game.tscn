@@ -16,7 +16,9 @@ script = ExtResource( 3 )
 [node name="world" type="Node2D" parent="."]
 pause_mode = 1
 
-[node name="camera" type="Camera2D" parent="world"]
+[node name="camera" type="Camera2D" parent="world" groups=[
+"plunger_listeners",
+]]
 pause_mode = 2
 visible = false
 current = true
@@ -60,9 +62,10 @@ z_index = 1
 
 [node name="gravity_well_mode" parent="world" instance=ExtResource( 8 )]
 
-[node name="level_manager" type="Node2D" parent="world"]
+[node name="level_manager" type="Node2D" parent="world" groups=[
+"plunger_listeners",
+]]
 script = ExtResource( 10 )
-starting_level = 2
 
 [node name="parallax_background" type="ParallaxBackground" parent="."]
 layer = -10

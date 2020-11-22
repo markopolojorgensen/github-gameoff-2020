@@ -1,6 +1,7 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://assets/tilemap_4x4.png" type="Texture" id=1]
+[ext_resource path="res://levels/arrow.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/room.gd" type="Script" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -405,5 +406,12 @@ position = Vector2( 0, 144 )
 
 [node name="limit_top" type="Position2D" parent="camera_limits"]
 position = Vector2( 0, -304 )
+
+[node name="arrow" parent="." instance=ExtResource( 2 )]
+position = Vector2( -176, 48 )
+flip = true
+
+[node name="arrow2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 616, 48 )
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]

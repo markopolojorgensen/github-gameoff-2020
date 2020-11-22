@@ -39,4 +39,9 @@ func _process(delta):
 		global_position += global_position.direction_to(desired_position) * speed * delta
 	
 
-
+func plunger_hit():
+	# reset to defaults
+	limit_bottom = 10000000
+	limit_right = 10000000
+	limit_left = -10000000
+	limit_top = -10000000
