@@ -36,24 +36,28 @@ __meta__ = {
 
 [node name="nugget_count" type="Label" parent="control"]
 margin_left = 245.0
-margin_top = 19.0
+margin_top = 23.0
 margin_right = 253.0
 margin_bottom = 32.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
 text = "65"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="gravity_wells" type="Label" parent="control"]
-margin_left = 245.0
-margin_top = 3.0
+margin_left = 244.0
+margin_top = 7.0
 margin_right = 253.0
 margin_bottom = 16.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 1 )
 text = "5"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
