@@ -88,15 +88,15 @@ position = Vector2( -8, 72 )
 flip = true
 
 [node name="dialog_text" parent="." instance=ExtResource( 6 )]
-position = Vector2( 53, 85 )
-dialog_text = "James: No, I've never seen a rock monster. Sounds wild! Try jumping on it and see what happens."
+position = Vector2( 59, 85 )
+dialog_text = "Yuna: There's a weird rock monster out in front of me. | James: I've never seen a rock monster - sounds wild! | Try jumping on it and see what happens."
 
 [node name="dialog_text2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 150, 85 )
-dialog_text = "James: Oh, they flip over? Try running into it and see what happens!"
+position = Vector2( 156, 84 )
+dialog_text = "Yuna: They seem to flip over when you jump on them. | James: Oh, they flip over? Try running into it and see what happens!"
 
 [node name="dialog_text3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 380, 37 )
-dialog_text = "James: A nugget! Wow, they're really hard to find! You should grab it if you can. It'll make it easier to get off the moon!"
+position = Vector2( 387, 37 )
+dialog_text = "Yuna: I found a nugget! | James: Wow, a nugget! They're really rare! You should grab it if you can."
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]

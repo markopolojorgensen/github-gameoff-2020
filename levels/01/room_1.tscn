@@ -90,6 +90,6 @@ position = Vector2( 488, 72 )
 
 [node name="dialog_text" parent="." instance=ExtResource( 6 )]
 position = Vector2( 99.4362, 97.2534 )
-dialog_text = "James: So, this is another one of those moons that's been pushed out of it's orbit. They usually leave a plunger behind. Look around to see if you can find it!"
+dialog_text = "James: So, this is another one of those moons that's been pushed out of it's orbit. | They usually leave a plunger behind. Look around to see if you can find it!"
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]

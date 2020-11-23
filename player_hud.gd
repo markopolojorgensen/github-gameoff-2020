@@ -8,34 +8,48 @@ func _ready():
 	global.player_hud = self
 
 func show_text(text):
-	if text.length() < 100:
+	if "|" in text:
+		_initialize_multiline()
+		var chunks = text.split("|")
+
+		for chunk in chunks:
+			var new_sequence = []
+			var split_by_size = _split_text(chunk, new_sequence)
+			text_sequence += new_sequence
+
+		$control/text_box/h_box_container/text.text = text_sequence[current_sequence]
+		$control/text_box.show()
+		$control/text_box/ellipses.show()
+			
+		
+	elif text.length() < 100:
 		additional_text = false
 		$control/text_box/h_box_container/text.text = text
 		$control/text_box.show()
 		$control/text_box/ellipses.hide()
 		
 	else:
-		_initialize_multiline(text)
+		_initialize_multiline()
+		_split_text(text, text_sequence)
 		$control/text_box/h_box_container/text.text = text_sequence[current_sequence]
 		$control/text_box.show()
 		$control/text_box/ellipses.show()
 
 	get_tree().paused = true
 
-func _initialize_multiline(text):
+func _initialize_multiline():
 	additional_text = true
 	text_sequence = []
 	current_sequence = 0
-	_split_text(text)
 	
-func _split_text(text):
+func _split_text(text, sequence):
 	if text.length() < 100:
-		text_sequence.append(text)
+		sequence.append(text.strip_edges())
 		return
 
-	var split_index = text.rfind(" ", 100) # hopefully we don't have any 10+ letter words
-	text_sequence.append(text.substr(0, split_index))
-	_split_text(text.substr(split_index + 1, -1)) # the +1 on split_index is to remove the space at the beginning of the next slide
+	var split_index = text.rfind(" ", 90) # hopefully we don't have any 10+ letter words
+	sequence.append(text.substr(0, split_index).strip_edges())
+	_split_text(text.substr(split_index, -1).strip_edges(), sequence) # the +1 on split_index is to remove the space at the beginning of the next slide
 		
 	
 func _unhandled_input(event):
