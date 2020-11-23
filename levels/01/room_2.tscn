@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/arrow.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/room.gd" type="Script" id=2]
 [ext_resource path="res://nugget.tscn" type="PackedScene" id=3]
 [ext_resource path="res://enemy_spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/tilesets/tileset_4x4.tres" type="TileSet" id=5]
+[ext_resource path="res://dialog_text.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.2025, 48 )
@@ -85,5 +86,17 @@ position = Vector2( 520, 72 )
 [node name="arrow2" parent="." instance=ExtResource( 1 )]
 position = Vector2( -8, 72 )
 flip = true
+
+[node name="dialog_text" parent="." instance=ExtResource( 6 )]
+position = Vector2( 53, 85 )
+dialog_text = "James: No, I've never seen a rock monster. Sounds wild! Try jumping on it and see what happens."
+
+[node name="dialog_text2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 150, 85 )
+dialog_text = "James: Oh, they flip over? Try running into it and see what happens!"
+
+[node name="dialog_text3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 380, 37 )
+dialog_text = "James: A nugget! Wow, they're really hard to find! You should grab it if you can. It'll make it easier to get off the moon!"
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]

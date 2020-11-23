@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://enemy_spawner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/room.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://levels/tilesets/tileset_4x4.tres" type="TileSet" id=5]
 [ext_resource path="res://nugget.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/arrow.tscn" type="PackedScene" id=7]
+[ext_resource path="res://dialog_text.tscn" type="PackedScene" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 48 )
@@ -107,5 +108,17 @@ position = Vector2( 0, -208 )
 [node name="arrow" parent="." instance=ExtResource( 7 )]
 position = Vector2( 16, 72 )
 flip = true
+
+[node name="dialog_text" parent="." instance=ExtResource( 8 )]
+position = Vector2( 54, 85 )
+dialog_text = "James: Huh, weird green portal??? Oh yeah, that must be a gravity well! If you jump into it, you can launch yourself to other platforms."
+
+[node name="dialog_text2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 151, 65 )
+dialog_text = "James: Oh wow, a bunch of nuggets!? They're really hard to find. If you need help getting to other platforms, you can place a gravity well to get to it."
+
+[node name="dialog_text3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 571, 17 )
+dialog_text = "James: You found the plunger! Nice! As soon as you jump on it, you'll need to hurry back to the ship, as the moon will be launched back into its original orbit when the countdown ends."
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]

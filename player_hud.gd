@@ -33,9 +33,9 @@ func _split_text(text):
 		text_sequence.append(text)
 		return
 
-	var split_index = text.find(" ", 88) # 88 was arbitraily chosen
+	var split_index = text.rfind(" ", 100) # hopefully we don't have any 10+ letter words
 	text_sequence.append(text.substr(0, split_index))
-	_split_text(text.substr(split_index, -1))
+	_split_text(text.substr(split_index + 1, -1)) # the +1 on split_index is to remove the space at the beginning of the next slide
 		
 	
 func _unhandled_input(event):

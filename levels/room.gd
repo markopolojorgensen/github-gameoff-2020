@@ -52,8 +52,3 @@ func _on_death_plane_body_entered(body):
 		body.queue_free()
 	# TODO: expand the death plane to enemies? and then free them when they die?
 	# I'll have to ask Jorg about if godot will clear enemies or not.
-
-
-func _show_temportaty_text(body):
-	if "is_player" in body:
-		global.player_hud.show_text("test test test Now this is a really long thing to see what happens if the text needs to wrap or whatever")
