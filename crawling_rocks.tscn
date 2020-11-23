@@ -30,7 +30,7 @@ height = 1.52834
 [sub_resource type="CircleShape2D" id=3]
 radius = 112.004
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "sleeping"
 tracks/0/type = "value"
 tracks/0/path = NodePath("animated_sprite:animation")
@@ -81,8 +81,7 @@ tracks/3/keys = {
 "values": [ false, false ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "wake_up"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("animated_sprite:animation")
 tracks/0/interp = 1
@@ -170,7 +169,7 @@ collision_mask = 2
 shape = SubResource( 3 )
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
-anims/sleeping = SubResource( 5 )
-anims/wake_up = SubResource( 4 )
+anims/sleeping = SubResource( 4 )
+anims/wake_up = SubResource( 5 )
 [connection signal="body_entered" from="." to="." method="_on_walking_rocks_body_entered"]
 [connection signal="body_entered" from="player_detector" to="." method="_on_player_detector_body_entered"]
