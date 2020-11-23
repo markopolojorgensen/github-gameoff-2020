@@ -11,7 +11,7 @@ PRIORITY
   level transistions?
   level select?
   title screen?
-  start menu?
+  start menu / pause menu?
 
   moving platforms?
   falling spikes?
@@ -58,13 +58,13 @@ camera should reset faster on death
 
 camera hold still during jumps (maybe just vertically?)
 
-rooms
+room "runways" leading up to transition
 
+rooms
   camera shouldn't snap instantly when dying in sonic mode
   limited number of wells per room
   room transition sfx
   restart room button?
-
 
 screen shake
 
@@ -109,6 +109,7 @@ unbork & smooth out level transitions
 
 actual tutorial
   hold a to jump higher
+  here's how to use wells
 
 level transition animation (fade to black)
 
