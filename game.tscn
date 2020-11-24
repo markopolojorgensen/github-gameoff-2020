@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sonic_mode_camera.gd" type="Script" id=2]
 [ext_resource path="res://game.gd" type="Script" id=3]
 [ext_resource path="res://assets/nasa/horsehead_green_PIA18905~orig.jpg" type="Texture" id=4]
 [ext_resource path="res://camera.gd" type="Script" id=5]
+[ext_resource path="res://menu/main_menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://icon.png" type="Texture" id=7]
 [ext_resource path="res://gravity_well_mode.tscn" type="PackedScene" id=8]
 [ext_resource path="res://player_hud.tscn" type="PackedScene" id=9]
@@ -99,3 +100,5 @@ __meta__ = {
 }
 
 [node name="player_hud" parent="." instance=ExtResource( 9 )]
+
+[node name="main_menu" parent="." instance=ExtResource( 6 )]

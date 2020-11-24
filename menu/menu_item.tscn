@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/nugget/nugget.png" type="Texture" id=1]
+[ext_resource path="res://menu/menu_item.gd" type="Script" id=2]
+
+[node name="menu_item" type="Control"]
+margin_right = 8.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 8, 8 )
+focus_mode = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nugget" type="TextureRect" parent="."]
+margin_right = 17.0
+margin_bottom = 8.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="focus_entered" from="." to="." method="_on_menu_item_focus_entered"]

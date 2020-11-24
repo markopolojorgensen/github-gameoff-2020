@@ -21,7 +21,7 @@ const player_scene = preload("res://player.tscn")
 func _ready():
 	global.level_manager = self
 	current_level_index = starting_level
-	call_deferred("load_level")
+	# call_deferred("load_level")
 
 func load_level():
 	global.player.queue_free()
