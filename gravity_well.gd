@@ -10,6 +10,7 @@ const is_gravity_well = true
 var room_name = "???"
 
 func _ready():
+	$grab.play()
 	$player_in_well/animated_sprite.play()
 	$x_sprite.hide()
 
