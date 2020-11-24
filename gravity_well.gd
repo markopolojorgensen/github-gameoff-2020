@@ -62,9 +62,8 @@ func _unhandled_input(event):
 			Engine.time_scale = 1
 
 func clear_room(clear_room_name):
-	if room_name == clear_room_name:
+	if room_name == clear_room_name and not is_player_in_well():
 		queue_free()
-
 
 func show_x():
 	$x_sprite.show()

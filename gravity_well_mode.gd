@@ -51,7 +51,7 @@ func _unhandled_input(event):
 	if active and event.is_action_pressed("place_gravity_well"):
 		get_tree().set_input_as_handled()
 		
-		if highlighted_gravity_well:
+		if highlighted_gravity_well and not highlighted_gravity_well.is_player_in_well():
 			# destroy old gravity well
 			gravity_well_tracker.remove_well(highlighted_gravity_well)
 			highlighted_gravity_well.queue_free()
@@ -93,7 +93,8 @@ func _on_well_detector_area_entered(area):
 		highlighted_gravity_well.hide_x()
 	
 	highlighted_gravity_well = gravity_well
-	highlighted_gravity_well.show_x()
+	if not highlighted_gravity_well.is_player_in_well():
+		highlighted_gravity_well.show_x()
 
 func _on_well_detector_area_exited(area):
 	var gravity_well = area.get_parent()

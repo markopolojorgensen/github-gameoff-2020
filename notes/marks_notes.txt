@@ -39,7 +39,6 @@ flipped enemies should be freed when resetting after player death
 player should bounce off enemies and the plunger when jumping on them
 
 gravity well mode polish
-  prevent player from deleting the gravity well they're in
   no spawning gravity wells in the wall/floor
   meepmerp when trying to spawn a gravity well in the floor
   ding when placing a gravity well
@@ -62,7 +61,6 @@ camera hold still during jumps (maybe just vertically?)
 room "runways" leading up to transition
 
 rooms
-  camera shouldn't snap instantly when dying in sonic mode
   room transition sfx
   restart room button?
 
@@ -126,6 +124,8 @@ dialogue system should ignore inputs for a second or two after popping up
 
 
 ------------------------- DONE -------------------------
+player can't delete the gravity well they're in
+camera no longer snaps instantly when dying in sonic mode
 gravity well limits within rooms
 There's a main menux
 super mario camera -> sonic camera transition is smoother

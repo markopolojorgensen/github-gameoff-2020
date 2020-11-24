@@ -74,7 +74,6 @@ drag_margin_right = 0.1
 drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 script = ExtResource( 2 )
-draw_margin = true
 
 [node name="smooth_time" type="Timer" parent="world/sonic_camera"]
 one_shot = true
