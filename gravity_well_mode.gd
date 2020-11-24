@@ -54,7 +54,7 @@ func _unhandled_input(event):
 		if highlighted_gravity_well and not highlighted_gravity_well.is_player_in_well():
 			# destroy old gravity well
 			gravity_well_tracker.remove_well(highlighted_gravity_well)
-			highlighted_gravity_well.queue_free()
+			highlighted_gravity_well.delete()
 			highlighted_gravity_well = null
 		else:
 			# create new gravity well

@@ -41,9 +41,7 @@ player should bounce off enemies and the plunger when jumping on them
 gravity well mode polish
   indicate why player can't spawn gravity well:
     flash & shake hud element if they're out of wells for that room
-  slurp when picking up a gravity well
   camera shouldn't wobble when leaving gravity well mode
-
 
 gravity well polish
   if the player's in a gravity well immediately after cooldown, it should grab them
@@ -112,6 +110,8 @@ level transition animation (fade to black)
 
 real "you win" screen
 
+dialogue sfx
+
 dialogue system should ignore inputs for a second or two after popping up
   avoid skipping dialogue when the player thinks they're about to jump
 
@@ -123,6 +123,7 @@ dialogue system should ignore inputs for a second or two after popping up
 
 
 ------------------------- DONE -------------------------
+ding when picking up a gravity well
 ding when placing a gravity well
 meepmerp when trying to spawn a gravity well in the floor
 no spawning gravity wells in the wall/floor

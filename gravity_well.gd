@@ -10,7 +10,7 @@ const is_gravity_well = true
 var room_name = "???"
 
 func _ready():
-	$grab.play()
+	$startup.play()
 	$player_in_well/animated_sprite.play()
 	$x_sprite.hide()
 
@@ -64,7 +64,7 @@ func _unhandled_input(event):
 
 func clear_room(clear_room_name):
 	if room_name == clear_room_name and not is_player_in_well():
-		queue_free()
+		delete()
 
 func show_x():
 	$x_sprite.show()
@@ -72,4 +72,16 @@ func show_x():
 func hide_x():
 	$x_sprite.hide()
 
-
+func delete():
+	if $death_timer.is_stopped():
+		gravity_well_tracker.remove_well(self)
+		
+		$death_timer.start()
+		$shutdown.play()
+		$animation_player.play_backwards("grow")
+		
+		yield($death_timer, "timeout")
+		
+		queue_free()
+	
+	
