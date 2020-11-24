@@ -58,12 +58,14 @@ func _unhandled_input(event):
 			highlighted_gravity_well = null
 		else:
 			# create new gravity well
-			if gravity_well_tracker.can_add_well():
+			if gravity_well_tracker.can_add_well() and $ground_detector.get_overlapping_bodies().size() <= 0:
 				var gravity_well = gravity_well_scene.instance()
 				gravity_well_tracker.add_well(gravity_well)
 				gravity_well.global_position = global_position
 				gravity_well.room_name = global.current_room.name
 				get_parent().add_child(gravity_well)
+			else:
+				$meepmerp.play()
 		
 		gravity_well_tracker.update()
 	
@@ -107,6 +109,8 @@ func adjust_limits(left, right, top, bottom):
 	$camera.limit_right = right
 	$camera.limit_top = top
 	$camera.limit_bottom = bottom
+
+
 
 
 
