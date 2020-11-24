@@ -14,20 +14,20 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "trawling",
-"speed": 7.0
+"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "down",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 10 ) ],
 "loop": false,
 "name": "spike",
 "speed": 100.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "down",
-"speed": 5.0
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "trawling",
+"speed": 7.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -43,7 +43,7 @@ script = ExtResource( 9 )
 position = Vector2( 0, -5 )
 frames = SubResource( 1 )
 animation = "trawling"
-frame = 6
+frame = 1
 playing = true
 
 [node name="edge_detector" type="RayCast2D" parent="."]
