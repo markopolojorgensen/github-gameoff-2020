@@ -38,11 +38,7 @@ flipped enemies should be freed when resetting after player death
 
 player should bounce off enemies and the plunger when jumping on them
 
-gravity well mode polish
-  camera shouldn't wobble when leaving gravity well mode
-
-gravity well polish
-  gravity wells should grey out during cooldown
+camera shouldn't wobble when leaving gravity well mode
 
 jumping through one-way collision platforms shouldn't change animation
 
@@ -132,7 +128,7 @@ no spawning gravity wells in the wall/floor
 player can't delete the gravity well they're in
 camera no longer snaps instantly when dying in sonic mode
 gravity well limits within rooms
-There's a main menux
+There's a main menu
 super mario camera -> sonic camera transition is smoother
 sonic camera mode on the way back
 press R2 to clear all player-placed wells in the current room
@@ -295,6 +291,7 @@ sfx
 --------------------- DEFUNCT IDEAS --------------------
 gravity well is based on analog stick movement, flick the stick is all that is needed
 meep merp if you're in a gravity well and try to enter gravity well placement mode
+gravity wells should grey out during cooldown
 
 
 
