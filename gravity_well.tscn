@@ -74,21 +74,25 @@ stream = ExtResource( 4 )
 pause_mode = 2
 stream = ExtResource( 5 )
 volume_db = -10.0
+max_distance = 300.0
 
 [node name="startup" type="AudioStreamPlayer2D" parent="."]
 pause_mode = 2
 stream = ExtResource( 15 )
 volume_db = -10.0
+max_distance = 300.0
 
 [node name="shutdown" type="AudioStreamPlayer2D" parent="."]
 pause_mode = 2
 stream = ExtResource( 16 )
 volume_db = -10.0
+max_distance = 300.0
 
 [node name="ding" type="AudioStreamPlayer2D" parent="."]
 pause_mode = 2
 stream = ExtResource( 6 )
 volume_db = -10.0
+max_distance = 300.0
 
 [node name="x_sprite" type="Sprite" parent="."]
 texture = ExtResource( 14 )

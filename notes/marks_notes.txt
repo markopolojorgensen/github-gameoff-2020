@@ -44,7 +44,6 @@ gravity well mode polish
   camera shouldn't wobble when leaving gravity well mode
 
 gravity well polish
-  if the player's in a gravity well immediately after cooldown, it should grab them
   gravity wells should grey out during cooldown
 
 jumping through one-way collision platforms shouldn't change animation
@@ -123,6 +122,7 @@ dialogue system should ignore inputs for a second or two after popping up
 
 
 ------------------------- DONE -------------------------
+When the player is in a gravity well immediately after cooldown, it grabs them
 ding when picking up a gravity well
 ding when placing a gravity well
 meepmerp when trying to spawn a gravity well in the floor

@@ -28,20 +28,27 @@ func _process(delta):
 		else:
 			# no intended direction, lerp back to center of well
 			$player_in_well.position = $player_in_well.position.linear_interpolate(Vector2(), delta)
+	else:
+		for body in $area_2d.get_overlapping_bodies():
+			_on_area_2d_body_entered(body)
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("accepts_gravity_well") and body.accepts_gravity_well():
-		$player_in_well.show()
-		$player_in_well.global_position = body.global_position
-		$player_in_well/animated_sprite.flip_h = body.get_node("animated_sprite").flip_h
-		global.camera_follow = $player_in_well
-		body.queue_free()
-		$hum/tween.interpolate_property($hum, "volume_db", -60, 0, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-		$hum/tween.start()
-		$hum.play()
-		$grab.play()
-		if not global.gravity_well_mode_active:
-			Engine.time_scale = 0.5
+		player_entered()
+
+func player_entered():
+	$player_in_well.show()
+	$player_in_well.global_position = global.player.global_position
+	$player_in_well/animated_sprite.flip_h = global.player.get_node("animated_sprite").flip_h
+	global.camera_follow = $player_in_well
+	global.player.queue_free()
+	global.player = null
+	$hum/tween.interpolate_property($hum, "volume_db", -60, 0, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$hum/tween.start()
+	$hum.play()
+	$grab.play()
+	if not global.gravity_well_mode_active:
+		Engine.time_scale = 0.5
 
 func is_player_in_well():
 	return $player_in_well.visible
