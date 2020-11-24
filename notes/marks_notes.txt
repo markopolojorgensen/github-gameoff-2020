@@ -39,8 +39,7 @@ flipped enemies should be freed when resetting after player death
 player should bounce off enemies and the plunger when jumping on them
 
 gravity well mode polish
-  indicate why player can't spawn gravity well:
-    flash & shake hud element if they're out of wells for that room
+  shake terrain when trying to place gravity well in the ground?
   camera shouldn't wobble when leaving gravity well mode
 
 gravity well polish
@@ -122,6 +121,7 @@ dialogue system should ignore inputs for a second or two after popping up
 
 
 ------------------------- DONE -------------------------
+shake hud element if player is out of wells for a room and tries to place one
 When the player is in a gravity well immediately after cooldown, it grabs them
 ding when picking up a gravity well
 ding when placing a gravity well

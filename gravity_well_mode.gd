@@ -66,6 +66,7 @@ func _unhandled_input(event):
 				get_parent().add_child(gravity_well)
 			else:
 				$meepmerp.play()
+				gravity_well_tracker.gravity_well_hud.shake_it_up()
 		
 		gravity_well_tracker.update()
 	

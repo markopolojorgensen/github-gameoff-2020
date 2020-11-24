@@ -1,0 +1,175 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/m3x6.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/gravity-well/gravity-well.png" type="Texture" id=2]
+[ext_resource path="res://assets/nugget/nugget.png" type="Texture" id=3]
+[ext_resource path="res://hud/player_hud.gd" type="Script" id=4]
+[ext_resource path="res://hud/nugget_count.gd" type="Script" id=5]
+[ext_resource path="res://shaker.tscn" type="PackedScene" id=6]
+[ext_resource path="res://hud/gravity_wells_hud_element.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+extra_spacing_top = -5
+extra_spacing_bottom = -2
+extra_spacing_space = -2
+font_data = ExtResource( 1 )
+
+[node name="player_hud" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 4 )
+
+[node name="margin_container" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 4
+custom_constants/margin_top = 4
+custom_constants/margin_left = 4
+custom_constants/margin_bottom = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="v_box_container" type="VBoxContainer" parent="margin_container"]
+margin_left = 224.0
+margin_top = 4.0
+margin_right = 252.0
+margin_bottom = 32.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="gravity_wells" type="HBoxContainer" parent="margin_container/v_box_container"]
+margin_right = 28.0
+margin_bottom = 16.0
+alignment = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="texture_rect" type="TextureRect" parent="margin_container/v_box_container/gravity_wells"]
+margin_right = 16.0
+margin_bottom = 16.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="margin_container/v_box_container/gravity_wells"]
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 28.0
+margin_bottom = 11.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shaker" parent="margin_container/v_box_container/gravity_wells" instance=ExtResource( 6 )]
+
+[node name="nuggets" type="HBoxContainer" parent="margin_container/v_box_container"]
+margin_top = 20.0
+margin_right = 28.0
+margin_bottom = 28.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="texture_rect" type="TextureRect" parent="margin_container/v_box_container/nuggets"]
+margin_left = 8.0
+margin_right = 16.0
+margin_bottom = 8.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="nugget_count" type="Label" parent="margin_container/v_box_container/nuggets"]
+margin_left = 20.0
+margin_top = 1.0
+margin_right = 28.0
+margin_bottom = 7.0
+size_flags_horizontal = 4
+custom_fonts/font = SubResource( 1 )
+text = "65"
+align = 1
+valign = 1
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text_box" type="PanelContainer" parent="control"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 28.0
+margin_top = 56.0
+margin_right = 188.0
+margin_bottom = 96.0
+rect_clip_content = true
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="h_box_container" type="HBoxContainer" parent="control/text_box"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 153.0
+margin_bottom = 33.0
+
+[node name="texture_rect3" type="TextureRect" parent="control/text_box/h_box_container"]
+margin_top = 5.0
+margin_right = 16.0
+margin_bottom = 21.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="control/text_box/h_box_container"]
+margin_left = 20.0
+margin_right = 146.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Now everything takes up the same amount of space on the screen! This makes it a lot easier to figure"
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ellipses" type="Label" parent="control/text_box"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 153.0
+margin_bottom = 33.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+text = "..."
+align = 2
+valign = 2
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

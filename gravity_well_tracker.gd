@@ -1,5 +1,7 @@
 extends Node
 
+var gravity_well_hud
+
 var gravity_wells = {}
 
 # current room tracker
