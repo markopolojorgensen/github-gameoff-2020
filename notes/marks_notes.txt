@@ -1,5 +1,8 @@
 ------------------------- TODO -------------------------
 
+bust out a start menu
+gravity well limits within rooms
+
 PRIORITY
   rooms?
   gravity well polish?
