@@ -1,7 +1,7 @@
 ------------------------- TODO -------------------------
 
-bust out a start menu
-gravity well limits within rooms
+dialogue system should ignore inputs for a second or two after popping up
+  avoid skipping dialogue when the player thinks they're about to jump
 
 PRIORITY
   rooms?
@@ -65,7 +65,6 @@ room "runways" leading up to transition
 
 rooms
   camera shouldn't snap instantly when dying in sonic mode
-  limited number of wells per room
   room transition sfx
   restart room button?
 
@@ -127,6 +126,8 @@ real "you win" screen
 
 
 ------------------------- DONE -------------------------
+gravity well limits within rooms
+There's a main menux
 super mario camera -> sonic camera transition is smoother
 sonic camera mode on the way back
 press R2 to clear all player-placed wells in the current room

@@ -77,4 +77,5 @@ func _resume_game():
 
 func _process(_delta):
 	$control/nugget_count.text = String(global.nugget_count)
-	$control/gravity_wells.text = String(global.gravity_wells)
+	$control/gravity_wells.text = String(gravity_well_tracker.available_wells)
+

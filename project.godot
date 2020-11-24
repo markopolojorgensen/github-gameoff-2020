@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 global="*res://global.gd"
+gravity_well_tracker="*res://gravity_well_tracker.gd"
 
 [debug]
 

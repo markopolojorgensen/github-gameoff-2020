@@ -53,14 +53,19 @@ func _unhandled_input(event):
 		
 		if highlighted_gravity_well:
 			# destroy old gravity well
+			gravity_well_tracker.remove_well(highlighted_gravity_well)
 			highlighted_gravity_well.queue_free()
 			highlighted_gravity_well = null
 		else:
 			# create new gravity well
-			var gravity_well = gravity_well_scene.instance()
-			gravity_well.global_position = global_position
-			gravity_well.room_name = global.current_room.name
-			get_parent().add_child(gravity_well)
+			if gravity_well_tracker.can_add_well():
+				var gravity_well = gravity_well_scene.instance()
+				gravity_well_tracker.add_well(gravity_well)
+				gravity_well.global_position = global_position
+				gravity_well.room_name = global.current_room.name
+				get_parent().add_child(gravity_well)
+		
+		gravity_well_tracker.update()
 	
 	if event.is_action_pressed("clear_room_wells"):
 		get_tree().set_input_as_handled()
