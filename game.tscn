@@ -63,15 +63,21 @@ texture = ExtResource( 7 )
 [node name="sonic_camera" type="Camera2D" parent="world" groups=[
 "camera_limits",
 "plunger_listeners",
+"sonic_camera",
 ]]
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
+smoothing_speed = 7.0
 drag_margin_left = 0.1
 drag_margin_top = 0.5
 drag_margin_right = 0.1
 drag_margin_bottom = 0.0
 editor_draw_drag_margin = true
 script = ExtResource( 2 )
+draw_margin = true
+
+[node name="smooth_time" type="Timer" parent="world/sonic_camera"]
+one_shot = true
 
 [node name="player" parent="world" instance=ExtResource( 1 )]
 z_index = 1
@@ -102,3 +108,5 @@ __meta__ = {
 [node name="player_hud" parent="." instance=ExtResource( 9 )]
 
 [node name="main_menu" parent="." instance=ExtResource( 6 )]
+skip_menu = true
+[connection signal="timeout" from="world/sonic_camera/smooth_time" to="world/sonic_camera" method="_on_smooth_time_timeout"]

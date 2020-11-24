@@ -43,6 +43,7 @@ func respawn_player_in_last_room(body):
 
 		if global.level_manager.plunger_plunged:
 			player.global_position = global.current_room.get_node("spawn_point_back").global_position
+			get_tree().call_group("sonic_camera", "smooth_time_start")
 		else:
 			player.global_position = global.current_room.get_node("spawn_point_there").global_position
 		global.world.call_deferred("add_child", player)

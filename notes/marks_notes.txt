@@ -1,7 +1,5 @@
 ------------------------- TODO -------------------------
 
-dialogue system should ignore inputs for a second or two after popping up
-  avoid skipping dialogue when the player thinks they're about to jump
 
 PRIORITY
   rooms?
@@ -117,6 +115,8 @@ level transition animation (fade to black)
 
 real "you win" screen
 
+dialogue system should ignore inputs for a second or two after popping up
+  avoid skipping dialogue when the player thinks they're about to jump
 
 
 
