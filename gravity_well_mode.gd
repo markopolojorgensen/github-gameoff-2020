@@ -56,6 +56,7 @@ func _unhandled_input(event):
 			gravity_well_tracker.remove_well(highlighted_gravity_well)
 			highlighted_gravity_well.delete()
 			highlighted_gravity_well = null
+			update_cursor()
 		else:
 			# create new gravity well
 			if gravity_well_tracker.can_add_well() and $ground_detector.get_overlapping_bodies().size() <= 0:
@@ -64,9 +65,13 @@ func _unhandled_input(event):
 				gravity_well.global_position = global_position
 				gravity_well.room_name = global.current_room.name
 				get_parent().add_child(gravity_well)
-			else:
+				update_cursor()
+			elif not gravity_well_tracker.can_add_well():
 				$meepmerp.play()
 				gravity_well_tracker.gravity_well_hud.shake_it_up()
+			elif $ground_detector.get_overlapping_bodies().size() > 0:
+				$meepmerp.play()
+				$sprite/shaker.add_trauma(1)
 		
 		gravity_well_tracker.update()
 	
@@ -77,6 +82,10 @@ func _unhandled_input(event):
 func _process(delta):
 	if not active:
 		return
+	
+	$sprite/shaker.increment(delta)
+	$sprite.position = $sprite/shaker.get_shake() * 3
+	$sprite.rotation_degrees = $sprite/shaker.get_roll() * 22.5
 	
 	# accelerate
 	var intended_direction = global.get_intended_direction()
@@ -110,6 +119,20 @@ func adjust_limits(left, right, top, bottom):
 	$camera.limit_right = right
 	$camera.limit_top = top
 	$camera.limit_bottom = bottom
+
+func _on_ground_detector_body_entered(body):
+	call_deferred("update_cursor")
+
+func _on_ground_detector_body_exited(body):
+	call_deferred("update_cursor")
+
+func update_cursor():
+	if $ground_detector.get_overlapping_bodies().size() <= 0 and gravity_well_tracker.can_add_well():
+		$sprite.modulate = Color(1, 1, 1, 1)
+	else:
+		# colliding with ground or out of wells
+		# either way, darken cursor
+		$sprite.modulate = Color(0.5, 0.5, 0.5, 1)
 
 
 

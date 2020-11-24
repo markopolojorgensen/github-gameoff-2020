@@ -8,7 +8,7 @@
 [ext_resource path="res://menu/main_menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://icon.png" type="Texture" id=7]
 [ext_resource path="res://gravity_well_mode.tscn" type="PackedScene" id=8]
-[ext_resource path="res://player_hud.tscn" type="PackedScene" id=9]
+[ext_resource path="res://hud/player_hud.tscn" type="PackedScene" id=9]
 [ext_resource path="res://level_manager.gd" type="Script" id=10]
 
 [node name="game" type="Node"]

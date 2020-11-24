@@ -5,6 +5,7 @@ extends Node
 # this isn't a noise maker, it's a shake maker
 
 export(float) var decay = 0.8  # How quickly the shaking stops [0, 1].
+export(float) var time_scale = 1.0
 export(int) var trauma_power = 2  # Trauma exponent. Use [2, 3].
 var trauma = 0.0  # Current shake strength.
 
@@ -23,6 +24,7 @@ func add_trauma(amount):
 	trauma = min(trauma + amount, 1.0)
 
 func increment(delta):
+	delta *= time_scale
 	if trauma > 0:
 		trauma = max(trauma - decay * delta, 0.0)
 		# shake()
