@@ -38,6 +38,7 @@ script = ExtResource( 2 )
 z_index = 2
 frames = SubResource( 1 )
 frame = 3
+speed_scale = 30.0
 
 [node name="shaker" parent="sprite" instance=ExtResource( 13 )]
 time_scale = 50.0

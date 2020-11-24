@@ -129,10 +129,13 @@ func _on_ground_detector_body_exited(body):
 func update_cursor():
 	if $ground_detector.get_overlapping_bodies().size() <= 0 and gravity_well_tracker.can_add_well():
 		$sprite.modulate = Color(1, 1, 1, 1)
+		$sprite.play()
 	else:
 		# colliding with ground or out of wells
 		# either way, darken cursor
 		$sprite.modulate = Color(0.5, 0.5, 0.5, 1)
+		$sprite.stop()
+		$sprite.frame = 0
 
 
 

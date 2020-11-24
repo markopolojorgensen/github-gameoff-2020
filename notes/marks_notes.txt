@@ -39,7 +39,6 @@ flipped enemies should be freed when resetting after player death
 player should bounce off enemies and the plunger when jumping on them
 
 gravity well mode polish
-  shake terrain when trying to place gravity well in the ground?
   camera shouldn't wobble when leaving gravity well mode
 
 gravity well polish
@@ -121,6 +120,9 @@ dialogue system should ignore inputs for a second or two after popping up
 
 
 ------------------------- DONE -------------------------
+gravity well mode cursor is actually animated, only plays when placement is possible
+gravity well mode cursor changes color to show if placement is currently possible
+gravity well mode cursor shakes when trying to place gravity well in the ground
 shake hud element if player is out of wells for a room and tries to place one
 When the player is in a gravity well immediately after cooldown, it grabs them
 ding when picking up a gravity well
