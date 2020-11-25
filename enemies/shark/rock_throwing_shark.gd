@@ -10,7 +10,7 @@ var throw_rock = false
 var rock = preload("res://enemies/shark/thrown_rock.tscn")
 
 func _process(delta):
-	if not $edge_detector.is_colliding():
+	if $air_detector.is_colliding() or not $edge_detector.is_colliding():
 		change_direction()
 	
 	match current_direction:
@@ -42,12 +42,14 @@ func change_direction():
 			$animated_sprite.flip_h = true
 			$edge_detector.cast_to.x = -15
 			$edge_detector.position.x = -8
+			$air_detector.position.x = -8
 			
 		"left":
 			current_direction = "right"
 			$animated_sprite.flip_h = false
 			$edge_detector.cast_to.x = 15
 			$edge_detector.position.x = 8
+			$air_detector.position.x = 8
 
 func launch_rock_check():
 	if throw_rock && randf() > .95 && player_in_front:
@@ -66,7 +68,7 @@ func _on_spike_wait_timeout():
 	deadly_ass_rock.direction = old_direction
 	deadly_ass_rock.global_position.x = global_position.x
 	deadly_ass_rock.global_position.y = global_position.y - 10
-	global.world.add_child(deadly_ass_rock)
+	global.world.call_deferred("add_child", deadly_ass_rock)
 
 func _on_restart_trawl_timeout():
 	$animated_sprite.animation = "trawling"

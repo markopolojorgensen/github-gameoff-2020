@@ -102,3 +102,4 @@ __meta__ = {
 [node name="player_hud" parent="." instance=ExtResource( 9 )]
 
 [node name="main_menu" parent="." instance=ExtResource( 6 )]
+skip_menu = true

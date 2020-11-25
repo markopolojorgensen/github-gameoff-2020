@@ -35,15 +35,22 @@ func _on_player_detection_body_exited(body):
 			$path_2d/path_follow_2d/area_2d/animated_sprite.animation = "flying"
 			start_flight()
 
+func kill_bat():
+	$flight_tween.stop_all()
+
+	var new_bat = dead_bat.instance()
+	global.world.add_child(new_bat)
+	new_bat.global_position.x = $path_2d/path_follow_2d/area_2d.global_position.x
+	new_bat.global_position.y = $path_2d/path_follow_2d/area_2d.global_position.y
+	call_deferred("queue_free")
+
 func _on_area_2d_body_entered(body):
 	if "is_player" in body:
 		if body.global_position.y < $path_2d/path_follow_2d/area_2d.global_position.y:
-			$flight_tween.stop_all()
-
-			var new_bat = dead_bat.instance()
-			global.world.add_child(new_bat)
-			new_bat.global_position.x = $path_2d/path_follow_2d/area_2d.global_position.x
-			new_bat.global_position.y = $path_2d/path_follow_2d/area_2d.global_position.y
-			call_deferred("queue_free")
+			kill_bat()
 		else:
 			global.current_room.respawn_player_in_last_room(body)
+			
+	elif "is_thrown_rock" in body:
+		kill_bat()
+		body.call_deferred("queue_free")

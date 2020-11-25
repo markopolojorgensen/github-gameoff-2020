@@ -18,8 +18,11 @@ func _ready():
 			enemy.starting_direction = [Vector2.RIGHT, Vector2.LEFT][randi() % 2]
 
 	add_child(enemy)
-	
+
+func exists():
+	return enemy.rock_mode == "walking" or enemy.rock_mode == "flipped"
+
 func respawn():
-	if enemy.rock_mode != "walking":
+	if not exists():
 		enemy = crawling_rocks.instance()
 		_ready()

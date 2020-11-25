@@ -2,10 +2,17 @@ extends Node2D
 
 const player_offset = 10
 const player_scene = preload("res://player.tscn")
-
+const thrown_rock = preload("res://enemies/shark/thrown_rock.tscn")
+const random_directions = [
+	Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN,
+	Vector2.RIGHT + Vector2.UP,
+	Vector2.RIGHT + Vector2.DOWN,
+	Vector2.LEFT + Vector2.UP,
+	Vector2.LEFT + Vector2.DOWN,
+	]
 const minimum_impulse = 150
-
 const is_gravity_well = true
+const thrown_rock_radius = 100
 
 var room_name = "???"
 
@@ -29,7 +36,7 @@ func _process(delta):
 			$player_in_well.position = $player_in_well.position.linear_interpolate(Vector2(), delta)
 
 func _on_area_2d_body_entered(body):
-	if body.has_method("accepts_gravity_well") and body.accepts_gravity_well():
+	if "is_player" in body and body.has_method("accepts_gravity_well") and body.accepts_gravity_well():
 		$player_in_well.show()
 		$player_in_well.global_position = body.global_position
 		$player_in_well/animated_sprite.flip_h = body.get_node("animated_sprite").flip_h
@@ -41,6 +48,47 @@ func _on_area_2d_body_entered(body):
 		$grab.play()
 		if not global.gravity_well_mode_active:
 			Engine.time_scale = 0.5
+			
+	elif "is_thrown_rock" in body:
+		body.queue_free()
+		var random_enemy = get_rock_launch_location()
+		var returned_rock = thrown_rock.instance()
+		var launch_position = random_enemy.normalized()
+#		var launch_position = (random_enemy - body.global_position).normalized()
+		$ding.play()
+		returned_rock.global_position = global_position + launch_position * (player_offset +5 )
+		returned_rock.custom_force = launch_position * minimum_impulse
+		global.world.call_deferred("add_child", returned_rock)
+		
+
+func get_rock_launch_location():
+	var within_range = get_enemies_within_range()
+#	within_range += get_wells_within_range()
+	if within_range.size() >= 1:
+		return within_range[randi() % within_range.size()].global_position - global_position
+	else:
+		return random_directions[randi() % 8]
+	
+func get_enemies_within_range():
+	var within_range = []
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	for enemy in enemies:
+		if enemy.has_method("exists") and enemy.exists():
+			var dist = get_global_transform().origin.distance_to( enemy.get_global_transform().origin )
+			if dist < thrown_rock_radius:
+				within_range.append(enemy.enemy)
+				
+	return within_range
+	
+func get_wells_within_range():
+	var within_range = []
+	var wells = get_tree().get_nodes_in_group("gravity_wells")
+	for well in wells:
+		var dist = get_global_transform().origin.distance_to( well.get_global_transform().origin )
+		if dist< thrown_rock_radius:
+			within_range.append(well)
+	return within_range
+		
 
 func is_player_in_well():
 	return $player_in_well.visible

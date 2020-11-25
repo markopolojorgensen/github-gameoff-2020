@@ -3,7 +3,7 @@ extends Position2D
 const roy = preload("res://enemies/bat/roy.tscn")
 const eight = preload("res://enemies/bat/eight.tscn")
 
-export(String, "roy", "eight") var bat_path
+export(String, "roy", "eight") var bat_path = "roy"
 export(int) var repetitions = 3
 export(int) var path_time = 4
 
@@ -21,8 +21,13 @@ func _ready():
 	enemy.flight_time = path_time
 	add_child(enemy)
 
+func exists():
+	if enemy:
+		return true
+	else:
+		return false
 	
 func respawn():
-	if not enemy:
+	if not exists():
 		_ready()
 

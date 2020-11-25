@@ -113,6 +113,14 @@ func _on_walking_rocks_body_entered(body):
 	if "is_crawling_rock" in body:
 		if "kicked" in body.rock_mode:
 			initialize_kick(body)
+			
+	if "is_thrown_rock" in body:
+		if "flipped" in rock_mode:
+			initialize_kick(body)
+		else:
+			rock_mode = "flipping_left"
+		body.queue_free()
+		
 
 func walking_player_collision(body):
 	# TODO: maybe also velocity?

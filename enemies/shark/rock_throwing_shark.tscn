@@ -19,15 +19,15 @@ animations = [ {
 "name": "down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "spike",
-"speed": 100.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "trawling",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "spike",
+"speed": 100.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -43,7 +43,7 @@ script = ExtResource( 9 )
 position = Vector2( 0, -5 )
 frames = SubResource( 1 )
 animation = "trawling"
-frame = 1
+frame = 4
 playing = true
 
 [node name="edge_detector" type="RayCast2D" parent="."]
@@ -60,6 +60,11 @@ one_shot = true
 
 [node name="restart_trawl" type="Timer" parent="."]
 one_shot = true
+
+[node name="air_detector" type="RayCast2D" parent="."]
+position = Vector2( 8, -11 )
+enabled = true
+cast_to = Vector2( 0, -10 )
 [connection signal="body_entered" from="." to="." method="_on_rock_throwing_shark_body_entered"]
 [connection signal="timeout" from="spike_wait" to="." method="_on_spike_wait_timeout"]
 [connection signal="timeout" from="restart_trawl" to="." method="_on_restart_trawl_timeout"]
