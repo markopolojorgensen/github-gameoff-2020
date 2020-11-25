@@ -75,6 +75,4 @@ func _resume_game():
 	$control/text_box.hide()
 	get_tree().paused = false
 
-func _process(_delta):
-	$control/nugget_count.text = String(global.nugget_count)
-	$control/gravity_wells.text = String(global.gravity_wells)
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/gravity-well/gravity_well_cursor_06.png" type="Texture" id=1]
 [ext_resource path="res://gravity_well_mode.gd" type="Script" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://assets/gravity-well/gravity_well_cursor_01.png" type="Texture" id=9]
 [ext_resource path="res://assets/gravity-well/gravity_well_cursor_07.png" type="Texture" id=10]
 [ext_resource path="res://assets/sfx/gravity_well_mode_hum.ogg" type="AudioStream" id=11]
+[ext_resource path="res://assets/sfx/meepmerp.wav" type="AudioStream" id=12]
+[ext_resource path="res://shaker.tscn" type="PackedScene" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -23,6 +25,9 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 6.0
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 16.0312
+
 [node name="gravity_well_mode" type="Node2D" groups=[
 "camera_limits",
 ]]
@@ -33,6 +38,10 @@ script = ExtResource( 2 )
 z_index = 2
 frames = SubResource( 1 )
 frame = 3
+speed_scale = 30.0
+
+[node name="shaker" parent="sprite" instance=ExtResource( 13 )]
+time_scale = 50.0
 
 [node name="camera" type="Camera2D" parent="."]
 
@@ -50,11 +59,24 @@ centered = false
 stream = ExtResource( 11 )
 volume_db = -10.0
 
+[node name="meepmerp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -10.0
+
 [node name="well_detector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="well_detector"]
 shape = SubResource( 2 )
+
+[node name="ground_detector" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="ground_detector"]
+shape = SubResource( 3 )
 [connection signal="area_entered" from="well_detector" to="." method="_on_well_detector_area_entered"]
 [connection signal="area_exited" from="well_detector" to="." method="_on_well_detector_area_exited"]
+[connection signal="body_entered" from="ground_detector" to="." method="_on_ground_detector_body_entered"]
+[connection signal="body_exited" from="ground_detector" to="." method="_on_ground_detector_body_exited"]

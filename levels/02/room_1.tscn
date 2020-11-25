@@ -359,7 +359,7 @@ extents = Vector2( 16, 40 )
 
 [node name="l02r01" type="Node2D"]
 script = ExtResource( 2 )
-number_of_wells = 3
+number_of_wells = 4
 
 [node name="tile_map" type="TileMap" parent="."]
 tile_set = SubResource( 36 )

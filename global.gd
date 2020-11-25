@@ -9,7 +9,6 @@ var current_room
 var player_hud
 
 var gravity_well_mode_active = false
-var gravity_wells : Array = []
 
 var nugget_count = 0
 

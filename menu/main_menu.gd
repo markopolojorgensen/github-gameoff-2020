@@ -10,6 +10,7 @@ func _ready():
 	if skip_menu:
 		start_game()
 	else:
+		$control.show()
 		get_tree().paused = true
 
 func option_picked(option):

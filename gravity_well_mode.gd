@@ -51,16 +51,29 @@ func _unhandled_input(event):
 	if active and event.is_action_pressed("place_gravity_well"):
 		get_tree().set_input_as_handled()
 		
-		if highlighted_gravity_well:
+		if highlighted_gravity_well and not highlighted_gravity_well.is_player_in_well():
 			# destroy old gravity well
-			highlighted_gravity_well.queue_free()
+			gravity_well_tracker.remove_well(highlighted_gravity_well)
+			highlighted_gravity_well.delete()
 			highlighted_gravity_well = null
+			update_cursor()
 		else:
 			# create new gravity well
-			var gravity_well = gravity_well_scene.instance()
-			gravity_well.global_position = global_position
-			gravity_well.room_name = global.current_room.name
-			get_parent().add_child(gravity_well)
+			if gravity_well_tracker.can_add_well() and $ground_detector.get_overlapping_bodies().size() <= 0:
+				var gravity_well = gravity_well_scene.instance()
+				gravity_well_tracker.add_well(gravity_well)
+				gravity_well.global_position = global_position
+				gravity_well.room_name = global.current_room.name
+				get_parent().add_child(gravity_well)
+				update_cursor()
+			elif not gravity_well_tracker.can_add_well():
+				$meepmerp.play()
+				gravity_well_tracker.gravity_well_hud.shake_it_up()
+			elif $ground_detector.get_overlapping_bodies().size() > 0:
+				$meepmerp.play()
+				$sprite/shaker.add_trauma(1)
+		
+		gravity_well_tracker.update()
 	
 	if event.is_action_pressed("clear_room_wells"):
 		get_tree().set_input_as_handled()
@@ -69,6 +82,10 @@ func _unhandled_input(event):
 func _process(delta):
 	if not active:
 		return
+	
+	$sprite/shaker.increment(delta)
+	$sprite.position = $sprite/shaker.get_shake() * 3
+	$sprite.rotation_degrees = $sprite/shaker.get_roll() * 22.5
 	
 	# accelerate
 	var intended_direction = global.get_intended_direction()
@@ -88,7 +105,8 @@ func _on_well_detector_area_entered(area):
 		highlighted_gravity_well.hide_x()
 	
 	highlighted_gravity_well = gravity_well
-	highlighted_gravity_well.show_x()
+	if not highlighted_gravity_well.is_player_in_well():
+		highlighted_gravity_well.show_x()
 
 func _on_well_detector_area_exited(area):
 	var gravity_well = area.get_parent()
@@ -101,6 +119,25 @@ func adjust_limits(left, right, top, bottom):
 	$camera.limit_right = right
 	$camera.limit_top = top
 	$camera.limit_bottom = bottom
+
+func _on_ground_detector_body_entered(body):
+	call_deferred("update_cursor")
+
+func _on_ground_detector_body_exited(body):
+	call_deferred("update_cursor")
+
+func update_cursor():
+	if $ground_detector.get_overlapping_bodies().size() <= 0 and gravity_well_tracker.can_add_well():
+		$sprite.modulate = Color(1, 1, 1, 1)
+		$sprite.play()
+	else:
+		# colliding with ground or out of wells
+		# either way, darken cursor
+		$sprite.modulate = Color(0.5, 0.5, 0.5, 1)
+		$sprite.stop()
+		$sprite.frame = 0
+
+
 
 
 

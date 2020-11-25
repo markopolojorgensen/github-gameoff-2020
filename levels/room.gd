@@ -9,6 +9,9 @@ func _ready():
 	assert(has_node("spawn_point_there"), "Room %s: No spawn_point_there is set" % name)
 	assert(has_node("spawn_point_back"), "Room %s: No spawn_point_back is set" % name)
 	print($tile_map.global_position)
+	
+	gravity_well_tracker.register_room(name)
+	
 	if has_node("parallax_background"):
 		$parallax_background.scroll_base_offset = global_position
 
@@ -17,6 +20,7 @@ func _on_room_start_area_2d_body_entered(_body):
 	# TODO: update number of available wells
 	print("New Room: ", name)
 	global.current_room = self
+	gravity_well_tracker.update()
 	
 	if not global.level_manager.plunger_plunged:
 		if has_node("camera_limits"):
@@ -39,6 +43,7 @@ func respawn_player_in_last_room(body):
 
 		if global.level_manager.plunger_plunged:
 			player.global_position = global.current_room.get_node("spawn_point_back").global_position
+			get_tree().call_group("sonic_camera", "smooth_time_start")
 		else:
 			player.global_position = global.current_room.get_node("spawn_point_there").global_position
 		global.world.call_deferred("add_child", player)

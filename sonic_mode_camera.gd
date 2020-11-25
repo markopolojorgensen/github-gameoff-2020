@@ -42,3 +42,9 @@ func adjust_limits(left, right, top, bottom):
 	limit_top = top
 	limit_bottom = bottom
 
+func smooth_time_start():
+	smoothing_enabled = true
+	$smooth_time.start()
+
+func _on_smooth_time_timeout():
+	smoothing_enabled = false

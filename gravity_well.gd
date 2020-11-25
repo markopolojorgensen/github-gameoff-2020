@@ -17,6 +17,7 @@ const thrown_rock_radius = 100
 var room_name = "???"
 
 func _ready():
+	$startup.play()
 	$player_in_well/animated_sprite.play()
 	$x_sprite.hide()
 
@@ -34,20 +35,13 @@ func _process(delta):
 		else:
 			# no intended direction, lerp back to center of well
 			$player_in_well.position = $player_in_well.position.linear_interpolate(Vector2(), delta)
+	else:
+		for body in $area_2d.get_overlapping_bodies():
+			_on_area_2d_body_entered(body)
 
 func _on_area_2d_body_entered(body):
 	if "is_player" in body and body.has_method("accepts_gravity_well") and body.accepts_gravity_well():
-		$player_in_well.show()
-		$player_in_well.global_position = body.global_position
-		$player_in_well/animated_sprite.flip_h = body.get_node("animated_sprite").flip_h
-		global.camera_follow = $player_in_well
-		body.queue_free()
-		$hum/tween.interpolate_property($hum, "volume_db", -60, 0, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-		$hum/tween.start()
-		$hum.play()
-		$grab.play()
-		if not global.gravity_well_mode_active:
-			Engine.time_scale = 0.5
+		player_entered()
 			
 	elif "is_thrown_rock" in body:
 		body.queue_free()
@@ -89,6 +83,19 @@ func get_wells_within_range():
 			within_range.append(well)
 	return within_range
 		
+func player_entered():
+	$player_in_well.show()
+	$player_in_well.global_position = global.player.global_position
+	$player_in_well/animated_sprite.flip_h = global.player.get_node("animated_sprite").flip_h
+	global.camera_follow = $player_in_well
+	global.player.queue_free()
+	global.player = null
+	$hum/tween.interpolate_property($hum, "volume_db", -60, 0, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$hum/tween.start()
+	$hum.play()
+	$grab.play()
+	if not global.gravity_well_mode_active:
+		Engine.time_scale = 0.5
 
 func is_player_in_well():
 	return $player_in_well.visible
@@ -110,9 +117,8 @@ func _unhandled_input(event):
 			Engine.time_scale = 1
 
 func clear_room(clear_room_name):
-	if room_name == clear_room_name:
-		queue_free()
-
+	if room_name == clear_room_name and not is_player_in_well():
+		delete()
 
 func show_x():
 	$x_sprite.show()
@@ -120,4 +126,16 @@ func show_x():
 func hide_x():
 	$x_sprite.hide()
 
-
+func delete():
+	if $death_timer.is_stopped():
+		gravity_well_tracker.remove_well(self)
+		
+		$death_timer.start()
+		$shutdown.play()
+		$animation_player.play_backwards("grow")
+		
+		yield($death_timer, "timeout")
+		
+		queue_free()
+	
+	

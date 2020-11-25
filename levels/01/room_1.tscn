@@ -18,6 +18,7 @@ extents = Vector2( 384.921, 27.9582 )
 
 [node name="l01r01" type="Node2D"]
 script = ExtResource( 1 )
+number_of_wells = 1
 
 [node name="one_way_tile_map" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
