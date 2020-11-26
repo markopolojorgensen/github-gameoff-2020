@@ -14,9 +14,9 @@ func show_text(text):
 
 		for chunk in chunks:
 			var new_sequence = []
-			var split_by_size = _split_text(chunk, new_sequence)
+			_split_text(chunk, new_sequence)
 			text_sequence += new_sequence
-
+			
 		$control/text_box/h_box_container/text.text = text_sequence[current_sequence]
 		$control/text_box.show()
 		$control/text_box/ellipses.show()
