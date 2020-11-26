@@ -33,7 +33,6 @@ func _on_room_start_area_2d_body_entered(_body):
 			print("%s has no camera limits!" % name)
 
 func respawn_player_in_last_room(body):
-	# we only want the player to respawn at the spawn point, not any other enemies!
 	if "is_player" in body:
 		var player_death_fx = player_death_fx_scene.instance()
 		add_child(player_death_fx)
@@ -56,4 +55,3 @@ func _on_death_plane_body_entered(body):
 		print("Body %s: has died" % body.name)
 		body.queue_free()
 	# TODO: expand the death plane to enemies? and then free them when they die?
-	# I'll have to ask Jorg about if godot will clear enemies or not.

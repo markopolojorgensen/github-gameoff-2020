@@ -4,10 +4,10 @@
 [ext_resource path="res://enemy_spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ship.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 110 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 457, 29 )
 
 [node name="l04r01" instance=ExtResource( 1 )]
@@ -18,15 +18,15 @@ tile_data = PoolIntArray( -982982, 0, 196609, -982981, 0, 5, -982980, 0, 6, -982
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="room_start_area_2d" index="0"]
 position = Vector2( 0, -99 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="collision_shape_2d2" type="CollisionShape2D" parent="room_start_area_2d" index="1"]
 position = Vector2( 320, -105 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="death_plane" index="0"]
 position = Vector2( -24, 77 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="spawn_point_back" parent="." index="6"]
 position = Vector2( 328, -5 )

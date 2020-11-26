@@ -113,14 +113,15 @@ __meta__ = {
 }
 
 [node name="text_box" type="PanelContainer" parent="control"]
+visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 28.0
-margin_top = 56.0
-margin_right = 188.0
-margin_bottom = 96.0
+margin_left = -80.0
+margin_top = -50.0
+margin_right = 80.0
+margin_bottom = -10.0
 rect_clip_content = true
 size_flags_vertical = 0
 __meta__ = {
