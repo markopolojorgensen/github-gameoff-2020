@@ -10,7 +10,7 @@ const continued_falling_jump_impulse = 70
 const is_crawling_rock = true
 
 var current_direction = null
-export var starting_direction = Vector2.RIGHT
+export(Vector2) var starting_direction
 
 export(bool) var awake = false
 var rock_mode = "walking"

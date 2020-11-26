@@ -41,7 +41,7 @@ position = Vector2( 119, 49 )
 position = Vector2( 26, -161 )
 
 [node name="plunger" parent="." index="9" instance=ExtResource( 5 )]
-position = Vector2( 516, 67 )
+position = Vector2( 522, 67 )
 
 [node name="bat_spawner" parent="." index="10" instance=ExtResource( 3 )]
 position = Vector2( 228, 11 )
