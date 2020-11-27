@@ -88,6 +88,7 @@ z_index = 1
 [node name="level_manager" type="Node2D" parent="world" groups=[
 "plunger_listeners",
 ]]
+position = Vector2( 11, 0 )
 script = ExtResource( 10 )
 starting_level = 4
 initial_camera_path = NodePath("../super_mario_camera")

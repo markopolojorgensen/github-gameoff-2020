@@ -37,6 +37,19 @@ func show_text(text):
 
 	get_tree().paused = true
 
+func format_time_difference_ms(start: float, end: float):
+	var total_time = (end - start) / 1000
+	print(total_time)
+	return global.convert_seconds_to_str(total_time)
+
+func show_level_complete(start_time, halfway_time, end_time):
+	get_tree().paused = true
+	$end_level_control/panel_container/v_box_container/nugget_totals_container/nugget_count2.text = String(global.total_nugget_count + global.current_room_nugget_count) + "   +" + str(global.current_room_nugget_count)
+	$end_level_control/panel_container/v_box_container/total_time_container/total_time.text = format_time_difference_ms(start_time, end_time)
+	$end_level_control/panel_container/v_box_container/return_time_container/return_time.text = format_time_difference_ms(halfway_time, end_time)
+	$end_level_control.show()
+	
+
 func _initialize_multiline():
 	additional_text = true
 	text_sequence = []
@@ -73,6 +86,7 @@ func _unhandled_input(event):
 
 func _resume_game():
 	$control/text_box.hide()
+	$end_level_control.hide()
 	get_tree().paused = false
 
 

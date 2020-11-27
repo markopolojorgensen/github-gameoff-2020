@@ -31,4 +31,11 @@ func get_intended_direction():
 	return result
 
 
+func convert_seconds_to_str(t):
+	var minutes = int(t / 60)
+	var seconds = int(t) % 60
+	var miliseconds = int(t * 1000) % 1000
+
+	var time = ("%02d" % minutes) + (":%02d" % seconds) + (".%03d" % miliseconds)
+	return time
 

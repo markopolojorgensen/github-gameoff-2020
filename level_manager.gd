@@ -18,6 +18,8 @@ const level_scenes = [
 var current_level_index
 var current_level
 var plunger_plunged = false
+var start_time
+var middle_time
 
 const player_scene = preload("res://player.tscn")
 
@@ -51,19 +53,28 @@ func load_level():
 	$end_timer.wait_time = current_level.end_time
 	global.end_timer = $end_timer
 	$blip_timer.wait_time = $end_timer.wait_time - 7
+	start_time = OS.get_ticks_msec()
 
 func ship_entered():
 	if plunger_plunged:
 		$end_timer.stop()
+		$blip_timer.stop()
+		
 		current_level_index += 1
-		global.total_nugget_count += global.current_room_nugget_count
+		global.player_hud.show_level_complete(start_time, middle_time, OS.get_ticks_msec())
+		
 		if current_level_index >= level_scenes.size():
 			print("YOU WIN")
 		else:
+			# TODO: i know this isn't the best, but I want the summary on the previous screen, press jump, then load the next level
+			# this is the best i can do for now...
+			yield(get_tree().create_timer(3), "timeout")
 			call_deferred("load_level")
+		global.total_nugget_count += global.current_room_nugget_count
 
 func plunger_hit():
 	plunger_plunged = true
+	middle_time = OS.get_ticks_msec()
 	$end_timer.start()
 	$blip_timer.start()
 
