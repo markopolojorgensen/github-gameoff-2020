@@ -11,7 +11,8 @@ var end_timer
 
 var gravity_well_mode_active = false
 
-var nugget_count = 0
+var current_room_nugget_count = 0
+var total_nugget_count = 0
 
 var level_manager
 

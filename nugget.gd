@@ -19,7 +19,7 @@ func _process(delta):
 
 func _on_nugget_body_entered(body):
 	if not picked_up and "is_player" in body:
-		global.nugget_count += 1
+		global.current_room.add_nugget()
 		picked_up = true
 		$pickup.play()
 		$tween.interpolate_property($sprite, "modulate", Color(1, 1, 1, 1), Color(0, 0, 0, 0),

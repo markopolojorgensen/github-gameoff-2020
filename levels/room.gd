@@ -62,3 +62,7 @@ func _on_death_plane_body_entered(body):
 		print("Body %s: has died" % body.name)
 		body.queue_free()
 	# TODO: expand the death plane to enemies? and then free them when they die?
+
+func add_nugget():
+	global.current_room_nugget_count += 1
+	global.end_timer.wait_time += .5

@@ -38,6 +38,8 @@ func load_level():
 	current_level = level_scenes[current_level_index].instance()
 	add_child(current_level)
 	
+	global.current_room_nugget_count = 0
+	
 	global.player = player_scene.instance()
 	get_parent().add_child(global.player)
 	
@@ -54,6 +56,7 @@ func ship_entered():
 	if plunger_plunged:
 		$end_timer.stop()
 		current_level_index += 1
+		global.total_nugget_count += global.current_room_nugget_count
 		if current_level_index >= level_scenes.size():
 			print("YOU WIN")
 		else:
