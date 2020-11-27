@@ -8,10 +8,12 @@ func _ready():
 	assert($death_plane.get_collision_mask_bit(1), "Room %s: Death plane cannot collide with player!" % name)
 	assert(has_node("spawn_point_there"), "Room %s: No spawn_point_there is set" % name)
 	assert(has_node("spawn_point_back"), "Room %s: No spawn_point_back is set" % name)
-	print($tile_map.global_position)
 	
+
+	# minor hack to get the gravity_well_tracker to not explode if the level is restarted on the fly
+	global.current_room = self
 	gravity_well_tracker.register_room(name)
-	
+
 	if has_node("parallax_background"):
 		$parallax_background.scroll_base_offset = global_position
 
@@ -32,12 +34,15 @@ func _on_room_start_area_2d_body_entered(_body):
 		else:
 			print("%s has no camera limits!" % name)
 
+func kill_player(body):
+	var player_death_fx = player_death_fx_scene.instance()
+	add_child(player_death_fx)
+	player_death_fx.global_position = body.global_position
+	body.queue_free()
+
 func respawn_player_in_last_room(body):
 	if "is_player" in body:
-		var player_death_fx = player_death_fx_scene.instance()
-		add_child(player_death_fx)
-		player_death_fx.global_position = body.global_position
-		body.queue_free()
+		kill_player(body)
 		var player = player_scene.instance()
 
 		if global.level_manager.plunger_plunged:
@@ -45,9 +50,10 @@ func respawn_player_in_last_room(body):
 			get_tree().call_group("sonic_camera", "smooth_time_start")
 		else:
 			player.global_position = global.current_room.get_node("spawn_point_there").global_position
+			get_tree().call_group("enemies", "respawn", global.current_room.name)
 		global.world.call_deferred("add_child", player)
 		# TODO: only reload enemies in the current scene
-		get_tree().call_group("enemies", "respawn", global.current_room.name)
+		
 		
 func _on_death_plane_body_entered(body):
 	if "is_player" in body:

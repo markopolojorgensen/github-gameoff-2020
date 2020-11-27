@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/death-tone.wav-125676e44e5c937461d0f41354d178cb.sample"
+
+[deps]
+
+source_file="res://assets/sfx/death-tone.wav"
+dest_files=[ "res://.import/death-tone.wav-125676e44e5c937461d0f41354d178cb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

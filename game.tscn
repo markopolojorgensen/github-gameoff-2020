@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sonic_mode_camera.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://gravity_well_mode.tscn" type="PackedScene" id=8]
 [ext_resource path="res://hud/player_hud.tscn" type="PackedScene" id=9]
 [ext_resource path="res://level_manager.gd" type="Script" id=10]
+[ext_resource path="res://assets/sfx/death-tone.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/sfx/death-tone-blip.wav" type="AudioStream" id=12]
 
 [node name="game" type="Node"]
 pause_mode = 2
@@ -90,6 +92,22 @@ script = ExtResource( 10 )
 starting_level = 4
 initial_camera_path = NodePath("../super_mario_camera")
 
+[node name="end_timer" type="Timer" parent="world/level_manager"]
+one_shot = true
+
+[node name="player_explosion_timer" type="Timer" parent="world/level_manager"]
+wait_time = 0.7
+one_shot = true
+
+[node name="final_tone" type="AudioStreamPlayer2D" parent="world/level_manager"]
+stream = ExtResource( 11 )
+
+[node name="blip_noise" type="AudioStreamPlayer2D" parent="world/level_manager"]
+stream = ExtResource( 12 )
+
+[node name="blip_timer" type="Timer" parent="world/level_manager"]
+one_shot = true
+
 [node name="parallax_background" type="ParallaxBackground" parent="."]
 layer = -10
 
@@ -109,3 +127,6 @@ __meta__ = {
 [node name="main_menu" parent="." instance=ExtResource( 6 )]
 skip_menu = true
 [connection signal="timeout" from="world/sonic_camera/smooth_time" to="world/sonic_camera" method="_on_smooth_time_timeout"]
+[connection signal="timeout" from="world/level_manager/end_timer" to="world/level_manager" method="_on_end_timer_timeout"]
+[connection signal="timeout" from="world/level_manager/player_explosion_timer" to="world/level_manager" method="_on_player_explosion_timer_timeout"]
+[connection signal="timeout" from="world/level_manager/blip_timer" to="world/level_manager" method="_on_blip_timer_timeout"]

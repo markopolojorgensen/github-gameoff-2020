@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/m3x6.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/gravity-well/gravity-well.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://hud/nugget_count.gd" type="Script" id=5]
 [ext_resource path="res://shaker.tscn" type="PackedScene" id=6]
 [ext_resource path="res://hud/gravity_wells_hud_element.gd" type="Script" id=7]
+[ext_resource path="res://hud/time_left.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 extra_spacing_top = -5
@@ -101,6 +102,20 @@ text = "65"
 align = 1
 valign = 1
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="time_left" type="Label" parent="margin_container"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 22.0
+margin_bottom = 10.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 1 )
+text = "12:05"
+script = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

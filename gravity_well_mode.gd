@@ -120,10 +120,10 @@ func adjust_limits(left, right, top, bottom):
 	$camera.limit_top = top
 	$camera.limit_bottom = bottom
 
-func _on_ground_detector_body_entered(body):
+func _on_ground_detector_body_entered(_body):
 	call_deferred("update_cursor")
 
-func _on_ground_detector_body_exited(body):
+func _on_ground_detector_body_exited(_body):
 	call_deferred("update_cursor")
 
 func update_cursor():

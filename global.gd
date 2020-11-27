@@ -7,6 +7,7 @@ var world
 var player
 var current_room
 var player_hud
+var end_timer
 
 var gravity_well_mode_active = false
 

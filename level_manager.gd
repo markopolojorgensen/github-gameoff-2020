@@ -27,7 +27,8 @@ func _ready():
 	# call_deferred("load_level")
 
 func load_level():
-	global.player.queue_free()
+	if global.player:
+		global.player.queue_free()
 	
 	if current_level:
 		current_level.queue_free()
@@ -43,9 +44,15 @@ func load_level():
 	initial_camera.current = true
 	global.camera = initial_camera
 	initial_camera.global_position = global.player.global_position
+	$end_timer.wait_time = current_level.end_time
+	global.end_timer = $end_timer
+	$blip_timer.wait_time = $end_timer.wait_time - 5
+	$end_timer.start()
+	$blip_timer.start()
 
 func ship_entered():
 	if plunger_plunged:
+		$end_timer.stop()
 		current_level_index += 1
 		if current_level_index >= level_scenes.size():
 			print("YOU WIN")
@@ -54,13 +61,20 @@ func ship_entered():
 
 func plunger_hit():
 	plunger_plunged = true
+	$end_timer.start()
+
+func _on_end_timer_timeout():
+	global.current_room.kill_player(global.player)
+	$player_explosion_timer.start()
+	$final_tone.play()
+
+func _on_player_explosion_timer_timeout():
+	load_level()
 
 
-
-
-
-
-
-
-
+func _on_blip_timer_timeout():
+	$blip_timer.wait_time = .134 * $end_timer.get_time_left() + .27
+	$blip_timer.start()
+	$blip_noise.play()
+	print("WHAT")
 
