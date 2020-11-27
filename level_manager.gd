@@ -44,11 +44,11 @@ func load_level():
 	initial_camera.current = true
 	global.camera = initial_camera
 	initial_camera.global_position = global.player.global_position
+	$end_timer.stop()
+	$blip_timer.stop()
 	$end_timer.wait_time = current_level.end_time
 	global.end_timer = $end_timer
-	$blip_timer.wait_time = $end_timer.wait_time - 5
-	$end_timer.start()
-	$blip_timer.start()
+	$blip_timer.wait_time = $end_timer.wait_time - 7
 
 func ship_entered():
 	if plunger_plunged:
@@ -62,6 +62,7 @@ func ship_entered():
 func plunger_hit():
 	plunger_plunged = true
 	$end_timer.start()
+	$blip_timer.start()
 
 func _on_end_timer_timeout():
 	global.current_room.kill_player(global.player)
@@ -73,8 +74,7 @@ func _on_player_explosion_timer_timeout():
 
 
 func _on_blip_timer_timeout():
-	$blip_timer.wait_time = .134 * $end_timer.get_time_left() + .27
+	$blip_timer.wait_time = .067 * $end_timer.get_time_left() + .27
 	$blip_timer.start()
 	$blip_noise.play()
-	print("WHAT")
 

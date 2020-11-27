@@ -96,7 +96,6 @@ initial_camera_path = NodePath("../super_mario_camera")
 one_shot = true
 
 [node name="player_explosion_timer" type="Timer" parent="world/level_manager"]
-wait_time = 0.7
 one_shot = true
 
 [node name="final_tone" type="AudioStreamPlayer2D" parent="world/level_manager"]
