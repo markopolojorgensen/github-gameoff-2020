@@ -87,7 +87,7 @@ z_index = 1
 "plunger_listeners",
 ]]
 script = ExtResource( 10 )
-starting_level = 3
+starting_level = 4
 initial_camera_path = NodePath("../super_mario_camera")
 
 [node name="parallax_background" type="ParallaxBackground" parent="."]
