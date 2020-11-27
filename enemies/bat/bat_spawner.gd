@@ -27,7 +27,7 @@ func exists():
 	else:
 		return false
 	
-func respawn():
-	if not exists():
+func respawn(room_name):
+	if room_name == get_parent().name and not exists():
 		_ready()
 

@@ -8,7 +8,7 @@ func _ready():
 	add_child(enemy)
 
 	
-func respawn():
-	if not enemy:
+func respawn(room_name):
+	if room_name == get_parent().name and not enemy:
 		_ready()
 

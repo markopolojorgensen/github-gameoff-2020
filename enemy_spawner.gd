@@ -22,7 +22,7 @@ func _ready():
 func exists():
 	return enemy.rock_mode == "walking" or enemy.rock_mode == "flipped"
 
-func respawn():
-	if not exists():
+func respawn(room_name):
+	if room_name == get_parent().name and not exists():
 		enemy = crawling_rocks.instance()
 		_ready()

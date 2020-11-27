@@ -8,6 +8,6 @@ func _ready():
 	add_child(drop_platform)
 
 	
-func respawn():
-	if drop_platform.dropped:
+func respawn(room_name):
+	if room_name == get_parent().name and drop_platform.dropped:
 		_ready()
