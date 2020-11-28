@@ -20,13 +20,17 @@ var current_level
 var plunger_plunged = false
 var start_time
 var middle_time
+var end_time
+
+var best_level_times = {}
 
 const player_scene = preload("res://player.tscn")
 
 func _ready():
 	global.level_manager = self
 	current_level_index = starting_level
-	# call_deferred("load_level")
+	load_game()
+	
 
 func load_level():
 	if global.player:
@@ -59,9 +63,12 @@ func ship_entered():
 	if plunger_plunged:
 		$end_timer.stop()
 		$blip_timer.stop()
+		end_time = OS.get_ticks_msec()
+		update_best_level_times(start_time, middle_time, end_time)		
 		
 		current_level_index += 1
-		global.player_hud.show_level_complete(start_time, middle_time, OS.get_ticks_msec())
+		global.player_hud.show_level_complete(start_time, middle_time, end_time)
+		save_game()
 		
 		if current_level_index >= level_scenes.size():
 			print("YOU WIN")
@@ -71,6 +78,21 @@ func ship_entered():
 			yield(get_tree().create_timer(3), "timeout")
 			call_deferred("load_level")
 		global.total_nugget_count += global.current_room_nugget_count
+
+func update_best_level_times(start, middle, end):
+	var return_time = end-middle
+	var total_time = end-start
+	if current_level_index in best_level_times:
+		if return_time < best_level_times[current_level_index]["return_time"]:
+			best_level_times[current_level_index]["return_time"] = return_time
+			
+		if total_time < best_level_times[current_level_index]["total_time"]:
+			best_level_times[current_level_index]["total_time"] = total_time
+	else:
+		best_level_times[current_level_index] = {
+			"return_time": return_time,
+			"total_time": total_time
+		}
 
 func plunger_hit():
 	plunger_plunged = true
@@ -92,3 +114,31 @@ func _on_blip_timer_timeout():
 	$blip_timer.start()
 	$blip_noise.play()
 
+func save_game():
+	var save_game = File.new()
+	save_game.open("user://savegame.save", File.WRITE)
+
+	var save_data = {
+		"current_level_index": current_level_index,
+		"best_level_times": best_level_times
+	}
+
+	# Store the save dictionary as a new line in the save file.
+	save_game.store_line(to_json(save_data))
+	save_game.close()
+
+func load_game():
+	var save_game = File.new()
+	if not save_game.file_exists("user://savegame.save"):
+		return # Error! We don't have a save to load.
+
+	# Load the file line by line and process that dictionary to restore
+	# the object it represents.
+	save_game.open("user://savegame.save", File.READ)
+	while save_game.get_position() < save_game.get_len():
+		# Get the saved dictionary from the next line in the save file
+		var node_data = parse_json(save_game.get_line())
+		current_level_index = node_data["current_level_index"]
+		best_level_times = node_data["best_level_times"]
+
+	save_game.close()

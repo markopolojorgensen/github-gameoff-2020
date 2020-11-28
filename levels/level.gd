@@ -6,7 +6,6 @@ var pause_menu = preload("res://menu/pause_menu.tscn")
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause_game"):
-		print("pausing the game!")		
 		add_child(pause_menu.instance())
 		
 	if event.is_action_pressed("restart_room"):
