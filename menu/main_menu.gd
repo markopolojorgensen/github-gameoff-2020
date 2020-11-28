@@ -22,6 +22,8 @@ func option_picked(option):
 			start_game()
 		"quit":
 			get_tree().quit()
+		"help":
+			$control.get_node("help_menu/control").visible = !$control.get_node("help_menu/control").visible
 		_:
 			print("mystery menu option: %s" % option)
 
@@ -29,3 +31,4 @@ func start_game():
 	global.level_manager.load_level()
 	get_tree().paused = false
 	$control.hide()
+	$control.get_node("help_menu/control").hide()
