@@ -29,19 +29,17 @@ PRIORITY
 
 
 
-jumping through one-way collision platforms shouldn't change animation
-jumping through one-way collision platforms shouldn't mess up sonic camera
-
 music
-
-
-rock shark code
-gravity well should suck rocks from far away
 
 continue -> level select
 level select world
 
 
+rock shark code
+gravity well should suck rocks from far away
+
+
+new high score fanfare / fancy text
 
 flipped enemies should be freed when resetting after player death
   done?
@@ -113,6 +111,8 @@ real "you win" screen
 
 dialogue sfx
 
+dialogue window juice
+
 dialogue system should ignore inputs for a second or two after popping up
   avoid skipping dialogue when the player thinks they're about to jump
 
@@ -124,6 +124,8 @@ dialogue system should ignore inputs for a second or two after popping up
 
 
 ------------------------- DONE -------------------------
+jumping through one-way collision platforms shouldn't change animation
+jumping through one-way collision platforms shouldn't mess up sonic camera
 gravity well mode cursor is actually animated, only plays when placement is possible
 gravity well mode cursor changes color to show if placement is currently possible
 gravity well mode cursor shakes when trying to place gravity well in the ground

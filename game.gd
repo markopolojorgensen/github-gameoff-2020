@@ -9,7 +9,6 @@ func _ready():
 		OS.window_position = OS.window_size * 1/2
 	global.world = $world
 
-
 func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()

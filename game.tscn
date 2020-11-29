@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sonic_mode_camera.gd" type="Script" id=2]
@@ -12,6 +12,9 @@
 [ext_resource path="res://level_manager.gd" type="Script" id=10]
 [ext_resource path="res://assets/sfx/death-tone.wav" type="AudioStream" id=11]
 [ext_resource path="res://assets/sfx/death-tone-blip.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/music/music take 3 calm.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/music/music take 3 upbeat.ogg" type="AudioStream" id=14]
+[ext_resource path="res://music_manager.gd" type="Script" id=15]
 
 [node name="game" type="Node"]
 pause_mode = 2
@@ -125,6 +128,22 @@ __meta__ = {
 [node name="player_hud" parent="." instance=ExtResource( 9 )]
 
 [node name="main_menu" parent="." instance=ExtResource( 6 )]
+
+[node name="music_manager" type="Node" parent="." groups=[
+"plunger_listeners",
+]]
+script = ExtResource( 15 )
+loud = -4
+
+[node name="music_calm" type="AudioStreamPlayer" parent="music_manager"]
+stream = ExtResource( 13 )
+volume_db = -60.0
+
+[node name="music_upbeat" type="AudioStreamPlayer" parent="music_manager"]
+stream = ExtResource( 14 )
+volume_db = -60.0
+
+[node name="tween" type="Tween" parent="music_manager"]
 [connection signal="timeout" from="world/sonic_camera/smooth_time" to="world/sonic_camera" method="_on_smooth_time_timeout"]
 [connection signal="timeout" from="world/level_manager/end_timer" to="world/level_manager" method="_on_end_timer_timeout"]
 [connection signal="timeout" from="world/level_manager/player_explosion_timer" to="world/level_manager" method="_on_player_explosion_timer_timeout"]

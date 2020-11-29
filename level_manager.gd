@@ -41,6 +41,7 @@ func load_level():
 		current_level.queue_free()
 	
 	plunger_plunged = false
+	global.music_manager.fade_to_calm()
 	
 	current_level = level_scenes[current_level_index].instance()
 	add_child(current_level)
@@ -81,6 +82,7 @@ func ship_entered():
 			yield(get_tree().create_timer(3), "timeout")
 			call_deferred("load_level")
 		global.total_nugget_count += global.current_room_nugget_count
+		
 
 func update_best_level_times(start, middle, end):
 	var return_time = end-middle
