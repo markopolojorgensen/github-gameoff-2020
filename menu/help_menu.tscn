@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/buttons/dpad_or_joystick_0.png" type="Texture" id=7]
 [ext_resource path="res://assets/buttons/dpad_or_joystick_2.png" type="Texture" id=8]
 
-[sub_resource type="AnimatedTexture" id=2]
+[sub_resource type="AnimatedTexture" id=3]
 frames = 3
 fps = 0.8
 frame_0/texture = ExtResource( 7 )
@@ -18,7 +18,7 @@ frame_1/delay_sec = 0.0
 frame_2/texture = ExtResource( 8 )
 frame_2/delay_sec = 0.0
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 extra_spacing_top = -3
 font_data = ExtResource( 1 )
 
@@ -66,7 +66,7 @@ margin_bottom = 16.0
 [node name="texture_rect" type="TextureRect" parent="control/panel_container/v_box_container/h_box_container2"]
 margin_right = 16.0
 margin_bottom = 16.0
-texture = SubResource( 2 )
+texture = SubResource( 3 )
 
 [node name="label8" type="Label" parent="control/panel_container/v_box_container/h_box_container2"]
 margin_left = 20.0
@@ -74,7 +74,7 @@ margin_top = 3.0
 margin_right = 56.0
 margin_bottom = 13.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Movement"
 valign = 1
 
@@ -94,7 +94,7 @@ margin_top = 3.0
 margin_right = 38.0
 margin_bottom = 13.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Jump"
 align = 1
 
@@ -114,7 +114,7 @@ margin_top = 3.0
 margin_right = 108.0
 margin_bottom = 13.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Portal Placement Mode"
 align = 1
 
@@ -134,7 +134,7 @@ margin_top = 3.0
 margin_right = 64.0
 margin_bottom = 13.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Pause Menu"
 align = 1
 
@@ -157,6 +157,6 @@ margin_top = 3.0
 margin_right = 96.0
 margin_bottom = 13.0
 size_flags_horizontal = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Reset Current Room"
 align = 1

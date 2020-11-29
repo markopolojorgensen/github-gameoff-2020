@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/m3x6.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://menu/scroll_container.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+extra_spacing_top = -6
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_top = -3
+font_data = ExtResource( 1 )
+
+[node name="high_score_menu" type="CanvasLayer"]
+
+[node name="control" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="panel_container" type="PanelContainer" parent="control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -72.0
+margin_right = 128.0
+margin_bottom = 72.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="v_box_container" type="VBoxContainer" parent="control/panel_container"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 249.0
+margin_bottom = 137.0
+
+[node name="label2" type="Label" parent="control/panel_container/v_box_container"]
+margin_right = 242.0
+margin_bottom = 20.0
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 1 )
+text = "High Scores"
+align = 1
+
+[node name="h_box_container" type="HBoxContainer" parent="control/panel_container/v_box_container"]
+margin_top = 24.0
+margin_right = 242.0
+margin_bottom = 34.0
+grow_horizontal = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="label3" type="Label" parent="control/panel_container/v_box_container/h_box_container"]
+margin_right = 78.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "Chapter"
+
+[node name="label4" type="Label" parent="control/panel_container/v_box_container/h_box_container"]
+margin_left = 82.0
+margin_right = 160.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "Return Time"
+align = 1
+
+[node name="label5" type="Label" parent="control/panel_container/v_box_container/h_box_container"]
+margin_left = 164.0
+margin_right = 242.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "Total Time"
+align = 2
+
+[node name="h_separator" type="HSeparator" parent="control/panel_container/v_box_container"]
+margin_top = 38.0
+margin_right = 242.0
+margin_bottom = 42.0
+
+[node name="scroll_container" type="ScrollContainer" parent="control/panel_container/v_box_container"]
+margin_top = 46.0
+margin_right = 242.0
+margin_bottom = 130.0
+mouse_filter = 1
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="v_box_container" type="VBoxContainer" parent="control/panel_container/v_box_container/scroll_container"]
+margin_right = 242.0
+focus_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+[connection signal="visibility_changed" from="control" to="control/panel_container/v_box_container/scroll_container" method="_on_control_visibility_changed"]
