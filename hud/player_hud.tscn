@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/m3x6.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/gravity-well/gravity-well.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://shaker.tscn" type="PackedScene" id=6]
 [ext_resource path="res://hud/gravity_wells_hud_element.gd" type="Script" id=7]
 [ext_resource path="res://hud/time_left.gd" type="Script" id=8]
+[ext_resource path="res://assets/hud/yuna.png" type="Texture" id=9]
+[ext_resource path="res://assets/hud/james.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 extra_spacing_top = -5
@@ -149,13 +151,26 @@ margin_top = 7.0
 margin_right = 153.0
 margin_bottom = 33.0
 
-[node name="texture_rect3" type="TextureRect" parent="control/text_box/h_box_container"]
+[node name="yuna_logo" type="TextureRect" parent="control/text_box/h_box_container"]
 margin_top = 5.0
 margin_right = 16.0
 margin_bottom = 21.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource( 2 )
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="james_logo" type="TextureRect" parent="control/text_box/h_box_container"]
+visible = false
+margin_left = 20.0
+margin_top = 5.0
+margin_right = 36.0
+margin_bottom = 21.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
