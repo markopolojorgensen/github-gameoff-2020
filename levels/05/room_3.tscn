@@ -4,11 +4,11 @@
 [ext_resource path="res://plunger.tscn" type="PackedScene" id=2]
 [ext_resource path="res://drop_platform_spawner.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 133 )
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 256, 10 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 577, 10 )
 
 [node name="l05r03" instance=ExtResource( 1 )]
 number_of_wells = 1
@@ -18,11 +18,11 @@ tile_data = PoolIntArray( 65534, 0, 196609, 65535, 0, 5, 0, 0, 6, 1, 0, 7, 2, 0,
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="room_start_area_2d" index="0"]
 position = Vector2( 12, 21 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="death_plane" index="0"]
-position = Vector2( 244, 233 )
-shape = SubResource( 1 )
+position = Vector2( 65, 229 )
+shape = SubResource( 2 )
 
 [node name="spawn_point_back" parent="." index="6"]
 position = Vector2( 23, 157 )
