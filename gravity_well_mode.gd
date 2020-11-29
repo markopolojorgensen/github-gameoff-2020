@@ -30,6 +30,7 @@ func _unhandled_input(event):
 			global.camera.current = true
 			$vignette_layer/vignette.hide()
 			$active_hum.stop()
+			global.music_manager.filter_fade_open()
 			global.gravity_well_mode_active = false
 			if highlighted_gravity_well:
 				highlighted_gravity_well.hide_x()
@@ -46,6 +47,7 @@ func _unhandled_input(event):
 			$camera.current = true
 			$vignette_layer/vignette.show()
 			$active_hum.play()
+			global.music_manager.filter_fade_closed()
 	
 	
 	if active and event.is_action_pressed("place_gravity_well"):

@@ -92,8 +92,11 @@ func player_entered():
 	global.player = null
 	$hum/tween.interpolate_property($hum, "volume_db", -60, 0, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$hum/tween.start()
+	
+	# audio
 	$hum.play()
 	$grab.play()
+	
 	if not global.gravity_well_mode_active:
 		Engine.time_scale = 0.5
 
@@ -110,9 +113,12 @@ func _unhandled_input(event):
 		global.world.add_child(player)
 		player.apply_central_impulse(destination.normalized() * minimum_impulse)
 		$player_in_well.hide()
+		
+		# audio
 		$hum.stop()
 		$hum.volume_db = -60
 		$ding.play()
+		
 		if not global.gravity_well_mode_active:
 			Engine.time_scale = 1
 
