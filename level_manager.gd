@@ -16,6 +16,7 @@ const level_scenes = [
 ]
 
 var current_level_index
+var max_level_index = 1
 var current_level
 var plunger_plunged = false
 var start_time
@@ -67,6 +68,8 @@ func ship_entered():
 		update_best_level_times(start_time, middle_time, end_time)		
 		
 		current_level_index += 1
+		if current_level_index > max_level_index:
+			max_level_index = current_level_index
 		global.player_hud.show_level_complete(start_time, middle_time, end_time)
 		save_game()
 		
@@ -119,7 +122,7 @@ func save_game():
 	save_game.open("user://savegame.save", File.WRITE)
 
 	var save_data = {
-		"current_level_index": current_level_index,
+		"max_level_index": max_level_index,
 		"best_level_times": best_level_times
 	}
 
@@ -138,7 +141,7 @@ func load_game():
 	while save_game.get_position() < save_game.get_len():
 		# Get the saved dictionary from the next line in the save file
 		var node_data = parse_json(save_game.get_line())
-		current_level_index = node_data["current_level_index"]
+		max_level_index = node_data["max_level_index"]
 		best_level_times = node_data["best_level_times"]
 
 	save_game.close()

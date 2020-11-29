@@ -18,6 +18,7 @@ func show_text(text):
 			text_sequence += new_sequence
 			
 		$control/text_box/h_box_container/text.text = text_sequence[current_sequence]
+		_set_character_logo_and_color(text_sequence[current_sequence])
 		$control/text_box.show()
 		$control/text_box/ellipses.show()
 			
@@ -25,6 +26,7 @@ func show_text(text):
 	elif text.length() < 100:
 		additional_text = false
 		$control/text_box/h_box_container/text.text = text
+		_set_character_logo_and_color(text)
 		$control/text_box.show()
 		$control/text_box/ellipses.hide()
 		
@@ -32,23 +34,11 @@ func show_text(text):
 		_initialize_multiline()
 		_split_text(text, text_sequence)
 		$control/text_box/h_box_container/text.text = text_sequence[current_sequence]
+		_set_character_logo_and_color(text_sequence[current_sequence])
 		$control/text_box.show()
 		$control/text_box/ellipses.show()
 
 	get_tree().paused = true
-
-func format_time_difference_ms(start: float, end: float):
-	var total_time = (end - start) / 1000
-	print(total_time)
-	return global.convert_seconds_to_str(total_time)
-
-func show_level_complete(start_time, halfway_time, end_time):
-	get_tree().paused = true
-	$end_level_control/panel_container/v_box_container/nugget_totals_container/nugget_count2.text = String(global.total_nugget_count + global.current_room_nugget_count) + "   +" + str(global.current_room_nugget_count)
-	$end_level_control/panel_container/v_box_container/total_time_container/total_time.text = format_time_difference_ms(start_time, end_time)
-	$end_level_control/panel_container/v_box_container/return_time_container/return_time.text = format_time_difference_ms(halfway_time, end_time)
-	$end_level_control.show()
-	
 
 func _initialize_multiline():
 	additional_text = true
@@ -63,7 +53,31 @@ func _split_text(text, sequence):
 	var split_index = text.rfind(" ", 90) # hopefully we don't have any 10+ letter words
 	sequence.append(text.substr(0, split_index).strip_edges())
 	_split_text(text.substr(split_index, -1).strip_edges(), sequence) # the +1 on split_index is to remove the space at the beginning of the next slide
+
+func _set_character_logo_and_color(text: String):
+	var lowered_text = text.to_lower()
+	if lowered_text.begins_with("yuna:"):
+		$control/text_box/h_box_container/james_logo.hide()
+		$control/text_box/h_box_container/yuna_logo.show()
+		$control/text_box.self_modulate = Color(0.373, 0.804, 0.894)
 		
+	elif lowered_text.begins_with("james:"):
+		$control/text_box/h_box_container/yuna_logo.hide()
+		$control/text_box/h_box_container/james_logo.show()		
+		$control/text_box.self_modulate = Color(0.416, 0.745, 0.188)
+
+
+func show_level_complete(start_time, halfway_time, end_time):
+	get_tree().paused = true
+	$end_level_control/panel_container/v_box_container/nugget_totals_container/nugget_count2.text = String(global.total_nugget_count + global.current_room_nugget_count) + "   +" + str(global.current_room_nugget_count)
+	$end_level_control/panel_container/v_box_container/total_time_container/total_time.text = format_time_difference_ms(start_time, end_time)
+	$end_level_control/panel_container/v_box_container/return_time_container/return_time.text = format_time_difference_ms(halfway_time, end_time)
+	$end_level_control.show()
+
+func format_time_difference_ms(start: float, end: float):
+	var total_time = (end - start) / 1000
+	print(total_time)
+	return global.convert_seconds_to_str(total_time)
 	
 func _unhandled_input(event):
 	if event.is_action_pressed("jump"):
@@ -80,6 +94,7 @@ func _unhandled_input(event):
 					$control/text_box/ellipses.hide()
 				# update text!
 				$control/text_box/h_box_container/text.text = text_sequence[current_sequence]
+				_set_character_logo_and_color(text_sequence[current_sequence])
 
 		else:
 			_resume_game()
