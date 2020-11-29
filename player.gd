@@ -45,9 +45,10 @@ func _process(_delta):
 	elif intended_direction.x > 0.5:
 		$animated_sprite.flip_h = false
 	
-	if is_on_the_ground() and (horizontal_speed > 5 or intended_direction.length() > 0.5):
+	var rising = linear_velocity.y < -30 # magic numbers ftw
+	if is_on_the_ground() and not rising and (horizontal_speed > 5 or intended_direction.length() > 0.5):
 		$animated_sprite.play("run")
-	elif not is_on_the_ground():
+	elif not is_on_the_ground() or rising:
 		$animated_sprite.play("flip")
 	else:
 		$animated_sprite.play("idle")
@@ -104,7 +105,7 @@ func _physics_process(delta):
 	$is_rising.text = str(rising)
 	
 	# start jump?
-	if wants_to_jump and not jumped and on_the_ground and not jump_button_pushed:
+	if wants_to_jump and not jumped and on_the_ground and not jump_button_pushed and not rising:
 		# don't apply massive impulse every frame, use cooldown:
 		jump_button_pushed = true
 		$jump_cooldown.start()
@@ -138,7 +139,7 @@ func _physics_process(delta):
 		apply_central_impulse(impulse)
 	
 	# when actually hitting the ground
-	if on_the_ground and not previously_on_the_ground:
+	if on_the_ground and not previously_on_the_ground and not rising:
 		$landing_sfx.play()
 		if $animated_sprite.animation == "run":
 			$animated_sprite.frame = 2

@@ -29,18 +29,26 @@ PRIORITY
 
 
 
-
-
+jumping through one-way collision platforms shouldn't change animation
+jumping through one-way collision platforms shouldn't mess up sonic camera
 
 music
 
+
+rock shark code
+gravity well should suck rocks from far away
+
+continue -> level select
+level select world
+
+
+
 flipped enemies should be freed when resetting after player death
+  done?
 
 player should bounce off enemies and the plunger when jumping on them
 
 camera shouldn't wobble when leaving gravity well mode
-
-jumping through one-way collision platforms shouldn't change animation
 
 player shouldn't collide with one-way platforms from the side
 

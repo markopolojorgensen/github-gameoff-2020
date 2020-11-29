@@ -10,7 +10,7 @@ func _process(delta):
 		global_position = global.camera_follow.global_position
 	
 	# snap player feet to roughly vertically centered when touching the ground
-	if global.player and global.player.is_on_the_ground():
+	if global.player and global.player.is_on_the_ground() and not global.player.linear_velocity.y < -30:
 		drag_margin_bottom = lerp(drag_margin_bottom, 0, 7 * delta)
 		drag_margin_top = lerp(drag_margin_bottom, 0, 7 * delta)
 	else:
