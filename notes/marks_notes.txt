@@ -32,7 +32,7 @@ delete new game option?
 
 
 
-level selectors should rotate
+level select: all levels
 
 nugget count save game
 level 3 raise the last room
@@ -56,6 +56,9 @@ levels:
 
 "hard mode" plunger in level select
 
+gravity well rock direcitons?
+
+hide arrows when you're not in their room
 
 
 
@@ -134,6 +137,7 @@ dialogue window juice
 
 
 ------------------------- DONE -------------------------
+level selectors should rotate
 level select doesn't show levels you haven't gotten to yet
 no gravity well mode in the main menu
 level 4 missing tile

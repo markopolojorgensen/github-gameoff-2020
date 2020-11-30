@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal acknowledged
+
 var additional_text = false
 var text_sequence = []
 var current_sequence = 0
@@ -78,9 +80,11 @@ func format_time_difference_ms(start: float, end: float):
 	var total_time = (end - start) / 1000
 	print(total_time)
 	return global.convert_seconds_to_str(total_time)
-	
+
 func _unhandled_input(event):
-	if event.is_action_pressed("jump"):
+	var active = $control/text_box.visible or $end_level_control.visible
+	if active and event.is_action_pressed("jump"):
+		get_tree().set_input_as_handled()
 		if additional_text:
 			current_sequence += 1
 
@@ -103,5 +107,6 @@ func _resume_game():
 	$control/text_box.hide()
 	$end_level_control.hide()
 	get_tree().paused = false
+	emit_signal("acknowledged")
 
 

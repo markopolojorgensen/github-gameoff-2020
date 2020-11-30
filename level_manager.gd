@@ -26,6 +26,9 @@ var start_time
 var middle_time
 var end_time
 
+# bool to prevent multiple level loading calls overlapping
+var loading = false
+
 var best_level_times = {}
 
 const player_scene = preload("res://player.tscn")
@@ -37,33 +40,41 @@ func _ready():
 	
 
 func load_level():
-	if global.player:
-		global.player.queue_free()
-	
-	if current_level:
-		current_level.queue_free()
-	
-	plunger_plunged = false
-	global.music_manager.fade_to_calm()
-	
-	current_level = level_scenes[current_level_index].instance()
-	call_deferred("add_child", current_level)
-	
-	global.current_room_nugget_count = 0
-	
-	global.player = player_scene.instance()
-	get_parent().call_deferred("add_child", global.player)
-	
-	initial_camera.current = true
-	global.camera = initial_camera
-	# initial_camera.set_deferred("global_position", global.player.global_position)
-	initial_camera.global_position = Vector2()
-	$end_timer.stop()
-	$blip_timer.stop()
-	$end_timer.wait_time = current_level.end_time
-	global.end_timer = $end_timer
-	$blip_timer.wait_time = $end_timer.wait_time - 7
-	start_time = OS.get_ticks_msec()
+	if not loading:
+		loading = true
+		
+		global.transition.do_transition()
+		yield(global.transition, "halfway")
+		
+		if global.player:
+			global.player.queue_free()
+		
+		if current_level:
+			current_level.queue_free()
+		
+		plunger_plunged = false
+		global.music_manager.fade_to_calm()
+		
+		current_level = level_scenes[current_level_index].instance()
+		call_deferred("add_child", current_level)
+		
+		global.current_room_nugget_count = 0
+		
+		global.player = player_scene.instance()
+		get_parent().call_deferred("add_child", global.player)
+		
+		initial_camera.current = true
+		global.camera = initial_camera
+		# initial_camera.set_deferred("global_position", global.player.global_position)
+		initial_camera.global_position = Vector2()
+		$end_timer.stop()
+		$blip_timer.stop()
+		$end_timer.wait_time = current_level.end_time
+		global.end_timer = $end_timer
+		$blip_timer.wait_time = $end_timer.wait_time - 7
+		start_time = OS.get_ticks_msec()
+		
+		loading = false
 
 func ship_entered():
 	if plunger_plunged:
@@ -81,9 +92,7 @@ func ship_entered():
 		if current_level_index >= level_scenes.size():
 			print("YOU WIN")
 		else:
-			# TODO: i know this isn't the best, but I want the summary on the previous screen, press jump, then load the next level
-			# this is the best i can do for now...
-			yield(get_tree().create_timer(3), "timeout")
+			yield(global.player_hud, "acknowledged")
 			call_deferred("load_level")
 		global.total_nugget_count += global.current_room_nugget_count
 		

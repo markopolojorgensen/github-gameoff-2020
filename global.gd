@@ -18,6 +18,8 @@ var level_manager
 var music_manager
 var main_menu
 
+var transition
+
 func get_intended_direction():
 	var result = Vector2()
 	
