@@ -4,10 +4,10 @@
 [ext_resource path="res://enemy_spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ship.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 42 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 419, 10 )
 
 [node name="l07r01" instance=ExtResource( 1 )]
@@ -21,15 +21,15 @@ tile_data = PoolIntArray( -1900453, 0, 196609, -1900452, 0, 4, -1900451, 0, 6, -
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="room_start_area_2d" index="0"]
 position = Vector2( 0, -35 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="collision_shape_2d2" type="CollisionShape2D" parent="room_start_area_2d" index="1"]
 position = Vector2( 610, -156 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="death_plane" index="0"]
 position = Vector2( 34, 123 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="spawn_point_back" parent="." index="6"]
 position = Vector2( 612, -119 )
@@ -41,7 +41,7 @@ position = Vector2( 110, 64 )
 position = Vector2( -240, -76 )
 
 [node name="limit_right" parent="camera_limits" index="1"]
-position = Vector2( 496, -167 )
+position = Vector2( 531, -170 )
 
 [node name="limit_bottom" parent="camera_limits" index="2"]
 position = Vector2( 104, 9 )

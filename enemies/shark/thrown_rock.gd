@@ -39,6 +39,8 @@ func _ready():
 func _on_thrown_rock_body_entered(body):
 	if "is_player" in body:
 		global.current_room.respawn_player_in_last_room(body)
+		$explode.play()
+		yield(get_tree().create_timer(.2), "timeout")
 		call_deferred("queue_free")
 
 
@@ -49,4 +51,6 @@ func _on_gone_timer_timeout():
 		$gone_timer.start()
 		
 	else:
+		$explode.play()
+		yield(get_tree().create_timer(.2), "timeout")
 		queue_free()

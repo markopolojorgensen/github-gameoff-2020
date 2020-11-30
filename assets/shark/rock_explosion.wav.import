@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/rock_explosion.wav-ee1ad35f065a523c9e9b0075691f58c5.sample"
+
+[deps]
+
+source_file="res://assets/shark/rock_explosion.wav"
+dest_files=[ "res://.import/rock_explosion.wav-ee1ad35f065a523c9e9b0075691f58c5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

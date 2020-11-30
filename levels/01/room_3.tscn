@@ -17,7 +17,7 @@ extents = Vector2( 858.479, 38.0807 )
 
 [node name="l01r03" type="Node2D"]
 script = ExtResource( 2 )
-number_of_wells = 5
+number_of_wells = 3
 
 [node name="tile_map" type="TileMap" parent="."]
 position = Vector2( -156, 62 )
