@@ -15,6 +15,7 @@ var current_room_nugget_count = 0
 var total_nugget_count = 0
 
 var level_manager
+var music_manager
 
 func get_intended_direction():
 	var result = Vector2()

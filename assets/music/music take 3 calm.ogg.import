@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/music take 3 calm.ogg-13991093b050ac3a00e8ebd5bf5498be.oggstr"
+
+[deps]
+
+source_file="res://assets/music/music take 3 calm.ogg"
+dest_files=[ "res://.import/music take 3 calm.ogg-13991093b050ac3a00e8ebd5bf5498be.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
