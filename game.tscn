@@ -90,7 +90,7 @@ z_index = 1
 ]]
 position = Vector2( 11, 0 )
 script = ExtResource( 10 )
-starting_level = 3
+starting_level = 2
 initial_camera_path = NodePath("../super_mario_camera")
 
 [node name="end_timer" type="Timer" parent="world/level_manager"]
@@ -125,6 +125,7 @@ __meta__ = {
 [node name="player_hud" parent="." instance=ExtResource( 9 )]
 
 [node name="main_menu" parent="." instance=ExtResource( 6 )]
+skip_menu = true
 [connection signal="timeout" from="world/sonic_camera/smooth_time" to="world/sonic_camera" method="_on_smooth_time_timeout"]
 [connection signal="timeout" from="world/level_manager/end_timer" to="world/level_manager" method="_on_end_timer_timeout"]
 [connection signal="timeout" from="world/level_manager/player_explosion_timer" to="world/level_manager" method="_on_player_explosion_timer_timeout"]
