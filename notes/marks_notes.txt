@@ -38,6 +38,18 @@ rock shark code
 gravity well should suck rocks from far away
 
 
+gravity well cursor circle
+level 4 missing tile
+level select doesn't show levels you haven't gotten to yet
+no gravity well mode in the main menu
+
+hard mode plunger
+nugget count save game
+level 3 raise the last room
+
+developer times
+
+
 new high score fanfare / fancy text
 
 flipped enemies should be freed when resetting after player death
