@@ -6,10 +6,20 @@ export(String) var level_name = "Chapter 1"
 
 func _ready():
 	$label.text = level_name
+	update_visibility()
+
+func update_visibility():
+	if global.level_manager.max_level_index >= (level_to_load):
+		show()
+		$trigger/collision_shape_2d.disabled = false
+	else:
+		hide()
+		$trigger/collision_shape_2d.disabled = true
 
 func _on_trigger_body_entered(_body):
-	global.level_manager.current_level_index = level_to_load
-	global.level_manager.load_level()
+	if visible:
+		global.level_manager.current_level_index = level_to_load
+		global.level_manager.load_level()
 
 
 

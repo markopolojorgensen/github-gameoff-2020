@@ -19,7 +19,7 @@ const level_scenes = [
 ]
 
 var current_level_index
-var max_level_index = 1
+var max_level_index = 0
 var current_level
 var plunger_plunged = false
 var start_time

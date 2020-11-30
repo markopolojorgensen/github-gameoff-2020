@@ -32,11 +32,8 @@ delete new game option?
 
 
 
+level selectors should rotate
 
-continue -> level select
-level select doesn't show levels you haven't gotten to yet
-
-hard mode plunger
 nugget count save game
 level 3 raise the last room
 
@@ -57,6 +54,7 @@ levels:
   there & back spawn locations
   parallax decorations
 
+"hard mode" plunger in level select
 
 
 
@@ -136,6 +134,7 @@ dialogue window juice
 
 
 ------------------------- DONE -------------------------
+level select doesn't show levels you haven't gotten to yet
 no gravity well mode in the main menu
 level 4 missing tile
 separate spawn positions in rooms once plunger is plunged
