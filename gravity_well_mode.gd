@@ -15,7 +15,7 @@ var highlighted_gravity_well
 func _ready():
 	$vignette_layer/vignette.hide()
 	hide()
-	$sprite.play()
+	update_cursor()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("gravity_well_mode"):
