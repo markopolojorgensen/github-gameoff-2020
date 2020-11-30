@@ -11,13 +11,13 @@ script = ExtResource( 5 )
 end_time = 40.0
 
 [node name="l02r02" parent="." instance=ExtResource( 1 )]
-position = Vector2( 636, -667 )
+position = Vector2( -674, -56 )
 
 [node name="l02r01" parent="." instance=ExtResource( 2 )]
-position = Vector2( 9, -31 )
+position = Vector2( -1301, 580 )
 
 [node name="l02r03" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1341, -671 )
+position = Vector2( 31, -60 )
 
 [node name="l02r04" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1218, -757 )
+position = Vector2( -92, -146 )

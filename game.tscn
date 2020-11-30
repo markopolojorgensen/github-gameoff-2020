@@ -93,7 +93,7 @@ z_index = 1
 ]]
 position = Vector2( 11, 0 )
 script = ExtResource( 10 )
-starting_level = 8
+starting_level = 6
 initial_camera_path = NodePath("../super_mario_camera")
 
 [node name="end_timer" type="Timer" parent="world/level_manager"]

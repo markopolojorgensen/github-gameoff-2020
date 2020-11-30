@@ -1,7 +1,7 @@
 extends Node2D
 
 
-export(int, "level 1", "level 2", "level 3", "level 4", "level 5", "level 6", "level 7", "ideas level", "level_select") var starting_level
+export(int, "chapter 1", "chapter 2", "chapter 3", "chapter 4", "chapter 5", "chapter 6", "chapter 7", "ideas level", "level_select") var starting_level
 
 export(NodePath) var initial_camera_path
 onready var initial_camera : Camera2D = get_node(initial_camera_path)
