@@ -15,7 +15,7 @@ var highlighted_gravity_well
 func _ready():
 	$vignette_layer/vignette.hide()
 	hide()
-	$sprite.play()
+	update_cursor()
 
 func _unhandled_input(event):
 	if event.is_action_pressed("gravity_well_mode"):
@@ -35,7 +35,8 @@ func _unhandled_input(event):
 			if highlighted_gravity_well:
 				highlighted_gravity_well.hide_x()
 				highlighted_gravity_well = null
-		else:
+		elif not global.main_menu.is_visible():
+			# don't enter gravity well placement mode in the main menu
 			# not active, enter gravity well placement mode!
 			active = true
 			Engine.time_scale = 1.0 / activated_time_factor
@@ -131,12 +132,12 @@ func _on_ground_detector_body_exited(_body):
 func update_cursor():
 	if $ground_detector.get_overlapping_bodies().size() <= 0 and gravity_well_tracker.can_add_well():
 		$sprite.modulate = Color(1, 1, 1, 1)
-		$sprite.play()
+		$sprite.play("default")
 	else:
 		# colliding with ground or out of wells
 		# either way, darken cursor
 		$sprite.modulate = Color(0.5, 0.5, 0.5, 1)
-		$sprite.stop()
+		$sprite.play("borked")
 		$sprite.frame = 0
 
 

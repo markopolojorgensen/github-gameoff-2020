@@ -11,7 +11,7 @@ func register_room(room_name):
 	gravity_wells[room_name] = []
 
 func can_add_well():
-	return gravity_wells[global.current_room.name].size() < global.current_room.number_of_wells
+	return global.current_room and (gravity_wells[global.current_room.name].size() < global.current_room.number_of_wells)
 
 func add_well(well):
 	if not can_add_well():
