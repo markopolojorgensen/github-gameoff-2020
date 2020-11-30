@@ -4,6 +4,8 @@ extends CanvasLayer
 export(bool) var skip_menu = false
 
 func _ready():
+	global.main_menu = self
+	
 	for menu_item in $control/menu_items.get_children():
 		menu_item.connect("picked", self, "option_picked")
 	
@@ -40,3 +42,6 @@ func start_game():
 func hide_submenus():
 	$control.get_node("help_menu/control").hide()
 	$control.get_node("high_score_menu/control").hide()
+
+func is_visible():
+	return $control.visible

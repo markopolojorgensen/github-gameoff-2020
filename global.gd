@@ -16,6 +16,7 @@ var total_nugget_count = 0
 
 var level_manager
 var music_manager
+var main_menu
 
 func get_intended_direction():
 	var result = Vector2()

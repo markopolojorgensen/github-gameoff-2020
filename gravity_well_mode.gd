@@ -35,7 +35,8 @@ func _unhandled_input(event):
 			if highlighted_gravity_well:
 				highlighted_gravity_well.hide_x()
 				highlighted_gravity_well = null
-		else:
+		elif not global.main_menu.is_visible():
+			# don't enter gravity well placement mode in the main menu
 			# not active, enter gravity well placement mode!
 			active = true
 			Engine.time_scale = 1.0 / activated_time_factor

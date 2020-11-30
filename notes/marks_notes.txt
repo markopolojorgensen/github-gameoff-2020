@@ -28,19 +28,13 @@ PRIORITY
 
 
 
+delete new game option?
 
 
 
-rock shark code
-gravity well should suck rocks from far away
-
-
-
-level 4 missing tile
 
 continue -> level select
 level select doesn't show levels you haven't gotten to yet
-no gravity well mode in the main menu
 
 hard mode plunger
 nugget count save game
@@ -69,6 +63,9 @@ levels:
 
 
 
+
+rock shark code
+gravity well should suck rocks from far away
 
 camera shouldn't wobble when leaving gravity well mode
 
@@ -139,6 +136,8 @@ dialogue window juice
 
 
 ------------------------- DONE -------------------------
+no gravity well mode in the main menu
+level 4 missing tile
 separate spawn positions in rooms once plunger is plunged
 dying after hitting the plunger should send you back to the plunger
 flipped enemies should be freed when resetting after player death
