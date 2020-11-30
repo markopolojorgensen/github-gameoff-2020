@@ -8,12 +8,12 @@ onready var initial_camera : Camera2D = get_node(initial_camera_path)
 
 const level_scenes = [
 	preload("res://levels/01/level_01.tscn"),
-	preload("res://levels/02/level_02.tscn"),
-	preload("res://levels/03/level_03.tscn"),
+	preload("res://levels/07/level_07.tscn"),	
 	preload("res://levels/04/level_04.tscn"),
+	preload("res://levels/03/level_03.tscn"),
 	preload("res://levels/05/level_05.tscn"),
 	preload("res://levels/06/level_06.tscn"),
-	preload("res://levels/07/level_07.tscn"),
+	preload("res://levels/02/level_02.tscn"),
 	preload("res://levels/ideas/level_of_ideas.tscn"),
 	preload("res://levels/level_select/level_select.tscn"),
 ]
