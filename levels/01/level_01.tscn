@@ -11,11 +11,9 @@ end_time = 30.0
 
 [node name="l01r01" parent="." instance=ExtResource( 2 )]
 position = Vector2( -37, -87 )
-number_of_wells = 0
 
 [node name="l01r02" parent="." instance=ExtResource( 1 )]
 position = Vector2( 508, -86 )
-number_of_wells = 0
 
 [node name="l01r03" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1060, -86 )

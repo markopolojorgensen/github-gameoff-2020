@@ -51,8 +51,8 @@ func respawn_player_in_last_room(body):
 		else:
 			player.global_position = global.current_room.get_node("spawn_point_there").global_position
 			get_tree().call_group("enemies", "respawn", global.current_room.name)
+			get_tree().call_group("gravity_wells", "delete")
 		global.world.call_deferred("add_child", player)
-		# TODO: only reload enemies in the current scene
 		
 		
 func _on_death_plane_body_entered(body):
