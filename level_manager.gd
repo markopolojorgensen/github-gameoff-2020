@@ -1,7 +1,7 @@
 extends Node2D
 
 
-export(int, "level 1", "level 2", "level 3", "level 4", "level 5", "level 6", "ideas level", "level_select") var starting_level
+export(int, "level 1", "level 2", "level 3", "level 4", "level 5", "level 6", "level 7", "ideas level", "level_select") var starting_level
 
 export(NodePath) var initial_camera_path
 onready var initial_camera : Camera2D = get_node(initial_camera_path)
@@ -13,6 +13,7 @@ const level_scenes = [
 	preload("res://levels/04/level_04.tscn"),
 	preload("res://levels/05/level_05.tscn"),
 	preload("res://levels/06/level_06.tscn"),
+	preload("res://levels/07/level_07.tscn"),
 	preload("res://levels/ideas/level_of_ideas.tscn"),
 	preload("res://levels/level_select/level_select.tscn"),
 ]
