@@ -29,7 +29,6 @@ PRIORITY
 
 
 
-music
 
 continue -> level select
 level select world
@@ -124,6 +123,7 @@ dialogue system should ignore inputs for a second or two after popping up
 
 
 ------------------------- DONE -------------------------
+music
 jumping through one-way collision platforms shouldn't change animation
 jumping through one-way collision platforms shouldn't mess up sonic camera
 gravity well mode cursor is actually animated, only plays when placement is possible

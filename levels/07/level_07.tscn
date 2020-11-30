@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://levels/level.gd" type="Script" id=1]
+[ext_resource path="res://levels/07/room_1.tscn" type="PackedScene" id=2]
+
+[node name="level_07" type="Node2D"]
+script = ExtResource( 1 )
+end_time = 50.0
+
+[node name="l07r01" parent="." instance=ExtResource( 2 )]

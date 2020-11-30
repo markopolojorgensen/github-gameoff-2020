@@ -1,7 +1,7 @@
 extends Node2D
 
 
-export(int, "level 1", "level 2", "level 3", "level 4", "level 5", "level 6", "ideas level") var starting_level
+export(int, "level 1", "level 2", "level 3", "level 4", "level 5", "level 6", "ideas level", "level_select") var starting_level
 
 export(NodePath) var initial_camera_path
 onready var initial_camera : Camera2D = get_node(initial_camera_path)
@@ -14,6 +14,7 @@ const level_scenes = [
 	preload("res://levels/05/level_05.tscn"),
 	preload("res://levels/06/level_06.tscn"),
 	preload("res://levels/ideas/level_of_ideas.tscn"),
+	preload("res://levels/level_select/level_select.tscn"),
 ]
 
 var current_level_index
@@ -45,16 +46,17 @@ func load_level():
 	global.music_manager.fade_to_calm()
 	
 	current_level = level_scenes[current_level_index].instance()
-	add_child(current_level)
+	call_deferred("add_child", current_level)
 	
 	global.current_room_nugget_count = 0
 	
 	global.player = player_scene.instance()
-	get_parent().add_child(global.player)
+	get_parent().call_deferred("add_child", global.player)
 	
 	initial_camera.current = true
 	global.camera = initial_camera
-	initial_camera.global_position = global.player.global_position
+	# initial_camera.set_deferred("global_position", global.player.global_position)
+	initial_camera.global_position = Vector2()
 	$end_timer.stop()
 	$blip_timer.stop()
 	$end_timer.wait_time = current_level.end_time
