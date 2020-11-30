@@ -65,10 +65,13 @@ func _on_spike_wait_timeout():
 	$animated_sprite.animation = "spike"
 	$restart_trawl.start()
 	var deadly_ass_rock = rock.instance()
+	
 	deadly_ass_rock.direction = old_direction
-	deadly_ass_rock.global_position.x = global_position.x
-	deadly_ass_rock.global_position.y = global_position.y - 10
-	global.world.call_deferred("add_child", deadly_ass_rock)
+	deadly_ass_rock.position.x = global_position.x
+	deadly_ass_rock.position.y = global_position.y - 10
+	
+	global.world.add_child(deadly_ass_rock)
+	
 
 func _on_restart_trawl_timeout():
 	$animated_sprite.animation = "trawling"

@@ -43,8 +43,9 @@ func load_level():
 	if not loading:
 		loading = true
 		
-		global.transition.do_transition()
-		yield(global.transition, "halfway")
+		if global.transition:
+			global.transition.do_transition()
+			yield(global.transition, "halfway")
 		
 		if global.player:
 			global.player.queue_free()

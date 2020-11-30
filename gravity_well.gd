@@ -133,15 +133,17 @@ func hide_x():
 	$x_sprite.hide()
 
 func delete():
-	if $death_timer.is_stopped():
-		gravity_well_tracker.remove_well(self)
+	# minor hack so you can't delete pre-placed wells.
+	if gravity_well_tracker.gravity_wells[global.current_room.name].has(self):
+		if $death_timer.is_stopped():
+			gravity_well_tracker.remove_well(self)
+			
+			$death_timer.start()
+			$shutdown.play()
+			$animation_player.play_backwards("grow")
+			
+			yield($death_timer, "timeout")
+			
+			queue_free()
 		
-		$death_timer.start()
-		$shutdown.play()
-		$animation_player.play_backwards("grow")
-		
-		yield($death_timer, "timeout")
-		
-		queue_free()
-	
 	
