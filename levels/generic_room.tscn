@@ -75,5 +75,6 @@ cell_size = Vector2( 4, 4 )
 collision_layer = 0
 collision_mask = 0
 format = 1
+[connection signal="tree_exiting" from="." to="." method="_on_generic_room_tree_exiting"]
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]

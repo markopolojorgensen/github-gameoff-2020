@@ -51,7 +51,7 @@ func respawn_player_in_last_room(body):
 		else:
 			player.global_position = global.current_room.get_node("spawn_point_there").global_position
 			get_tree().call_group("enemies", "respawn", global.current_room.name)
-			get_tree().call_group("gravity_wells", "delete")
+			get_tree().call_group("gravity_wells", "clear_room", global.current_room.name)
 		global.world.call_deferred("add_child", player)
 		
 		
@@ -66,3 +66,9 @@ func _on_death_plane_body_entered(body):
 func add_nugget():
 	global.current_room_nugget_count += 1
 	global.end_timer.wait_time += .5
+
+
+func _on_generic_room_tree_exiting():
+	# global.current_room.name gets weird during loading, but this _should_ work.
+	print("Clearing room: ", name)
+	get_tree().call_group("gravity_wells", "clear_room", name)
