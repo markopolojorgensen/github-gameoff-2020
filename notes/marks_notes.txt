@@ -30,6 +30,10 @@ PRIORITY
 
 
 
+description: easy mode vs normal mode
+
+
+
 easy mode infinite gravity wells
 
 developer times

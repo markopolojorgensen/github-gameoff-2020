@@ -80,7 +80,7 @@ func load_level():
 		loading = false
 
 func ship_entered():
-	if plunger_plunged:
+	if plunger_plunged and not level_finished:
 		level_finished = true
 		$end_timer.stop()
 		$blip_timer.stop()
