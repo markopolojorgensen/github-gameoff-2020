@@ -13,6 +13,8 @@ const max_speed = 160
 var highlighted_gravity_well
 
 func _ready():
+	global.gravity_well_mode = self
+	
 	$vignette_layer/vignette.hide()
 	hide()
 	update_cursor()

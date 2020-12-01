@@ -30,6 +30,7 @@ func remove_well(well):
 
 func update():
 	available_wells = global.current_room.number_of_wells - gravity_wells[global.current_room.name].size()
+	global.gravity_well_mode.update_cursor()
 	
 	if global.easy_mode:
 		available_wells += 2

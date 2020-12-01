@@ -19,6 +19,7 @@ var easy_mode = false
 var level_manager
 var music_manager
 var main_menu
+var gravity_well_mode
 
 var transition
 
