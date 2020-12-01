@@ -40,6 +40,7 @@ func show_text(text):
 		$control/text_box.show()
 		$control/text_box/ellipses.show()
 
+	$text_wait_timer.start()
 	get_tree().paused = true
 
 func _initialize_multiline():
@@ -83,10 +84,11 @@ func format_time_difference_ms(start: float, end: float):
 
 func _unhandled_input(event):
 	var active = $control/text_box.visible or $end_level_control.visible
-	if active and event.is_action_pressed("jump"):
+	if active and $text_wait_timer.time_left == 0 and event.is_action_pressed("jump"):
 		get_tree().set_input_as_handled()
 		if additional_text:
 			current_sequence += 1
+			$text_wait_timer.start()
 
 			# resume on last text input
 			if current_sequence > text_sequence.size() - 1:
