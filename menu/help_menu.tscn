@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/m3x6.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/buttons/a button.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/buttons/dpad_or_joystick_0.png" type="Texture" id=7]
 [ext_resource path="res://assets/buttons/dpad_or_joystick_2.png" type="Texture" id=8]
 [ext_resource path="res://assets/buttons/right-bumper.png" type="Texture" id=9]
+[ext_resource path="res://assets/controller.png" type="Texture" id=10]
 
 [sub_resource type="AnimatedTexture" id=1]
 frames = 3
@@ -28,20 +29,15 @@ pause_mode = 2
 
 [node name="control" type="Control" parent="."]
 visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 focus_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="panel_container" type="PanelContainer" parent="control"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -181,3 +177,8 @@ size_flags_horizontal = 4
 custom_fonts/font = SubResource( 2 )
 text = "Reset Current Room"
 align = 1
+
+[node name="texture_rect" type="TextureRect" parent="control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )

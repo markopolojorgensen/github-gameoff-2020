@@ -30,13 +30,7 @@ PRIORITY
 
 
 
-
-parallax decorations
-no time death & get rid of beeps in easy mode
 easy mode infinite gravity wells
-
-real "you win" screen
-final level with dialogue for rocks yeeted and nuggets collected
 
 developer times
 new high score fanfare / fancy text
@@ -123,6 +117,10 @@ sonic mode camera should still respect some camera limits (death planes)
 
 
 ------------------------- DONE -------------------------
+parallax decorations
+no time death & get rid of beeps in easy mode
+real "you win" screen
+final level with dialogue for rocks yeeted and nuggets collected
 align camera limits and death planes
 there & back spawn locations for each room
 level 3 raise the last room
