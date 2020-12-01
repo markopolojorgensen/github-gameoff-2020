@@ -112,11 +112,11 @@ flip = true
 
 [node name="dialog_text" parent="." instance=ExtResource( 8 )]
 position = Vector2( 60, 85 )
-dialog_text = "Yuna: There's this weird floating portal above me, I think it's a gravity well. | James: Oh yeah, that sounds like a gravity well! If you jump into it, you can launch yourself to other platforms."
+dialog_text = "Yuna: There's this weird floating portal above me, I think it's a gravity well. | James: Try jumping into it - if it's a gravity well, you should be able to launch yourself to other platforms."
 
 [node name="dialog_text2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 151, 65 )
-dialog_text = "Yuna: THERE ARE NUGGETS EVERYWHERE! | James: Nice, they're usually really hard to find. | If you need help getting to other platforms, you can place a gravity well to get to it."
+dialog_text = "Yuna: THERE'S NUGGETS EVERYWHERE! | James: WOAH! They're usually really hard to find. | If you need help getting to other platforms, enter well placement mode and you can move the gravity wells around."
 
 [node name="dialog_text3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 571, 17 )

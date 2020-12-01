@@ -78,4 +78,4 @@ position = Vector2( 232, -11 )
 
 [node name="dialog_text" parent="." index="18" instance=ExtResource( 4 )]
 position = Vector2( 51, 11 )
-dialog_text = "Yuna: WOAH, a floating cave, you don't see that everyday! |James: A CAVE?! Sounds dangerous, I don't think I could fly through there!"
+dialog_text = "Yuna: WOAH, a floating cave, you don't see that everyday! |James: A CAVE?! Sounds dangerous, I don't think I could fly through there! | Oh, when you enter a new area, your well gun will recalibrate to the environment. You can see how many wells you can place on the upper right."
