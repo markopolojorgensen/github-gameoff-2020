@@ -30,6 +30,7 @@ PRIORITY
 
 
 
+
 parallax decorations
 no time death & get rid of beeps in easy mode
 easy mode infinite gravity wells
