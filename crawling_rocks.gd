@@ -145,11 +145,12 @@ func flipped_player_collision(body):
 		print("picked up")
 		
 	else:
-		print("yeeted")
 		initialize_kick(body)
 
 
 func initialize_kick(body):
+	print("yeeted")
+	global.yeet_count = global.yeet_count + 1
 	$kick_jump_timer.start()
 	set_collision_mask_bit(0, false)
 	if body.global_position.x < global_position.x:

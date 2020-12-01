@@ -139,7 +139,9 @@ func save_game():
 
 	var save_data = {
 		"max_level_index": max_level_index,
-		"best_level_times": best_level_times
+		"best_level_times": best_level_times,
+		"nuggets": global.total_nugget_count,
+		"yeets": global.yeet_count
 	}
 
 	# Store the save dictionary as a new line in the save file.
@@ -159,5 +161,7 @@ func load_game():
 		var node_data = parse_json(save_game.get_line())
 		max_level_index = node_data["max_level_index"]
 		best_level_times = node_data["best_level_times"]
+		global.total_nugget_count = node_data["nuggets"]
+		global.yeet_count = node_data["yeets"]
 
 	save_game.close()
