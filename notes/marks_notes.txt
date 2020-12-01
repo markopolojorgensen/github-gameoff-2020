@@ -32,15 +32,14 @@ delete new game option?
 
 
 
-level select: all levels
+fix rock monster collisions / responsiveness
+hide arrows when you're not in their room
 
 nugget count save game
 level 3 raise the last room
 
-level transition animation (fade to black)
 real "you win" screen
-
-player should bounce off enemies and the plunger when jumping on them
+final level with dialogue for rocks yeeted and nuggets collected
 
 developer times
 new high score fanfare / fancy text
@@ -58,7 +57,6 @@ levels:
 
 gravity well rock direcitons?
 
-hide arrows when you're not in their room
 
 
 
@@ -127,7 +125,7 @@ dialogue sfx
 
 dialogue window juice
 
-
+player should bounce off bats?
 
 
 
@@ -137,6 +135,9 @@ dialogue window juice
 
 
 ------------------------- DONE -------------------------
+player should bounce off enemies and the plunger when jumping on them
+level select: all levels
+level transition animation
 level selectors should rotate
 level select doesn't show levels you haven't gotten to yet
 no gravity well mode in the main menu

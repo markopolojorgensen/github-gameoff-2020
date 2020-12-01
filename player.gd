@@ -18,6 +18,8 @@ var jump_button_pushed = false
 var previously_on_the_ground = false
 var is_player = true
 
+var just_bounced = false
+
 func _ready():
 	gravity_well_scene = load("res://gravity_well.tscn")
 	
@@ -119,9 +121,15 @@ func _physics_process(delta):
 		# fall slowly
 		apply_central_impulse(Vector2.UP * continued_falling_jump_impulse * delta)
 	
-	if not wants_to_jump and rising and not on_the_ground:
+	if not wants_to_jump and rising and not on_the_ground and $bounce_timer.is_stopped():
 		# stop rising
 		apply_central_impulse(-1 * Vector2.DOWN * linear_velocity.y)
+	
+	# bounce shenanigans
+	if just_bounced:
+		# one time deal
+		just_bounced = false
+		linear_velocity.y = -150
 	
 	# when falling, minor tunnelling can cause landing to "stutter" slightly
 	# check to see if we're going to hit the ground in the next two frames or so
@@ -167,7 +175,9 @@ func _on_animated_sprite_frame_changed():
 func play_random_footstep():
 	$footsteps_sfx.get_child(randi() % $footsteps_sfx.get_child_count()).play()
 
-
+func bounce():
+	$bounce_timer.start()
+	just_bounced = true
 
 
 
