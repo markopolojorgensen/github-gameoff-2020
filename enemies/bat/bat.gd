@@ -53,4 +53,4 @@ func _on_area_2d_body_entered(body):
 			
 	elif "is_thrown_rock" in body:
 		kill_bat()
-		body.call_deferred("queue_free")
+		body.destroyed()

@@ -26,6 +26,6 @@ one_shot = true
 
 [node name="explode" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
-volume_db = 12.0
+max_distance = 256.0
 [connection signal="body_entered" from="." to="." method="_on_thrown_rock_body_entered"]
 [connection signal="timeout" from="gone_timer" to="." method="_on_gone_timer_timeout"]

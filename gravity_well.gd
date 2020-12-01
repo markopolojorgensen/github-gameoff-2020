@@ -3,13 +3,7 @@ extends Node2D
 const player_offset = 10
 const player_scene = preload("res://player.tscn")
 const thrown_rock = preload("res://enemies/shark/thrown_rock.tscn")
-const random_directions = [
-	Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN,
-	Vector2.RIGHT + Vector2.UP,
-	Vector2.RIGHT + Vector2.DOWN,
-	Vector2.LEFT + Vector2.UP,
-	Vector2.LEFT + Vector2.DOWN,
-	]
+
 const minimum_impulse = 150
 const is_gravity_well = true
 const thrown_rock_radius = 100
@@ -42,7 +36,7 @@ func _process(delta):
 func _on_area_2d_body_entered(body):
 	if "is_player" in body and body.has_method("accepts_gravity_well") and body.accepts_gravity_well():
 		player_entered()
-			
+		
 	elif "is_thrown_rock" in body:
 		body.queue_free()
 		var random_enemy = get_rock_launch_location()
@@ -50,10 +44,9 @@ func _on_area_2d_body_entered(body):
 		var launch_position = random_enemy.normalized()
 #		var launch_position = (random_enemy - body.global_position).normalized()
 		$ding.play()
-		returned_rock.global_position = global_position + launch_position * (player_offset +5 )
+		returned_rock.global_position = global_position + launch_position * (player_offset + 10 )
 		returned_rock.custom_force = launch_position * minimum_impulse
 		global.world.call_deferred("add_child", returned_rock)
-		
 
 func get_rock_launch_location():
 	var within_range = get_enemies_within_range()
@@ -61,7 +54,7 @@ func get_rock_launch_location():
 	if within_range.size() >= 1:
 		return within_range[randi() % within_range.size()].global_position - global_position
 	else:
-		return random_directions[randi() % 8]
+		return Vector2.RIGHT.rotated(randf() * 2 * PI)
 	
 func get_enemies_within_range():
 	var within_range = []

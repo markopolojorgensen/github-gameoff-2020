@@ -49,8 +49,12 @@ func _on_gone_timer_timeout():
 		shaking = true
 		$gone_timer.wait_time = 2
 		$gone_timer.start()
-		
 	else:
+		destroyed()
+
+# called by bat and crawling rocks and on gone timer timeout
+func destroyed():
+		hide()
 		$explode.play()
 		yield(get_tree().create_timer(.2), "timeout")
 		queue_free()

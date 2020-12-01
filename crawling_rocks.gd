@@ -122,7 +122,7 @@ func _on_walking_rocks_body_entered(body):
 			initialize_kick(body)
 		else:
 			rock_mode = "flipping_left"
-		body.queue_free()
+		body.destroyed()
 		
 
 func walking_player_collision(body):
