@@ -135,7 +135,6 @@ __meta__ = {
 ]]
 script = ExtResource( 15 )
 loud = -4
-mute = true
 
 [node name="music_calm" type="AudioStreamPlayer" parent="music_manager"]
 stream = ExtResource( 13 )

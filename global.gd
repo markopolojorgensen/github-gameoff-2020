@@ -1,6 +1,6 @@
 extends Node
 
-const dialogue_enabled = false
+const dialogue_enabled = true
 
 var camera_follow
 var camera
