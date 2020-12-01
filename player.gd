@@ -8,6 +8,7 @@ const max_air_horizontal_speed = 100
 const initial_jump_impulse = 160
 const continued_rising_jump_impulse = 10
 const continued_falling_jump_impulse = 50
+const bounce_velocity = -100
 
 # don't preload to avoid circular dependency
 var gravity_well_scene
@@ -129,7 +130,7 @@ func _physics_process(delta):
 	if just_bounced:
 		# one time deal
 		just_bounced = false
-		linear_velocity.y = -150
+		linear_velocity.y = bounce_velocity
 	
 	# when falling, minor tunnelling can cause landing to "stutter" slightly
 	# check to see if we're going to hit the ground in the next two frames or so
