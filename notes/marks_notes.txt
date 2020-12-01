@@ -28,15 +28,16 @@ PRIORITY
 
 
 
-delete new game option?
 
 
 
-fix rock monster collisions / responsiveness
+gravity well rock directions?
 hide arrows when you're not in their room
 
-nugget count save game
 level 3 raise the last room
+arrows for all rooms
+there & back spawn locations
+parallax decorations
 
 real "you win" screen
 final level with dialogue for rocks yeeted and nuggets collected
@@ -44,18 +45,10 @@ final level with dialogue for rocks yeeted and nuggets collected
 developer times
 new high score fanfare / fancy text
 
-dialogue system should ignore inputs for a second or two after popping up
-  avoid skipping dialogue when the player thinks they're about to jump
 
-levels:
-  more nuggets
-  more arrows
-  there & back spawn locations
-  parallax decorations
 
-"hard mode" plunger in level select
 
-gravity well rock direcitons?
+
 
 
 
@@ -135,6 +128,9 @@ player should bounce off bats?
 
 
 ------------------------- DONE -------------------------
+dialogue system ignores inputs for a second or two after popping up
+nugget count save game
+"hard mode" plunger in level select
 player should bounce off enemies and the plunger when jumping on them
 level select: all levels
 level transition animation
