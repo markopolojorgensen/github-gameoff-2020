@@ -37,6 +37,7 @@ layer = -2
 motion_scale = Vector2( 0.8, 0.8 )
 
 [node name="decorative_tile_map" type="TileMap" parent="parallax_background/far/parallax_layer_80"]
+modulate = Color( 0.376471, 0.376471, 0.376471, 1 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 4, 4 )
 collision_layer = 0
@@ -50,6 +51,7 @@ layer = -1
 motion_scale = Vector2( 0.9, 0.9 )
 
 [node name="decorative_tile_map" type="TileMap" parent="parallax_background/near/parallax_layer_90"]
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 4, 4 )
 collision_layer = 0
