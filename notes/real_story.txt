@@ -1,0 +1,44 @@
+Level 1: Tutorial Moon
+
+Level 7: Intro to gravity well platforming
+	Yuna: WOAH, a floating cave, you don't see that everyday! |
+	James: A CAVE?! Sounds dangerous, I don't think I could fly through there!
+
+Level 4: First bat + spike
+	Yuna: There are a lot of nuggets everywhere... James, I think someone launched these moons out of their original orbits to make them easier to mine! |
+	James: Get what you can! Your brother was pretty happy with what we returned with! |
+	Yuna: I dunno... I feel like we're stealing resources from these moons... | But then again, they are just floating around...
+
+Level 3: intro to sharks!
+	James: Some of my pilot buddies told me this moon now has a lot of SHARKs on it. They're usually found deep in the core of a moon... Apparently they aren't dangerous to humans, but they do chuck MAGMA ROCKs that explode on impact. |
+	Yuna: I bet the gravitational effects of the moons in their new places caused the sharks to surface! |
+	James: Yeah, I don't know much about planetary geology. I only know about the vast emptiness of space. | It's just soooo empty, | there's not much else to it.
+
+Level 5: Intro to dropping platforms
+	Yuna: Looks like old elevator carts are floating around. I think I can use them to get up on some platforms. |
+	James: Be careful, those things can fail if they're not tethered! They're like space elevators, gotta watch out for the counterweights! Makes it hard to land! |
+	Yuna: They don't look like they have counterweights...
+
+	[ a few moments later ]
+
+	Yuna: >.< | Yup, not tethered...
+
+Level 6: Leaps of faith (could maybe be longer?)
+	Yuna: The plunger's time INCREASES with the number of nuggets I pick up. James, I think this is all part of a system wide mining operation. |
+	James: That seems like a lot of effort... |
+	Yuna: It might be a lot of effort, but GOLD nuggets are worth quite a bit! People will do anything to get a hold of them. |
+	James: But moving a moon out of it's original orbit? That's pretty crazy. |
+	Yuna: I guess so. If only it didn't ripple to the gravity on ALL the planets in our system... | So many things are out of whack.
+
+Level 2: OG Vertical Level (could add shark/drop platforms)
+	James: This is the last moon in our system that was knocked out of its orbit! |
+	Yuna: Hopefully we can set it back quickly. It's been a long MONTH of work setting all these moons back! |
+	James: Yeah, and I'm just tired of eating the ship food. I just really want some bahn mi from that sandwich place back home. |
+	Yuna: Soon! And we can get some of those amazing fries!
+
+Epilogue:
+	Yuna: We never figured out WHO went through the effort of moving all those moons.
+	James: We'll just have to wait on that one...
+	Yuna: They must've been really rich and powerful to expend all that energy just for gold.
+
+
