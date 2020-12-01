@@ -119,7 +119,7 @@ func update_best_level_times(start, middle, end):
 func plunger_hit():
 	middle_time = OS.get_ticks_msec()
 	plunger_plunged = true
-	if global.easy_mode:
+	if not global.easy_mode:
 		$end_timer.start()
 		$blip_timer.start()
 
