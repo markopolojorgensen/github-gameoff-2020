@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://levels/generic_room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/shark/shark_spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemies/bat/bat_spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://dialog_text.tscn" type="PackedScene" id=4]
 [ext_resource path="res://nugget.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ship.tscn" type="PackedScene" id=7]
 
@@ -71,3 +72,7 @@ position = Vector2( 480, 55 )
 
 [node name="nugget3" parent="." index="16" instance=ExtResource( 6 )]
 position = Vector2( 505, 55 )
+
+[node name="dialog_text" parent="." index="17" instance=ExtResource( 4 )]
+position = Vector2( 126, 6 )
+dialog_text = "James: Some of my pilot buddies told me this moon now has a lot of SHARKs on it. They're usually found deep in the core of a moon... Apparently they aren't dangerous to humans, but they do chuck MAGMA ROCKs that explode on impact. |Yuna: I bet the gravitational effects of the moons in their new places caused the sharks to surface! |James: Yeah, I don't know much about planetary geology. I only know about the vast emptiness of space. | It's just soooo empty, | there's not much else to it."

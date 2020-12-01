@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://levels/generic_room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy_spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://spike_spawner.tscn" type="PackedScene" id=3]
+[ext_resource path="res://dialog_text.tscn" type="PackedScene" id=4]
 [ext_resource path="res://plunger.tscn" type="PackedScene" id=5]
 [ext_resource path="res://nugget.tscn" type="PackedScene" id=6]
 
@@ -74,3 +75,7 @@ position = Vector2( 608, 17 )
 
 [node name="nugget5" parent="." index="17" instance=ExtResource( 6 )]
 position = Vector2( 232, -11 )
+
+[node name="dialog_text" parent="." index="18" instance=ExtResource( 4 )]
+position = Vector2( 51, 11 )
+dialog_text = "Yuna: WOAH, a floating cave, you don't see that everyday! |James: A CAVE?! Sounds dangerous, I don't think I could fly through there!"

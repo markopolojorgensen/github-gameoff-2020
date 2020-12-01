@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://assets/tilemap_4x4.png" type="Texture" id=1]
 [ext_resource path="res://levels/room.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://enemies/shark/shark_spawner.tscn" type="PackedScene" id=7]
 [ext_resource path="res://spike_spawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://enemies/bat/bat_spawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://dialog_text.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 4, 4, 2, 4, 2, 0, 4, 0 )
@@ -458,5 +459,9 @@ position = Vector2( 256, -312 )
 
 [node name="bat_spawner" parent="." instance=ExtResource( 9 )]
 position = Vector2( 260, -380 )
+
+[node name="dialog_text" parent="." instance=ExtResource( 10 )]
+position = Vector2( 96, 44 )
+dialog_text = "James: This is the last moon in our system that was knocked out of its orbit! |Yuna: Hopefully we can set it back quickly. It's been a long MONTH of work setting all these moons back! |James: Yeah, and I'm just tired of eating the ship food. I just really want some bahn mi from that sandwich place back home. |Yuna: Soon! And we can get some of those amazing fries!"
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
