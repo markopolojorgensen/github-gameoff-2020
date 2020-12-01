@@ -106,24 +106,23 @@ func _process_flipping_left(delta):
 
 func _on_walking_rocks_body_entered(body):
 	if "is_player" in body:
+		$hit_sfx.play()
 		match rock_mode:
 			"walking":
 				walking_player_collision(body)
 				
 			"flipped":
 				flipped_player_collision(body)
-				
-	if "is_crawling_rock" in body:
-		if "kicked" in body.rock_mode:
-			initialize_kick(body)
-			
-	if "is_thrown_rock" in body:
+	elif ("is_crawling_rock" in body) and ("kicked" in body.rock_mode):
+		$hit_sfx.play()
+		initialize_kick(body)
+	elif "is_thrown_rock" in body:
+		$hit_sfx.play()
 		if "flipped" in rock_mode:
 			initialize_kick(body)
 		else:
 			rock_mode = "flipping_left"
 		body.destroyed()
-		
 
 func walking_player_collision(body):
 	# TODO: maybe also velocity?

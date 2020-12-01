@@ -31,13 +31,14 @@ PRIORITY
 
 
 parallax decorations
+get rid of beeps in easy mode
+easy mode infinite gravity wells
 
 real "you win" screen
 final level with dialogue for rocks yeeted and nuggets collected
 
 developer times
 new high score fanfare / fancy text
-
 
 
 
