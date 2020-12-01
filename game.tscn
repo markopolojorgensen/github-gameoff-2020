@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sonic_mode_camera.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/music/music take 3 calm.ogg" type="AudioStream" id=13]
 [ext_resource path="res://assets/music/music take 3 upbeat.ogg" type="AudioStream" id=14]
 [ext_resource path="res://music_manager.gd" type="Script" id=15]
+[ext_resource path="res://transition.tscn" type="PackedScene" id=16]
 
 [node name="game" type="Node"]
 pause_mode = 2
@@ -148,6 +149,8 @@ bus = "Filter"
 [node name="tween" type="Tween" parent="music_manager"]
 
 [node name="filter_tween" type="Tween" parent="music_manager"]
+
+[node name="transition" parent="." instance=ExtResource( 16 )]
 [connection signal="timeout" from="world/sonic_camera/smooth_time" to="world/sonic_camera" method="_on_smooth_time_timeout"]
 [connection signal="timeout" from="world/level_manager/end_timer" to="world/level_manager" method="_on_end_timer_timeout"]
 [connection signal="timeout" from="world/level_manager/player_explosion_timer" to="world/level_manager" method="_on_player_explosion_timer_timeout"]
