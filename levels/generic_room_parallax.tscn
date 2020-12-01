@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://levels/tilesets/tileset_4x4_decorative.tres" type="TileSet" id=1]
+
+[node name="generic_room_parallax" type="ParallaxBackground"]
+layer = -5
+
+[node name="parallax_layer_80" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.8, 0.8 )
+
+[node name="decorative_tile_map" type="TileMap" parent="parallax_layer_80"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 4, 4 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+
+[node name="parallax_layer_90" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.9, 0.9 )
+
+[node name="decorative_tile_map" type="TileMap" parent="parallax_layer_90"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 4, 4 )
+collision_layer = 0
+collision_mask = 0
+format = 1

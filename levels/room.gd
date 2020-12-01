@@ -15,7 +15,14 @@ func _ready():
 	gravity_well_tracker.register_room(name)
 
 	if has_node("parallax_background"):
-		$parallax_background.scroll_base_offset = global_position
+		if "scroll_base_offset" in $parallax_background:
+			$parallax_background.scroll_base_offset = global_position
+		else:
+			for layer in $parallax_background.get_children():
+				if "scroll_base_offset" in layer:
+					layer.scroll_base_offset = global_position
+				else:
+					print("whoops, %s has no parallax background?" % name)
 
 func _on_room_start_area_2d_body_entered(_body):
 	# TODO: change camera shenaigans

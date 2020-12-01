@@ -28,6 +28,34 @@ cell_size = Vector2( 4, 4 )
 collision_mask = 0
 format = 1
 
+[node name="parallax_background" type="Node" parent="."]
+
+[node name="far" type="ParallaxBackground" parent="parallax_background"]
+layer = -2
+
+[node name="parallax_layer_80" type="ParallaxLayer" parent="parallax_background/far"]
+motion_scale = Vector2( 0.8, 0.8 )
+
+[node name="decorative_tile_map" type="TileMap" parent="parallax_background/far/parallax_layer_80"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 4, 4 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+
+[node name="near" type="ParallaxBackground" parent="parallax_background"]
+layer = -1
+
+[node name="parallax_layer_90" type="ParallaxLayer" parent="parallax_background/near"]
+motion_scale = Vector2( 0.9, 0.9 )
+
+[node name="decorative_tile_map" type="TileMap" parent="parallax_background/near/parallax_layer_90"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 4, 4 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+
 [node name="room_start_area_2d" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
@@ -54,29 +82,6 @@ position = Vector2( 0, 80 )
 
 [node name="limit_top" type="Position2D" parent="camera_limits"]
 position = Vector2( 0, -80 )
-
-[node name="parallax_background" type="ParallaxBackground" parent="."]
-layer = -5
-
-[node name="parallax_layer_80" type="ParallaxLayer" parent="parallax_background"]
-motion_scale = Vector2( 0.8, 0.8 )
-
-[node name="decorative_tile_map" type="TileMap" parent="parallax_background/parallax_layer_80"]
-tile_set = ExtResource( 3 )
-cell_size = Vector2( 4, 4 )
-collision_layer = 0
-collision_mask = 0
-format = 1
-
-[node name="parallax_layer_90" type="ParallaxLayer" parent="parallax_background"]
-motion_scale = Vector2( 0.9, 0.9 )
-
-[node name="decorative_tile_map" type="TileMap" parent="parallax_background/parallax_layer_90"]
-tile_set = ExtResource( 3 )
-cell_size = Vector2( 4, 4 )
-collision_layer = 0
-collision_mask = 0
-format = 1
 
 [node name="arrows" type="Node2D" parent="."]
 [connection signal="tree_exiting" from="." to="." method="_on_generic_room_tree_exiting"]
