@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Github Game Off 2020"
+config/name="Yuna and the Moonstealers"
 run/main_scene="res://game.tscn"
 config/icon="res://icon.png"
 
