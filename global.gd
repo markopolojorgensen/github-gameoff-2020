@@ -1,5 +1,7 @@
 extends Node
 
+const dialogue_enabled = false
+
 var camera_follow
 var camera
 

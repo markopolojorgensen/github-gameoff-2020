@@ -23,7 +23,8 @@ func _on_room_start_area_2d_body_entered(_body):
 	print("New Room: ", name)
 	global.current_room = self
 	gravity_well_tracker.update()
-	
+	get_tree().call_group("rooms", "update_arrows")
+
 	if not global.level_manager.plunger_plunged:
 		if has_node("camera_limits"):
 			get_tree().call_group("camera_limits", "adjust_limits",
@@ -72,3 +73,14 @@ func _on_generic_room_tree_exiting():
 	# global.current_room.name gets weird during loading, but this _should_ work.
 	print("Clearing room: ", name)
 	get_tree().call_group("gravity_wells", "clear_room", name)
+
+func update_arrows():
+	if global.current_room == self:
+		for arrow in $arrows.get_children():
+			arrow.show()
+	else:
+		for arrow in $arrows.get_children():
+			arrow.hide()
+
+
+

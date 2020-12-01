@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/generic_room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy_spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://nugget.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/arrow.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 67 )
@@ -83,3 +84,10 @@ position = Vector2( 532, -22 )
 
 [node name="nugget5" parent="." index="20" instance=ExtResource( 3 )]
 position = Vector2( 652, -24 )
+
+[node name="arrow" parent="arrows" index="0" instance=ExtResource( 4 )]
+position = Vector2( -40, -24 )
+flip = true
+
+[node name="arrow2" parent="arrows" index="1" instance=ExtResource( 4 )]
+position = Vector2( 824, -16 )

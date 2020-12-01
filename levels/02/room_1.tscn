@@ -361,7 +361,9 @@ extents = Vector2( 93.1263, 29.978 )
 [sub_resource type="RectangleShape2D" id=39]
 extents = Vector2( 16, 40 )
 
-[node name="l02r01" type="Node2D"]
+[node name="l02r01" type="Node2D" groups=[
+"rooms",
+]]
 script = ExtResource( 2 )
 number_of_wells = 1
 
@@ -442,9 +444,6 @@ position = Vector2( 0, -664 )
 [node name="limit_top" type="Position2D" parent="camera_limits"]
 position = Vector2( 0, -728 )
 
-[node name="arrow" parent="." instance=ExtResource( 6 )]
-position = Vector2( 416, -592 )
-
 [node name="shark_spawner" parent="." instance=ExtResource( 7 )]
 position = Vector2( 264, -52 )
 
@@ -463,5 +462,10 @@ position = Vector2( 260, -380 )
 [node name="dialog_text" parent="." instance=ExtResource( 10 )]
 position = Vector2( 96, 44 )
 dialog_text = "James: This is the last moon in our system that was knocked out of its orbit! |Yuna: Hopefully we can set it back quickly. It's been a long MONTH of work setting all these moons back! |James: Yeah, and I'm just tired of eating the ship food. I just really want some bahn mi from that sandwich place back home. |Yuna: Soon! And we can get some of those amazing fries!"
+
+[node name="arrows" type="Node2D" parent="."]
+
+[node name="arrow" parent="arrows" instance=ExtResource( 6 )]
+position = Vector2( 416, -592 )
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]

@@ -13,7 +13,9 @@ extents = Vector2( 24.2025, 48 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 294, 42 )
 
-[node name="l01r02" type="Node2D"]
+[node name="l01r02" type="Node2D" groups=[
+"rooms",
+]]
 script = ExtResource( 2 )
 
 [node name="tile_map" type="TileMap" parent="."]
@@ -80,13 +82,6 @@ position = Vector2( 0, 67 )
 [node name="limit_top" type="Position2D" parent="camera_limits"]
 position = Vector2( 0, -176 )
 
-[node name="arrow" parent="." instance=ExtResource( 1 )]
-position = Vector2( 520, 72 )
-
-[node name="arrow2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -8, 72 )
-flip = true
-
 [node name="dialog_text" parent="." instance=ExtResource( 6 )]
 position = Vector2( 59, 85 )
 dialog_text = "Yuna: There's a weird rock monster out in front of me! | James: I've never seen a monster when I'm flying out in space! Sounds wild! | Try jumping on it and see what happens."
@@ -98,5 +93,14 @@ dialog_text = "Yuna: They flip over when you jump on them. | James: Try running 
 [node name="dialog_text3" parent="." instance=ExtResource( 6 )]
 position = Vector2( 387, 37 )
 dialog_text = "Yuna: I found a nugget! | James: A NUGGET?! They're super rare! You should grab it if you can."
+
+[node name="arrows" type="Node2D" parent="."]
+
+[node name="arrow" parent="arrows" instance=ExtResource( 1 )]
+position = Vector2( 520, 72 )
+
+[node name="arrow2" parent="arrows" instance=ExtResource( 1 )]
+position = Vector2( -8, 72 )
+flip = true
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]

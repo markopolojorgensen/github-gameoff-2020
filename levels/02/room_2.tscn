@@ -355,7 +355,9 @@ extents = Vector2( 40, 40 )
 [sub_resource type="RectangleShape2D" id=39]
 extents = Vector2( 339, 40 )
 
-[node name="l02r02" type="Node2D"]
+[node name="l02r02" type="Node2D" groups=[
+"rooms",
+]]
 script = ExtResource( 3 )
 number_of_wells = 1
 
@@ -411,17 +413,19 @@ position = Vector2( 0, 144 )
 [node name="limit_top" type="Position2D" parent="camera_limits"]
 position = Vector2( 0, -124 )
 
-[node name="arrow" parent="." instance=ExtResource( 2 )]
-position = Vector2( -176, 48 )
-flip = true
-
-[node name="arrow2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 616, 48 )
-
 [node name="nugget" parent="." instance=ExtResource( 4 )]
 position = Vector2( -15.3576, 58.0594 )
 
 [node name="nugget2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 298.538, 60.3069 )
+
+[node name="arrows" type="Node2D" parent="."]
+
+[node name="arrow" parent="arrows" instance=ExtResource( 2 )]
+position = Vector2( -176, 48 )
+flip = true
+
+[node name="arrow2" parent="arrows" instance=ExtResource( 2 )]
+position = Vector2( 616, 48 )
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]

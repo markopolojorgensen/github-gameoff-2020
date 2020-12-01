@@ -16,4 +16,4 @@ end_time = 40.0
 position = Vector2( 676, 16 )
 
 [node name="l03r03" parent="." instance=ExtResource( 4 )]
-position = Vector2( 849, 2 )
+position = Vector2( 920, -16 )

@@ -31,13 +31,12 @@ PRIORITY
 
 
 
-gravity well rock directions?
-hide arrows when you're not in their room
 
 level 3 raise the last room
 arrows for all rooms
 there & back spawn locations
 parallax decorations
+align camera limits and death planes
 
 real "you win" screen
 final level with dialogue for rocks yeeted and nuggets collected
@@ -128,6 +127,8 @@ player should bounce off bats?
 
 
 ------------------------- DONE -------------------------
+hide arrows when you're not in their room
+gravity well rock fixes
 dialogue system ignores inputs for a second or two after popping up
 nugget count save game
 "hard mode" plunger in level select

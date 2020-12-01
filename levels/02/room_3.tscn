@@ -356,7 +356,9 @@ extents = Vector2( 509.959, 32.5 )
 [sub_resource type="RectangleShape2D" id=38]
 extents = Vector2( 45.5961, 44 )
 
-[node name="l02r03" type="Node2D"]
+[node name="l02r03" type="Node2D" groups=[
+"rooms",
+]]
 script = ExtResource( 3 )
 number_of_wells = 1
 
@@ -425,14 +427,6 @@ position = Vector2( 224, 5 )
 [node name="nugget10" parent="node_2d" instance=ExtResource( 2 )]
 position = Vector2( 224, 22 )
 
-[node name="arrow" parent="." instance=ExtResource( 4 )]
-position = Vector2( -176, 56 )
-flip = true
-
-[node name="arrow2" parent="." instance=ExtResource( 4 )]
-position = Vector2( -176, -168 )
-flip = true
-
 [node name="shark_spawner" parent="." instance=ExtResource( 6 )]
 position = Vector2( -54, -133 )
 
@@ -441,5 +435,15 @@ position = Vector2( 142, -78 )
 
 [node name="bat_spawner" parent="." instance=ExtResource( 8 )]
 position = Vector2( 113, 22 )
+
+[node name="arrows" type="Node2D" parent="."]
+
+[node name="arrow" parent="arrows" instance=ExtResource( 4 )]
+position = Vector2( -176, 56 )
+flip = true
+
+[node name="arrow2" parent="arrows" instance=ExtResource( 4 )]
+position = Vector2( -176, -168 )
+flip = true
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
