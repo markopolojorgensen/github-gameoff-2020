@@ -22,6 +22,7 @@ var current_level_index
 var max_level_index = 0
 var current_level
 var plunger_plunged = false
+var level_finished = false
 var start_time
 var middle_time
 var end_time
@@ -52,6 +53,7 @@ func load_level():
 		if current_level:
 			current_level.queue_free()
 		
+		level_finished = false
 		plunger_plunged = false
 		global.music_manager.fade_to_calm()
 		
@@ -78,6 +80,7 @@ func load_level():
 
 func ship_entered():
 	if plunger_plunged:
+		level_finished = true
 		$end_timer.stop()
 		$blip_timer.stop()
 		end_time = OS.get_ticks_msec()
@@ -95,7 +98,7 @@ func ship_entered():
 			yield(global.player_hud, "acknowledged")
 			call_deferred("load_level")
 		global.total_nugget_count += global.current_room_nugget_count
-		
+
 
 func update_best_level_times(start, middle, end):
 	var return_time = end-middle
@@ -113,10 +116,11 @@ func update_best_level_times(start, middle, end):
 		}
 
 func plunger_hit():
-	plunger_plunged = true
 	middle_time = OS.get_ticks_msec()
-	$end_timer.start()
-	$blip_timer.start()
+	plunger_plunged = true
+	if global.easy_mode:
+		$end_timer.start()
+		$blip_timer.start()
 
 func _on_end_timer_timeout():
 	global.current_room.kill_player(global.player)
@@ -140,7 +144,8 @@ func save_game():
 		"max_level_index": max_level_index,
 		"best_level_times": best_level_times,
 		"nuggets": global.total_nugget_count,
-		"yeets": global.yeet_count
+		"yeets": global.yeet_count,
+		"easy_mode": global.easy_mode
 	}
 
 	# Store the save dictionary as a new line in the save file.
@@ -162,5 +167,6 @@ func load_game():
 		best_level_times = node_data["best_level_times"]
 		global.total_nugget_count = node_data["nuggets"]
 		global.yeet_count = node_data["yeets"]
+		global.easy_mode = node_data["easy_mode"]
 
 	save_game.close()

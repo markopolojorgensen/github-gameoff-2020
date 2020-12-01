@@ -14,6 +14,7 @@ var gravity_well_mode_active = false
 var current_room_nugget_count = 0
 var total_nugget_count = 0
 var yeet_count = 0
+var easy_mode = false
 
 var level_manager
 var music_manager

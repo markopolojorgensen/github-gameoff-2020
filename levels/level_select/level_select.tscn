@@ -8,3 +8,4 @@ script = ExtResource( 4 )
 end_time = 30.0
 
 [node name="level_select_room" parent="." instance=ExtResource( 1 )]
+position = Vector2( 77, -43 )
