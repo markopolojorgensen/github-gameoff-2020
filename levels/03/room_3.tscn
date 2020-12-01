@@ -45,8 +45,11 @@ position = Vector2( 320, 72 )
 [node name="nugget" parent="." index="11" instance=ExtResource( 4 )]
 position = Vector2( 385, 93 )
 
-[node name="nugget2" parent="." index="12" instance=ExtResource( 4 )]
+[node name="nugget4" parent="." index="12" instance=ExtResource( 4 )]
+position = Vector2( 561, 85 )
+
+[node name="nugget2" parent="." index="13" instance=ExtResource( 4 )]
 position = Vector2( 258, 30 )
 
-[node name="nugget3" parent="." index="13" instance=ExtResource( 4 )]
+[node name="nugget3" parent="." index="14" instance=ExtResource( 4 )]
 position = Vector2( 129, 96 )

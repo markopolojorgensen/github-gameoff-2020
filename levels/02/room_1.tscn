@@ -415,6 +415,12 @@ starting_direction = "random"
 [node name="nugget" parent="." instance=ExtResource( 5 )]
 position = Vector2( 184, -80 )
 
+[node name="nugget3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 168, -348 )
+
+[node name="nugget4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 168, -328 )
+
 [node name="nugget2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 160, -80 )
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://levels/generic_room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://drop_platform_spawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://nugget.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 45 )
@@ -47,3 +48,15 @@ position = Vector2( 249, 13 )
 
 [node name="drop_platform_spawner2" parent="." index="10" instance=ExtResource( 2 )]
 position = Vector2( 461, 14 )
+
+[node name="nugget" parent="." index="11" instance=ExtResource( 3 )]
+position = Vector2( 249, -8 )
+
+[node name="nugget2" parent="." index="12" instance=ExtResource( 3 )]
+position = Vector2( 461, -7 )
+
+[node name="nugget3" parent="." index="13" instance=ExtResource( 3 )]
+position = Vector2( 248, 33 )
+
+[node name="nugget4" parent="." index="14" instance=ExtResource( 3 )]
+position = Vector2( 59, 30 )

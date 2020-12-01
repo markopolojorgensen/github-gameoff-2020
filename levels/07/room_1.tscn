@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://levels/generic_room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy_spawner.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ship.tscn" type="PackedScene" id=3]
+[ext_resource path="res://nugget.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 42 )
@@ -75,3 +76,18 @@ starting_direction = "right"
 
 [node name="ship" parent="." index="15" instance=ExtResource( 3 )]
 position = Vector2( -88, -20 )
+
+[node name="nugget" parent="." index="16" instance=ExtResource( 4 )]
+position = Vector2( 388, -128 )
+
+[node name="nugget4" parent="." index="17" instance=ExtResource( 4 )]
+position = Vector2( 389, -148 )
+
+[node name="nugget5" parent="." index="18" instance=ExtResource( 4 )]
+position = Vector2( 327, -96 )
+
+[node name="nugget2" parent="." index="19" instance=ExtResource( 4 )]
+position = Vector2( 597, -125 )
+
+[node name="nugget3" parent="." index="20" instance=ExtResource( 4 )]
+position = Vector2( 568, -253 )
