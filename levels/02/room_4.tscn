@@ -387,7 +387,7 @@ shape = SubResource( 38 )
 position = Vector2( -76, -73 )
 
 [node name="spawn_point_back" type="Position2D" parent="."]
-position = Vector2( -928, -80 )
+position = Vector2( -968, -72 )
 
 [node name="plunger" parent="." instance=ExtResource( 2 )]
 position = Vector2( -952, -62 )

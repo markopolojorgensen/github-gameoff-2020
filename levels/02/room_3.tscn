@@ -390,10 +390,10 @@ position = Vector2( -120, -179 )
 shape = SubResource( 38 )
 
 [node name="spawn_point_there" type="Position2D" parent="."]
-position = Vector2( -10.2981, 42.932 )
+position = Vector2( -8, 49 )
 
 [node name="spawn_point_back" type="Position2D" parent="."]
-position = Vector2( -128, -176 )
+position = Vector2( -144, -176 )
 
 [node name="spike_spawner" parent="." instance=ExtResource( 5 )]
 position = Vector2( 198, -11 )

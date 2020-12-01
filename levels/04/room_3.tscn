@@ -27,8 +27,11 @@ shape = SubResource( 1 )
 position = Vector2( 292, 118 )
 shape = SubResource( 2 )
 
+[node name="spawn_point_there" parent="." index="5"]
+position = Vector2( 0, -5 )
+
 [node name="spawn_point_back" parent="." index="6"]
-position = Vector2( 491, 65 )
+position = Vector2( 496, 56 )
 
 [node name="limit_left" parent="camera_limits" index="0"]
 position = Vector2( -141, -87 )
