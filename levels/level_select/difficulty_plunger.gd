@@ -16,6 +16,7 @@ func _on_difficulty_plunger_body_entered(body):
 		resetting = true
 		global.easy_mode = !global.easy_mode
 		set_text()
+		global.level_manager.save_game()
 		
 func set_text():
 	if global.easy_mode:
