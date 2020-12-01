@@ -85,24 +85,19 @@ __meta__ = {
 margin_bottom = 8.0
 initial_focus = true
 
-[node name="menu_item2" parent="control/menu_items" instance=ExtResource( 2 )]
+[node name="menu_item3" parent="control/menu_items" instance=ExtResource( 2 )]
 margin_top = 17.0
 margin_bottom = 25.0
-menu_option = "new_game"
-
-[node name="menu_item3" parent="control/menu_items" instance=ExtResource( 2 )]
-margin_top = 34.0
-margin_bottom = 42.0
 menu_option = "highscores"
 
 [node name="menu_item4" parent="control/menu_items" instance=ExtResource( 2 )]
-margin_top = 51.0
-margin_bottom = 59.0
+margin_top = 34.0
+margin_bottom = 42.0
 menu_option = "help"
 
 [node name="menu_item6" parent="control/menu_items" instance=ExtResource( 2 )]
-margin_top = 68.0
-margin_bottom = 76.0
+margin_top = 51.0
+margin_bottom = 59.0
 menu_option = "quit"
 
 [node name="v_box_container" type="VBoxContainer" parent="control"]
@@ -123,27 +118,16 @@ __meta__ = {
 margin_right = 80.0
 margin_bottom = 20.0
 custom_fonts/font = SubResource( 2 )
-text = "continue"
-uppercase = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="label2" type="Label" parent="control/v_box_container"]
-margin_top = 17.0
-margin_right = 80.0
-margin_bottom = 37.0
-custom_fonts/font = SubResource( 2 )
-text = "new game"
+text = "Play"
 uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="label3" type="Label" parent="control/v_box_container"]
-margin_top = 34.0
+margin_top = 17.0
 margin_right = 80.0
-margin_bottom = 54.0
+margin_bottom = 37.0
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 2 )
 text = "Highscores"
@@ -153,9 +137,9 @@ __meta__ = {
 }
 
 [node name="label4" type="Label" parent="control/v_box_container"]
-margin_top = 51.0
+margin_top = 34.0
 margin_right = 80.0
-margin_bottom = 71.0
+margin_bottom = 54.0
 custom_fonts/font = SubResource( 2 )
 text = "help"
 uppercase = true
@@ -164,9 +148,9 @@ __meta__ = {
 }
 
 [node name="label6" type="Label" parent="control/v_box_container"]
-margin_top = 68.0
+margin_top = 51.0
 margin_right = 80.0
-margin_bottom = 88.0
+margin_bottom = 71.0
 size_flags_horizontal = 5
 custom_fonts/font = SubResource( 2 )
 text = "quit"
@@ -179,7 +163,6 @@ __meta__ = {
 
 [node name="high_score_menu" parent="control" instance=ExtResource( 8 )]
 [connection signal="focus_exited" from="control/menu_items/menu_item" to="control/menu_items/menu_item" method="_on_menu_item_focus_exited"]
-[connection signal="focus_exited" from="control/menu_items/menu_item2" to="control/menu_items/menu_item2" method="_on_menu_item_focus_exited"]
 [connection signal="focus_exited" from="control/menu_items/menu_item3" to="control/menu_items/menu_item3" method="_on_menu_item_focus_exited"]
 [connection signal="focus_exited" from="control/menu_items/menu_item4" to="control/menu_items/menu_item4" method="_on_menu_item_focus_exited"]
 [connection signal="focus_exited" from="control/menu_items/menu_item6" to="control/menu_items/menu_item6" method="_on_menu_item_focus_exited"]

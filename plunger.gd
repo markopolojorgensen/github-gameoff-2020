@@ -5,6 +5,7 @@ func _ready():
 
 func _on_plunger_body_entered(body):
 	if "is_player" in body and not global.level_manager.plunger_plunged:
+		body.bounce()
 		$animated_sprite.animation = "plunging"
 		$plunge.play()
 		

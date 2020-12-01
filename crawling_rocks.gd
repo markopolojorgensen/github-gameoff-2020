@@ -3,7 +3,7 @@ extends RigidBody2D
 const movement_impulse = 300
 const movement_slowdown_scalar = 10
 const max_horizontal_speed = 40
-const flip_rotation_speed = 250 #should be 2500, set to 250 because player doens't hop off after hitting enemy yet
+const flip_rotation_speed = 2500
 
 const initial_jump_impulse = 100
 const continued_falling_jump_impulse = 70
@@ -14,6 +14,9 @@ export(Vector2) var starting_direction
 
 export(bool) var awake = false
 var rock_mode = "walking"
+
+var bounced_once = false
+var bounced_twice = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -124,11 +127,14 @@ func _on_walking_rocks_body_entered(body):
 
 func walking_player_collision(body):
 	# TODO: maybe also velocity?
-	if body.global_position.y < global_position.y:
+	if (body.global_position.y + 6) < global_position.y:
 		jumped_on(body)
+		if not bounced_once:
+			bounced_once = true
+			body.bounce()
 	else:
 		hit_player(body)
-			
+
 func jumped_on(body):
 	if body.global_position.x < global_position.x:
 		rock_mode = "flipping_right"
@@ -143,9 +149,11 @@ func flipped_player_collision(body):
 	if Input.is_action_pressed("player_hold_item"):
 		rock_mode = "picked_up"
 		print("picked up")
-		
 	else:
 		initialize_kick(body)
+		if "is_player" in body and (body.global_position.y + 6) < global_position.y and not bounced_twice:
+			bounced_twice = true
+			body.bounce()
 
 
 func initialize_kick(body):
@@ -153,6 +161,7 @@ func initialize_kick(body):
 	global.yeet_count = global.yeet_count + 1
 	$kick_jump_timer.start()
 	set_collision_mask_bit(0, false)
+	set_collision_mask_bit(1, false)
 	if body.global_position.x < global_position.x:
 		rock_mode = "kicked_right"
 	else:
@@ -167,7 +176,7 @@ func _process_kicked_right(delta):
 	apply_central_impulse(Vector2.RIGHT * delta * movement_impulse)
 
 func handle_vertical_kick(delta):
-	$animated_sprite.rotation_degrees += delta * flip_rotation_speed * 100
+	$animated_sprite.rotation_degrees += delta * flip_rotation_speed
 	var rising = linear_velocity.y < 0
 	if not $kick_jump_timer.is_stopped():
 		apply_central_impulse(Vector2.UP * initial_jump_impulse)

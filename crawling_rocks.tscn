@@ -12,15 +12,15 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "waking",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walking",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "waking",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -132,8 +132,8 @@ tracks/3/keys = {
 }
 
 [node name="walking_rocks" type="RigidBody2D"]
-collision_layer = 9
-collision_mask = 3
+collision_layer = 8
+collision_mask = 11
 mode = 2
 contacts_reported = 5
 contact_monitor = true
@@ -144,13 +144,13 @@ frames = SubResource( 1 )
 animation = "waking"
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2( 0.0662155, 1.32433 )
 shape = SubResource( 2 )
 
 [node name="ray_cast_2d" type="RayCast2D" parent="."]
 enabled = true
 cast_to = Vector2( 8, 0 )
+collision_mask = 9
 
 [node name="cliff_detector" type="RayCast2D" parent="."]
 enabled = true
