@@ -9,6 +9,9 @@ func _ready():
 	assert(has_node("spawn_point_there"), "Room %s: No spawn_point_there is set" % name)
 	assert(has_node("spawn_point_back"), "Room %s: No spawn_point_back is set" % name)
 	
+	if not is_connected("tree_exiting", self, "_on_generic_room_tree_exiting"):
+		print("whoops, tree_exiting signal wasn't hooked up for %s!" % name)
+		connect("tree_exiting", self, "_on_generic_room_tree_exiting")
 
 	# minor hack to get the gravity_well_tracker to not explode if the level is restarted on the fly
 	global.current_room = self
