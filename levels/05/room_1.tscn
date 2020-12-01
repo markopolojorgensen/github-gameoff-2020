@@ -74,9 +74,9 @@ position = Vector2( 212, -63 )
 starting_direction = "random"
 
 [node name="dialog_text" parent="." index="18" instance=ExtResource( 6 )]
-position = Vector2( 36, 6 )
-dialog_text = "Yuna: Looks like old elevator carts are floating around. I think I can use them to get up on some platforms. |James: Be careful, those things can fail if they're not tethered! They're like mini space elevators. I really hate landing on a planets that have them, gotta watch out for the counterweights! |Yuna: They don't look tethered..."
+position = Vector2( 55, 6 )
+dialog_text = "Yuna: Looks like old elevator carts are floating around. I think I can use them to get up on some platforms. |James: Be careful, those things can fail if they're not tethered! They're like space elevators, gotta watch out for the counterweights! Makes it hard to land! |Yuna: They don't look like they have counterweights..."
 
 [node name="dialog_text2" parent="." index="19" instance=ExtResource( 6 )]
-position = Vector2( 142, -54 )
+position = Vector2( 176, -85 )
 dialog_text = "Yuna: >.< | Yup, not tethered..."

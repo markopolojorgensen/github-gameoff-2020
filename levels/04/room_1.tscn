@@ -62,4 +62,4 @@ position = Vector2( 248, -67 )
 
 [node name="dialog_text" parent="." index="14" instance=ExtResource( 5 )]
 position = Vector2( 43, 6 )
-dialog_text = "Yuna: There are a lot of nuggets everywhere... James, I think someone launched these moons out of their original orbits to make them easier to mine! |James: Get what you can! Your brother was pretty happy with the haul we returned with last time! |Yuna: I dunno... I feel like we're stealing resources from these moons... | But then again, they are just floating around..."
+dialog_text = "Yuna: There are a lot of nuggets everywhere... James, I think someone launched these moons out of their original orbits to make them easier to mine! |James: Get what you can! Your brother was pretty happy with what we returned with! |Yuna: I dunno... I feel like we're stealing resources from these moons... | But then again, they are just floating around..."
