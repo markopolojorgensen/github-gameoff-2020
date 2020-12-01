@@ -86,11 +86,13 @@ func ship_entered():
 		$blip_timer.stop()
 		end_time = OS.get_ticks_msec()
 		update_best_level_times(start_time, middle_time, end_time)		
+
+		global.player_hud.show_level_complete(start_time, middle_time, end_time, current_level_index)
 		
 		current_level_index += 1
 		if current_level_index > max_level_index:
 			max_level_index = current_level_index
-		global.player_hud.show_level_complete(start_time, middle_time, end_time)
+
 		save_game()
 		
 		if current_level_index >= level_scenes.size():

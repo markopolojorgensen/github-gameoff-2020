@@ -8,7 +8,7 @@
 [node name="level_03" type="Node2D"]
 position = Vector2( 2, -2 )
 script = ExtResource( 3 )
-end_time = 40.0
+end_time = 50.0
 
 [node name="l03r01" parent="." instance=ExtResource( 1 )]
 

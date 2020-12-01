@@ -218,9 +218,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -35.0
+margin_left = -43.5
 margin_top = -26.0
-margin_right = 37.0
+margin_right = 43.5
 margin_bottom = 26.0
 size_flags_horizontal = 2
 size_flags_vertical = 2
@@ -231,27 +231,26 @@ __meta__ = {
 [node name="v_box_container" type="VBoxContainer" parent="end_level_control/panel_container"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 65.0
+margin_right = 80.0
 margin_bottom = 45.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
 [node name="level_complete" type="Label" parent="end_level_control/panel_container/v_box_container"]
-margin_left = 7.0
-margin_right = 50.0
+margin_right = 73.0
 margin_bottom = 6.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 custom_fonts/font = SubResource( 1 )
-text = "Moon Saved!"
+text = "Chapter 1 Complete!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="nugget_totals_container" type="HBoxContainer" parent="end_level_control/panel_container/v_box_container"]
-margin_left = 8.0
+margin_left = 16.0
 margin_top = 10.0
-margin_right = 49.0
+margin_right = 57.0
 margin_bottom = 18.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -281,9 +280,9 @@ __meta__ = {
 }
 
 [node name="total_time_container" type="HBoxContainer" parent="end_level_control/panel_container/v_box_container"]
-margin_left = 2.0
+margin_left = 10.0
 margin_top = 22.0
-margin_right = 55.0
+margin_right = 63.0
 margin_bottom = 28.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -313,8 +312,9 @@ __meta__ = {
 }
 
 [node name="return_time_container" type="HBoxContainer" parent="end_level_control/panel_container/v_box_container"]
+margin_left = 7.0
 margin_top = 32.0
-margin_right = 58.0
+margin_right = 65.0
 margin_bottom = 38.0
 size_flags_horizontal = 4
 size_flags_vertical = 0

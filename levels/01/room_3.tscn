@@ -119,7 +119,7 @@ dialog_text = "Yuna: THERE'S NUGGETS EVERYWHERE! | James: WOAH! They're usually 
 
 [node name="dialog_text3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 571, 17 )
-dialog_text = "Yuna: I found the detonator! | James: Dope! As soon as you jump on it, you'll need to hurry back to the ship, as the moon will be launched back into its original orbit when the countdown ends."
+dialog_text = "Yuna: I found the detonator! | James: NICE! As soon as you jump on it, you'll need to hurry back to the ship! | There's a timer in the top left telling you how much time you have left."
 
 [node name="arrows" type="Node2D" parent="."]
 
@@ -161,5 +161,9 @@ tile_data = PoolIntArray( -1507313, 0, 196609, -1507312, 0, 0, -1507194, 0, 1966
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="dialog_text4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 259, 87 )
+dialog_text = "James: In well placement mode, you can pick up wells that you have placed by aiming at an existing well and pushing the A button."
 [connection signal="body_entered" from="room_start_area_2d" to="." method="_on_room_start_area_2d_body_entered"]
 [connection signal="body_entered" from="death_plane" to="." method="_on_death_plane_body_entered"]

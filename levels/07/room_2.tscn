@@ -97,3 +97,11 @@ dialog_text = "Yuna: WOAH, a floating cave, you don't see that everyday! |James:
 [node name="arrow" parent="arrows" index="0" instance=ExtResource( 7 )]
 position = Vector2( 16, -16 )
 flip = true
+
+[node name="arrow2" parent="arrows" index="1" instance=ExtResource( 7 )]
+position = Vector2( 15, -133 )
+flip = true
+
+[node name="dialog_text2" parent="." index="20" instance=ExtResource( 4 )]
+position = Vector2( 445, -90 )
+dialog_text = "James: You can quickly retrieve all wells in an area by pressing RB on the well gun."

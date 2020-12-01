@@ -6,7 +6,7 @@
 
 [node name="level_07" type="Node2D"]
 script = ExtResource( 1 )
-end_time = 50.0
+end_time = 15.0
 
 [node name="l07r01" parent="." instance=ExtResource( 2 )]
 

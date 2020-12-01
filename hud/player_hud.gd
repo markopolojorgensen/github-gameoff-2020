@@ -70,8 +70,9 @@ func _set_character_logo_and_color(text: String):
 		$control/text_box.self_modulate = Color(0.416, 0.745, 0.188)
 
 
-func show_level_complete(start_time, halfway_time, end_time):
+func show_level_complete(start_time, halfway_time, end_time, level_index):
 	get_tree().paused = true
+	$end_level_control/panel_container/v_box_container/level_complete.text = "Chapter " + String(level_index + 1) + " Complete!"
 	$end_level_control/panel_container/v_box_container/nugget_totals_container/nugget_count2.text = String(global.total_nugget_count + global.current_room_nugget_count) + "   +" + str(global.current_room_nugget_count)
 	$end_level_control/panel_container/v_box_container/total_time_container/total_time.text = format_time_difference_ms(start_time, end_time)
 	$end_level_control/panel_container/v_box_container/return_time_container/return_time.text = format_time_difference_ms(halfway_time, end_time)

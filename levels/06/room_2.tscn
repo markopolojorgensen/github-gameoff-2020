@@ -82,7 +82,7 @@ position = Vector2( 119, -290 )
 
 [node name="dialog_text" parent="." index="18" instance=ExtResource( 7 )]
 position = Vector2( 148, -281 )
-dialog_text = "Yuna: The plunger's time INCREASES with the number of nuggets I pick up. James, I think this is all part of a system wide mining operation. |James: That seems like a lot of effort... |Yuna: It might be a lot of effort, but GOLD nuggets are worth quite a bit! People will do anything to get a hold of them. |James: But moving a moon out of it's original orbit? That's pretty crazy. |Yuna: I guess so. If only it didn't ripple to the gravity on ALL the planets in our system... | So many things are out of whack."
+dialog_text = "Yuna: The detonator's time INCREASES with the number of nuggets I pick up. James, I think this is all part of a system wide mining operation. |James: That seems like a lot of effort... |Yuna: It might be a lot of effort, but GOLD nuggets are worth quite a bit! People will do anything to get a hold of them. |James: But moving a moon out of it's original orbit? That's pretty crazy. |Yuna: I guess so. If only it didn't ripple to the gravity on ALL the planets in our system... | So many things are out of whack."
 
 [node name="arrow" parent="arrows" index="0" instance=ExtResource( 8 )]
 position = Vector2( 32, -16 )
