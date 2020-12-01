@@ -491,7 +491,6 @@ __meta__ = {
 }
 
 [node name="parallax_layer_85" type="ParallaxLayer" parent="parallax_background"]
-visible = false
 motion_scale = Vector2( 0.85, 0.85 )
 
 [node name="decorative_tile_map" type="TileMap" parent="parallax_background/parallax_layer_85"]

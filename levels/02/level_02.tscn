@@ -7,7 +7,6 @@
 [ext_resource path="res://levels/level.gd" type="Script" id=5]
 
 [node name="level_02" type="Node2D"]
-position = Vector2( -827, 815 )
 script = ExtResource( 5 )
 end_time = 40.0
 
