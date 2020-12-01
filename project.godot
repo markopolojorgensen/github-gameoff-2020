@@ -22,7 +22,8 @@ _global_script_class_icons={
 
 config/name="Yuna and the Moonstealers"
 run/main_scene="res://game.tscn"
-config/icon="res://icon.png"
+config/icon="res://assets/menu/icon-256.png"
+config/windows_native_icon="res://assets/menu/icon-256.ico"
 
 [autoload]
 
