@@ -22,8 +22,7 @@ func option_picked(option):
 			global.level_manager.load_level()
 			continue_game()
 		"to_main_menu":
-			print("TODO: I'm not sure how to go to the main menu...")			
-			pass
+			get_tree().change_scene("res://game.tscn")
 		"controls":
 			print("test")
 			$help_menu.get_node("control").visible = !$help_menu.get_node("control").visible

@@ -114,7 +114,7 @@ dialogue window juice
 
 player should bounce off bats?
 
-
+sonic mode camera should still respect some camera limits (death planes)
 
 
 
