@@ -29,7 +29,7 @@ position = Vector2( 618, -23 )
 shape = SubResource( 1 )
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="death_plane" index="0"]
-position = Vector2( 844, 65 )
+position = Vector2( 844, 94 )
 shape = SubResource( 2 )
 
 [node name="spawn_point_there" parent="." index="5"]
@@ -45,7 +45,7 @@ position = Vector2( -132, -1 )
 position = Vector2( 580, -84 )
 
 [node name="limit_bottom" parent="camera_limits" index="2"]
-position = Vector2( 169, 57 )
+position = Vector2( 169, 12 )
 
 [node name="limit_top" parent="camera_limits" index="3"]
 position = Vector2( 115, -301 )

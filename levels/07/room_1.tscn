@@ -33,7 +33,7 @@ position = Vector2( 610, -156 )
 shape = SubResource( 3 )
 
 [node name="collision_shape_2d" type="CollisionShape2D" parent="death_plane" index="0"]
-position = Vector2( 34, 123 )
+position = Vector2( 34, 84 )
 shape = SubResource( 2 )
 
 [node name="spawn_point_back" parent="." index="6"]

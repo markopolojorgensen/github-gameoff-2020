@@ -72,9 +72,9 @@ func load_level():
 		initial_camera.global_position = Vector2()
 		$end_timer.stop()
 		$blip_timer.stop()
-		$end_timer.wait_time = clamp(current_level.end_time, 0, 100000000)
+		$end_timer.wait_time = clamp(current_level.end_time, 0.0001, 100000000)
 		global.end_timer = $end_timer
-		$blip_timer.wait_time = clamp($end_timer.wait_time - 7, 0, 100000000)
+		$blip_timer.wait_time = clamp($end_timer.wait_time - 7, 0.0001, 100000000)
 		start_time = OS.get_ticks_msec()
 		
 		loading = false

@@ -14,6 +14,7 @@ const drop_speed = 200
 var shaking = false
 var is_thrown_rock = true
 
+var kaboomed = false
 
 func _process(delta):
 	if shaking:
@@ -54,6 +55,9 @@ func _on_gone_timer_timeout():
 
 # called by bat and crawling rocks and on gone timer timeout
 func destroyed():
+	# one time deal
+	if not kaboomed:
+		kaboomed = true
 		hide()
 		$explode.play()
 		yield(get_tree().create_timer(.2), "timeout")

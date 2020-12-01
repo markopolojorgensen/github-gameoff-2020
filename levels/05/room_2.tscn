@@ -39,7 +39,7 @@ position = Vector2( -170, -54 )
 position = Vector2( 536, -64 )
 
 [node name="limit_bottom" parent="camera_limits" index="2"]
-position = Vector2( 67, 35 )
+position = Vector2( 64, 4 )
 
 [node name="limit_top" parent="camera_limits" index="3"]
 position = Vector2( 2, -214 )

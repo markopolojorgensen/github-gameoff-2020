@@ -43,10 +43,10 @@ position = Vector2( -159, -83 )
 position = Vector2( 97, -72 )
 
 [node name="limit_bottom" parent="camera_limits" index="2"]
-position = Vector2( -82, -59 )
+position = Vector2( -80, -43 )
 
 [node name="limit_top" parent="camera_limits" index="3"]
-position = Vector2( -71, -164 )
+position = Vector2( -71, -187 )
 
 [node name="shark_spawner" parent="." index="9" instance=ExtResource( 2 )]
 position = Vector2( 59, 14 )
