@@ -1,0 +1,64 @@
+General Feedback
+    Overall pretty positive, people seem to like our game!
+    New mechanic in platforming that ends up feeling rather intuitive
+    People like the levels/design
+        Overall seems like people like the progression!
+
+Things we did well
+    Balance polish + things in game
+        People liked the flip when jumping!
+        Controls Page + RB!
+    Gravity mechanic works really well
+        This is our main thing, so that is super good!
+    Easy vs Normal mode
+    Controller support
+    Auto-load next level
+
+Bugs people ran into during playtesting:
+    Getting stuck under platforms (Bat/Spike + Intro to Sharks) [didn't notice until people playtested]
+    Chapter 2 is hard at first, but people understand the platforming afterwards [didn't notice until people playtested]
+        Better tutorial?
+            Explain how to clear all and/or re-adjust wells better
+        2-3 wells in that room?
+        Can only clear well buttons?
+    Multi-player on well exit [seemed to have gone away for us, but came back for some folks]
+        Bools when recreating player leaving wells
+        Ensure only 1 player in game at a time
+    Camera Shenanigans [shipped known bugs - not enough time]
+        Intro to Sharks, hard to place wells in front of you to see what happens
+        Slow camera return after death
+            Playtester ran off the screen, died, and respawned in the previous room becaues of this
+    Controller things [forgotten things...]
+        R3 exits the game
+        XBox X button allows pushing rock monsters
+        Should probably check input map before releasing a game...
+        
+Suggestions from playtesters
+    Make magma rocks despawn quicker
+        15s -> 7s -> SOMETHING LESS!
+    Analog stick is a little janky
+        Decrease sensitivity?
+        Analog sticks are just bad?
+        Use a d-pad!?
+        SNES CONTROLLER FTW!
+    Could flesh out enemies a little more
+        
+Future of the game?
+    MORE STORY
+        Interject more of the story in the levels
+        Gave players options that affect the final outcome of the game
+        We had that one idea of the option to return the gold
+    Characters in levels!
+        something for people to interact with to show off the world
+    MORE LEVELS
+    BETTER JOKES!
+    Level subplots
+        Side quests within levels
+            ex: Return baby shark to parent
+    Something to collect
+        Odyssey has moons
+        Spyro 3 had eggs
+    More interesting interactions with wells
+        Other enemies in wells?
+    Different types of wells?
+    
